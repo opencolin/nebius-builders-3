@@ -15,15 +15,15 @@ export default function EventsIndex() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
               Events
             </p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">
               Find an event. Show up. Ship.
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-ink-600">
+            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
               Builder-hosted Nebius events worldwide, plus the Nebius official tour. Every entry has
               Token Factory keys ready, a Contree workspace one click away, and a base station for
               live demos.
@@ -44,10 +44,10 @@ export default function EventsIndex() {
                 ["Active builders", `${formatNumber(programMetrics.activeBuilders)}`],
               ].map(([label, value]) => (
                 <div key={label}>
-                  <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500">
+                  <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
                     {label}
                   </dt>
-                  <dd className="mt-2 text-3xl font-bold text-navy-700">{value}</dd>
+                  <dd className="mt-2 text-3xl font-bold text-navy-700 dark:text-lime">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -59,19 +59,19 @@ export default function EventsIndex() {
             <div className="mb-12">
               <div className="mb-5 flex items-end justify-between gap-3">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                     Map
                   </p>
                   <h2 className="mt-1 h-display text-2xl font-bold tracking-tight">
                     Where builders are showing up
                   </h2>
                 </div>
-                <p className="text-xs text-ink-500">
+                <p className="text-xs text-ink-500 dark:text-ink-400">
                   {mappable.length} events shown · online and global tours excluded
                 </p>
               </div>
               <EventsMap events={mappable} />
-              <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-ink-500">
+              <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-ink-500 dark:text-ink-400">
                 <span className="inline-flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full border-2 border-lime bg-navy-700" />
                   Builder-hosted
@@ -84,9 +84,9 @@ export default function EventsIndex() {
               </p>
             </div>
             <EventsBrowser upcoming={upcoming} past={past} />
-            <p className="mt-12 text-sm text-ink-500">
+            <p className="mt-12 text-sm text-ink-500 dark:text-ink-400">
               Hosting an event?{" "}
-              <Link className="font-medium text-navy-700 underline-offset-4 hover:underline" href="/companies/login">
+              <Link className="font-medium text-navy-700 dark:text-lime underline-offset-4 hover:underline" href="/companies/login">
                 Apply to host →
               </Link>
             </p>

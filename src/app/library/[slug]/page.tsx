@@ -34,10 +34,10 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
       <TopNav />
       <main className="bg-white">
         <section className="container-page pt-12 pb-6">
-          <Link href="/library" className="text-sm text-ink-500 hover:text-ink-700">
+          <Link href="/library" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
             ← All entries
           </Link>
-          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+          <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
             {typeLabel[entry.type]}
             {" · "}
             {formatLevel(entry.level)}
@@ -48,20 +48,20 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
             {entry.title}
           </h1>
           {rich ? (
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-600">
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-600 dark:text-ink-300">
               {rich.hosts.map((h) => (
                 <span key={h.name} className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-navy-700">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-navy-700 dark:text-lime">
                     {h.name[0]}
                   </span>
                   <span>
-                    <strong className="text-ink-900">{h.name}</strong> · {h.role}, {h.company}
+                    <strong className="text-ink-900 dark:text-ink-50">{h.name}</strong> · {h.role}, {h.company}
                   </span>
                 </span>
               ))}
             </div>
           ) : (
-            <p className="mt-4 text-sm text-ink-600">
+            <p className="mt-4 text-sm text-ink-600 dark:text-ink-300">
               {entry.isOfficial ? "Nebius DevRel" : `@${entry.submitterHandle ?? "community"}`}
               {entry.submitterDisplayName ? ` · ${entry.submitterDisplayName}` : ""}
             </p>
@@ -79,7 +79,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                   className="group flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-700 via-navy-600 to-lime/40"
                 >
                   <div className="flex flex-col items-center gap-3 text-white">
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 shadow-soft transition group-hover:scale-105">
+                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
                       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -107,10 +107,10 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                 >
                   <div
                     className={`flex flex-col items-center gap-3 ${
-                      entry.type === "REPO" ? "text-ink-700" : "text-white"
+                      entry.type === "REPO" ? "text-ink-700 dark:text-ink-200" : "text-white"
                     }`}
                   >
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 shadow-soft transition group-hover:scale-105">
+                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
                       {entry.type === "REPO" ? (
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z" />
@@ -150,7 +150,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
 
             <div className="mt-10">
               <h2 className="text-xl font-bold tracking-tight">About this entry</h2>
-              <p className="mt-3 whitespace-pre-line text-ink-700">{rich?.description ?? entry.blurb}</p>
+              <p className="mt-3 whitespace-pre-line text-ink-700 dark:text-ink-200">{rich?.description ?? entry.blurb}</p>
             </div>
 
             {rich?.chapters?.length ? (
@@ -160,7 +160,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                   {rich.chapters.map((c) => (
                     <li key={c.startSec} className="flex items-start gap-3">
                       <span className="kbd">{secsToTimestamp(c.startSec)}</span>
-                      <span className="text-ink-700">{c.title}</span>
+                      <span className="text-ink-700 dark:text-ink-200">{c.title}</span>
                     </li>
                   ))}
                 </ol>
@@ -169,7 +169,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
 
             <div className="mt-10">
               <h2 className="text-xl font-bold tracking-tight">Recommended next</h2>
-              <ul className="mt-3 grid gap-2 text-sm text-ink-700">
+              <ul className="mt-3 grid gap-2 text-sm text-ink-700 dark:text-ink-200">
                 <li>
                   <Link className="underline-offset-4 hover:underline" href="/library">
                     More library entries →
@@ -191,7 +191,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
 
           <aside className="space-y-6">
             <div className="card">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Details</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Details</h3>
               <dl className="mt-3 space-y-2 text-sm">
                 <Field label="Type" value={typeLabel[entry.type]} />
                 <Field label="Level" value={formatLevel(entry.level)} />
@@ -226,8 +226,8 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
 function Field({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between gap-3">
-      <dt className="text-ink-500">{label}</dt>
-      <dd className="text-right text-ink-900">{value}</dd>
+      <dt className="text-ink-500 dark:text-ink-400">{label}</dt>
+      <dd className="text-right text-ink-900 dark:text-ink-50">{value}</dd>
     </div>
   );
 }

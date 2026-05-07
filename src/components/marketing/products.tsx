@@ -67,14 +67,14 @@ export function Products() {
               p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200",
             )}
           >
-            <h3 className="text-lg font-semibold text-ink-900">{p.name}</h3>
-            <p className="flex-1 text-sm text-ink-600">{p.blurb}</p>
+            <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50">{p.name}</h3>
+            <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{p.blurb}</p>
             <div className="flex flex-wrap gap-3 border-t border-ink-200 pt-4 text-xs">
               <a
                 href={p.primaryHref}
                 target="_blank"
                 rel="noreferrer"
-                className="font-semibold text-navy-700 underline-offset-4 hover:underline"
+                className="font-semibold text-navy-700 dark:text-lime underline-offset-4 hover:underline"
               >
                 {p.primaryLabel} ↗
               </a>
@@ -82,7 +82,7 @@ export function Products() {
                 href={p.secondaryHref}
                 target="_blank"
                 rel="noreferrer"
-                className="text-ink-600 hover:text-ink-900"
+                className="text-ink-600 dark:text-ink-300 hover:text-ink-900"
               >
                 {p.secondaryLabel} ↗
               </a>

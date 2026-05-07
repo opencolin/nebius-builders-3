@@ -30,10 +30,10 @@ export default function AmbassadorsPage() {
           <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
           <div className="absolute -left-20 -bottom-20 h-[480px] w-[480px] rounded-full bg-lime/40 blur-3xl" aria-hidden />
           <div className="container-page relative pt-24 pb-20">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-navy-700 dark:text-lime">
               Nebius Ambassador Program
             </p>
-            <h1 className="h-display max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
+            <h1 className="h-display max-w-3xl text-5xl font-bold leading-[1.05] tracking-tight text-ink-900 dark:text-ink-50 sm:text-6xl lg:text-7xl">
               Real builders. Real work.
               {" "}
               <span className="relative inline-block">
@@ -41,7 +41,7 @@ export default function AmbassadorsPage() {
                 <span className="relative">No theater.</span>
               </span>
             </h1>
-            <p className="mt-7 max-w-2xl text-xl text-ink-600">
+            <p className="mt-7 max-w-2xl text-xl text-ink-600 dark:text-ink-300">
               Host Nebius events in your city or run online office hours. Earn up to $2,600 of
               credits as you climb from Builder → Contributor → Ambassador. Get promoted on points
               alone — points come from real work: events run, repos built, sign-ups attributed.
@@ -58,7 +58,7 @@ export default function AmbassadorsPage() {
         </section>
 
         {/* Live program metrics */}
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page grid grid-cols-2 gap-y-10 py-12 lg:grid-cols-4">
             <Metric
               label="Events run"
@@ -175,15 +175,15 @@ export default function AmbassadorsPage() {
               <Link key={adv.slug} href={`/advocates/${adv.slug}`} className="group block">
                 <div className="card flex h-full flex-col gap-3">
                   <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={56} />
-                  <h4 className="text-base font-semibold text-ink-900 group-hover:text-navy-700">
+                  <h4 className="text-base font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
                     {adv.name}
                   </h4>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
                     {adv.title.replace(", Nebius", "")}
                   </p>
-                  <p className="text-sm text-ink-600">{adv.region}</p>
+                  <p className="text-sm text-ink-600 dark:text-ink-300">{adv.region}</p>
                   {adv.calendlyUrl ? (
-                    <p className="mt-auto pt-2 text-sm font-semibold text-navy-700 group-hover:underline">
+                    <p className="mt-auto pt-2 text-sm font-semibold text-navy-700 dark:text-lime group-hover:underline">
                       Book office hours →
                     </p>
                   ) : null}
@@ -211,7 +211,7 @@ export default function AmbassadorsPage() {
                 <div className="card flex h-full flex-col items-start gap-2 p-4">
                   <Avatar name={b.name} handle={b.githubHandle} size={36} />
                   <p className="truncate text-sm font-semibold">@{b.handle}</p>
-                  <p className="text-xs text-ink-500">{formatNumber(b.pointsTotal)} pts</p>
+                  <p className="text-xs text-ink-500 dark:text-ink-400">{formatNumber(b.pointsTotal)} pts</p>
                   <span className="pill-outline text-[10px]">{tierLabel(b.tier)}</span>
                 </div>
               </Link>
@@ -225,7 +225,7 @@ export default function AmbassadorsPage() {
             <h2 className="h-display text-3xl font-bold tracking-tight md:text-4xl">
               Ready to host your first event?
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-600">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
               Sign up takes 90 seconds. Claim $200 in introductory credits today. Run your first
               event next week.
             </p>
@@ -248,8 +248,8 @@ export default function AmbassadorsPage() {
 function Metric({ label, value, delta }: { label: string; value: string; delta: string }) {
   return (
     <div>
-      <p className="text-3xl font-bold text-navy-700 sm:text-4xl">{value}</p>
-      <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-ink-500">{label}</p>
+      <p className="text-3xl font-bold text-navy-700 dark:text-lime sm:text-4xl">{value}</p>
+      <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{label}</p>
       <p className="mt-1 text-xs text-emerald-600">{delta}</p>
     </div>
   );
@@ -273,13 +273,13 @@ function TierCard({
       }`}
     >
       <div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">{tier}</p>
-        <p className="mt-2 text-2xl font-bold text-navy-700">{points}</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{tier}</p>
+        <p className="mt-2 text-2xl font-bold text-navy-700 dark:text-lime">{points}</p>
       </div>
-      <ul className="space-y-2 text-sm text-ink-700">
+      <ul className="space-y-2 text-sm text-ink-700 dark:text-ink-200">
         {perks.map((p) => (
           <li key={p} className="flex gap-2">
-            <span className="text-navy-700">✓</span>
+            <span className="text-navy-700 dark:text-lime">✓</span>
             {p}
           </li>
         ))}

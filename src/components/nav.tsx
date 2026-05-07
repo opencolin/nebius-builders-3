@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NebiusLogo } from "./nebius-logo";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   { href: "/events", label: "Events" },
@@ -12,7 +13,7 @@ const links = [
 
 export function TopNav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-ink-200 bg-white/85 backdrop-blur dark:border-ink-800 dark:bg-ink-900/85">
       <div className="container-page flex h-16 items-center justify-between">
         <div className="flex items-center gap-8">
           <NebiusLogo />
@@ -21,7 +22,7 @@ export function TopNav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900"
+                className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900 dark:text-ink-200 dark:hover:bg-ink-800 dark:hover:text-ink-50"
               >
                 {l.label}
               </Link>
@@ -29,6 +30,7 @@ export function TopNav() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link href="/builders/login" className="btn-ghost">Log in</Link>
           <Link href="/signup" className="btn-lime">Sign up</Link>
         </div>

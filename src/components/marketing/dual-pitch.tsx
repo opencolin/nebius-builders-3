@@ -8,11 +8,11 @@ export function DualPitch() {
         <div className="card flex flex-col gap-5 p-10">
           <span className="pill-lime self-start">For builders</span>
           <h3 className="h-display text-3xl font-bold tracking-tight">A league for shippers.</h3>
-          <p className="text-ink-600">
+          <p className="text-ink-600 dark:text-ink-300">
             Live events every week. A Contree workspace with OpenClaw preinstalled. Token Factory keys waiting in the
             terminal. Ranked standings by what you ship, not who you know.
           </p>
-          <ul className="mt-2 grid gap-2 text-sm text-ink-700">
+          <ul className="mt-2 grid gap-2 text-sm text-ink-700 dark:text-ink-200">
             {[
               "Workshops with Nebius engineers, recorded and indexed",
               "Snapshot before you demo — never blow up on stage",

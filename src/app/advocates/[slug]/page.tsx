@@ -18,13 +18,13 @@ export default function AdvocateDetail({ params }: { params: { slug: string } })
       <TopNav />
       <main className="bg-white">
         <section className="container-page pt-12 pb-6">
-          <Link href="/advocates" className="text-sm text-ink-500 hover:text-ink-700">
+          <Link href="/advocates" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
             ← All advocates
           </Link>
           <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center">
             <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={104} />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
                 {adv.title.replace(", Nebius", "")} · {adv.region}
               </p>
               <h1 className="h-display mt-3 text-4xl font-bold tracking-tight md:text-5xl">
@@ -45,11 +45,11 @@ export default function AdvocateDetail({ params }: { params: { slug: string } })
           <div className="lg:col-span-2">
             <div className="card">
               <h2 className="text-lg font-semibold">About</h2>
-              <p className="mt-3 whitespace-pre-line text-ink-700">{adv.bio}</p>
+              <p className="mt-3 whitespace-pre-line text-ink-700 dark:text-ink-200">{adv.bio}</p>
             </div>
             <div className="card mt-6">
               <h2 className="text-lg font-semibold">What to talk about</h2>
-              <ul className="mt-3 grid gap-2 text-sm text-ink-700">
+              <ul className="mt-3 grid gap-2 text-sm text-ink-700 dark:text-ink-200">
                 <li>• Setting up a Nebius event in your city — meetup, hackathon, workshop, demo night</li>
                 <li>• Picking a Token Factory model for your use case</li>
                 <li>• AI Cloud onboarding — VMs, K8s, Soperator, GPU sizing</li>
@@ -60,7 +60,7 @@ export default function AdvocateDetail({ params }: { params: { slug: string } })
           </div>
           <aside className="space-y-6">
             <div className="card">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
                 Reach out
               </h3>
               <dl className="mt-3 space-y-2 text-sm">
@@ -122,14 +122,14 @@ function Field({
 }) {
   return (
     <div className="flex justify-between gap-3">
-      <dt className="text-ink-500">{label}</dt>
-      <dd className="text-right text-ink-900">
+      <dt className="text-ink-500 dark:text-ink-400">{label}</dt>
+      <dd className="text-right text-ink-900 dark:text-ink-50">
         {href ? (
           <a
             href={href}
             target={external ? "_blank" : undefined}
             rel={external ? "noreferrer" : undefined}
-            className="font-medium text-navy-700 underline-offset-4 hover:underline"
+            className="font-medium text-navy-700 dark:text-lime underline-offset-4 hover:underline"
           >
             {value}
           </a>

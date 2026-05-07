@@ -27,9 +27,9 @@ export function NetworkBrowser() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 border-b border-ink-200 pb-6 md:flex-row md:items-end">
+      <div className="flex flex-col gap-4 border-b border-ink-200 pb-6 md:flex-row md:items-end dark:border-ink-800">
         <div className="flex-1">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500">Search</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Search</p>
           <input
             type="text"
             placeholder="handle, name, city, expertise…"
@@ -39,7 +39,7 @@ export function NetworkBrowser() {
           />
         </div>
         <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500">Tier</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Tier</p>
           <div className="flex flex-wrap gap-2">
             {TIERS.map((t) => (
               <button
@@ -49,8 +49,8 @@ export function NetworkBrowser() {
                 className={cn(
                   "rounded-pill border px-3 py-1.5 text-xs font-medium transition-colors",
                   t === tier
-                    ? "border-navy-700 bg-navy-700 text-white"
-                    : "border-ink-200 bg-white text-ink-700 hover:border-ink-300",
+                    ? "border-navy-700 bg-navy-700 text-white dark:border-lime dark:bg-lime dark:text-navy-700"
+                    : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-ink-600",
                 )}
               >
                 {t === "ALL" ? "All" : t.charAt(0) + t.slice(1).toLowerCase()}
@@ -60,7 +60,7 @@ export function NetworkBrowser() {
         </div>
       </div>
 
-      <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-500">
+      <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
         Showing {filtered.length} of {sortedBuilders().length}
       </p>
 
@@ -70,15 +70,15 @@ export function NetworkBrowser() {
             <div className="flex items-start gap-3">
               <Avatar name={b.name} handle={b.githubHandle} size={56} />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold">@{b.handle}</p>
-                <p className="truncate text-sm text-ink-600">{b.name}</p>
-                <p className="mt-1 text-xs text-ink-500">
+                <p className="truncate text-sm font-semibold dark:text-ink-50">@{b.handle}</p>
+                <p className="truncate text-sm text-ink-600 dark:text-ink-300">{b.name}</p>
+                <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">
                   {b.city}, {b.country}
                 </p>
               </div>
               <span className="pill-outline text-[10px]">{tierLabel(b.tier)}</span>
             </div>
-            <p className="text-sm text-ink-600 line-clamp-3">{b.bio}</p>
+            <p className="text-sm text-ink-600 line-clamp-3 dark:text-ink-300">{b.bio}</p>
             <div className="flex flex-wrap gap-1.5">
               {b.expertise.slice(0, 4).map((e) => (
                 <span key={e} className="pill-outline">
@@ -86,14 +86,14 @@ export function NetworkBrowser() {
                 </span>
               ))}
             </div>
-            <div className="mt-auto flex items-center justify-between border-t border-ink-200 pt-3 text-xs text-ink-500">
-              <span className="font-semibold text-navy-700">{formatNumber(b.pointsTotal)} pts</span>
+            <div className="mt-auto flex items-center justify-between border-t border-ink-200 pt-3 text-xs text-ink-500 dark:border-ink-800 dark:text-ink-400">
+              <span className="font-semibold text-navy-700 dark:text-lime">{formatNumber(b.pointsTotal)} pts</span>
               {b.githubHandle ? (
                 <a
                   href={`https://github.com/${b.githubHandle}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-medium text-navy-700 underline-offset-4 hover:underline"
+                  className="font-medium text-navy-700 underline-offset-4 hover:underline dark:text-lime"
                 >
                   github ↗
                 </a>
@@ -104,7 +104,7 @@ export function NetworkBrowser() {
       </div>
 
       {filtered.length === 0 ? (
-        <div className="mt-12 text-center text-ink-500">No builders match. Try a different filter.</div>
+        <div className="mt-12 text-center text-ink-500 dark:text-ink-400">No builders match. Try a different filter.</div>
       ) : null}
     </>
   );

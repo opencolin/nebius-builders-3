@@ -9,15 +9,15 @@ export default function NetworkIndex() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
               Builders Network
             </p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">
               The Nebius Builders Network
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-ink-600">
+            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
               {sortedBuilders().length} active builders across the world. Each one signed up with
               their GitHub, completed onboarding milestones, and earned standing through real work.
             </p>

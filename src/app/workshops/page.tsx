@@ -13,15 +13,15 @@ export default function WorkshopsIndex() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
               Workshops
             </p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">
               Pick a workshop. Run it tonight.
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-ink-600">
+            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
               {workshops.length} Nebius-tested workshops across Token Factory, AI Cloud, Soperator,
               and OpenClaw. Self-paced or hands-on. Submit your own and earn 75 points.
             </p>
@@ -49,13 +49,13 @@ export default function WorkshopsIndex() {
 
         <section className="section bg-white">
           <div className="container-page">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
               All entries
             </p>
             <h2 className="h-display text-3xl font-bold tracking-tight">
               Filter the full library
             </h2>
-            <p className="mt-3 max-w-2xl text-ink-600">
+            <p className="mt-3 max-w-2xl text-ink-600 dark:text-ink-300">
               Workshops, videos, and example repos in one place. Mix and match by type, level, and
               the Nebius product you're learning.
             </p>

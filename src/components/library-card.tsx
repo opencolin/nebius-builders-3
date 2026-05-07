@@ -17,7 +17,7 @@ export function LibraryCard({ entry, featured = false }: { entry: LibraryEntry; 
   return (
     <Link
       href={`/library/${entry.slug}`}
-      className={`group flex flex-col overflow-hidden rounded-card border border-ink-200 bg-white transition-all hover:border-ink-300 hover:shadow-soft ${featured ? "md:flex-row" : ""}`}
+      className={`group flex flex-col overflow-hidden rounded-card border border-ink-200 bg-white transition-all hover:border-ink-300 hover:shadow-soft dark:border-ink-700 dark:bg-ink-900 dark:hover:border-ink-600 ${featured ? "md:flex-row" : ""}`}
     >
       <div
         className={`relative aspect-video bg-gradient-to-br ${cover} ${featured ? "md:aspect-auto md:w-1/2" : ""}`}
@@ -40,17 +40,17 @@ export function LibraryCard({ entry, featured = false }: { entry: LibraryEntry; 
         )}
       </div>
       <div className={`flex flex-1 flex-col p-6 ${featured ? "md:p-8" : ""}`}>
-        <p className="text-xs font-medium uppercase tracking-wider text-ink-500">
+        <p className="text-xs font-medium uppercase tracking-wider text-ink-500 dark:text-ink-400">
           {entry.isOfficial ? "Nebius DevRel" : `@${entry.submitterHandle ?? "community"}`}
           {entry.metadata?.stars != null ? ` · ★${entry.metadata.stars}` : ""}
         </p>
-        <h3 className={`mt-2 font-semibold leading-snug text-ink-900 group-hover:text-navy-700 ${featured ? "text-2xl" : "text-base"}`}>
+        <h3 className={`mt-2 font-semibold leading-snug text-ink-900 group-hover:text-navy-700 dark:text-ink-50 dark:group-hover:text-lime ${featured ? "text-2xl" : "text-base"}`}>
           {entry.title}
         </h3>
-        <p className={`mt-3 text-sm text-ink-600 ${featured ? "line-clamp-4" : "line-clamp-3"}`}>
+        <p className={`mt-3 text-sm text-ink-600 dark:text-ink-300 ${featured ? "line-clamp-4" : "line-clamp-3"}`}>
           {entry.blurb}
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-500">
+        <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-ink-500 dark:text-ink-400">
           <span className="pill-outline">{formatProductFocus(entry.productFocus)}</span>
           {entry.metadata?.primaryLanguage ? (
             <span className="pill-outline">{entry.metadata.primaryLanguage}</span>

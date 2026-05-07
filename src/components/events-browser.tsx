@@ -40,7 +40,7 @@ export function EventsBrowser({ upcoming, past }: { upcoming: BuilderEvent[]; pa
 
   return (
     <>
-      <div className="flex flex-wrap gap-x-8 gap-y-5 border-b border-ink-200 pb-6">
+      <div className="flex flex-wrap gap-x-8 gap-y-5 border-b border-ink-200 pb-6 dark:border-ink-800">
         <FilterGroup
           label="Format"
           value={format}
@@ -66,8 +66,8 @@ export function EventsBrowser({ upcoming, past }: { upcoming: BuilderEvent[]; pa
 
       <div className="mt-12">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="h-display text-2xl font-bold tracking-tight">Upcoming</h2>
-          <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">
+          <h2 className="h-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">Upcoming</h2>
+          <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
             {filteredUpcoming.length} event{filteredUpcoming.length === 1 ? "" : "s"}
           </p>
         </div>
@@ -77,7 +77,7 @@ export function EventsBrowser({ upcoming, past }: { upcoming: BuilderEvent[]; pa
           ))}
         </div>
         {filteredUpcoming.length === 0 ? (
-          <div className="rounded-card border border-dashed border-ink-200 bg-white py-12 text-center text-ink-500">
+          <div className="rounded-card border border-dashed border-ink-200 bg-white py-12 text-center text-ink-500 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-400">
             No upcoming events match these filters.
           </div>
         ) : null}
@@ -85,7 +85,7 @@ export function EventsBrowser({ upcoming, past }: { upcoming: BuilderEvent[]; pa
 
       {filteredPast.length ? (
         <div className="mt-16">
-          <h2 className="mb-6 h-display text-2xl font-bold tracking-tight">Past</h2>
+          <h2 className="mb-6 h-display text-2xl font-bold tracking-tight text-ink-900 dark:text-ink-50">Past</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredPast.map((e) => (
               <BuilderEventCard key={e.id} event={e} />
@@ -112,7 +112,7 @@ function FilterGroup({
 }) {
   return (
     <div>
-      <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500">{label}</p>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{label}</p>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => (
           <button
@@ -122,8 +122,8 @@ function FilterGroup({
             className={cn(
               "rounded-pill border px-3 py-1.5 text-xs font-medium transition-colors",
               opt === value
-                ? "border-navy-700 bg-navy-700 text-white"
-                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:text-ink-900",
+                ? "border-navy-700 bg-navy-700 text-white dark:border-lime dark:bg-lime dark:text-navy-700"
+                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:text-ink-900 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-ink-600 dark:hover:text-ink-50",
             )}
           >
             {formatLabel(opt)}

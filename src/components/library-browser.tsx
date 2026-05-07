@@ -38,7 +38,7 @@ export function LibraryBrowser({ initialType = "ALL" as TypeKey }: { initialType
 
   return (
     <>
-      <div className="flex flex-wrap gap-x-8 gap-y-5 border-b border-ink-200 bg-white px-1 pb-6">
+      <div className="flex flex-wrap gap-x-8 gap-y-5 border-b border-ink-200 bg-white px-1 pb-6 dark:border-ink-800 dark:bg-transparent">
         <FilterGroup
           label="Type"
           options={TYPES as readonly string[]}
@@ -62,7 +62,7 @@ export function LibraryBrowser({ initialType = "ALL" as TypeKey }: { initialType
         />
       </div>
 
-      <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-500">
+      <p className="mt-6 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
         Showing {filtered.length} of {library.length}
       </p>
 
@@ -73,7 +73,7 @@ export function LibraryBrowser({ initialType = "ALL" as TypeKey }: { initialType
       </div>
 
       {filtered.length === 0 ? (
-        <div className="mt-16 text-center text-ink-500">No entries match these filters.</div>
+        <div className="mt-16 text-center text-ink-500 dark:text-ink-400">No entries match these filters.</div>
       ) : null}
     </>
   );
@@ -94,7 +94,7 @@ function FilterGroup({
 }) {
   return (
     <div>
-      <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500">{label}</p>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{label}</p>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => (
           <button
@@ -104,8 +104,8 @@ function FilterGroup({
             className={cn(
               "rounded-pill border px-3 py-1.5 text-xs font-medium transition-colors",
               opt === value
-                ? "border-navy-700 bg-navy-700 text-white"
-                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:text-ink-900",
+                ? "border-navy-700 bg-navy-700 text-white dark:border-lime dark:bg-lime dark:text-navy-700"
+                : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 hover:text-ink-900 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-ink-600 dark:hover:text-ink-50",
             )}
           >
             {formatLabel(opt)}
