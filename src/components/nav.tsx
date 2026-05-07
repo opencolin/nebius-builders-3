@@ -7,7 +7,6 @@ const links = [
   { href: "/ambassadors", label: "Ambassadors" },
   { href: "/leaderboard", label: "Leaderboard" },
   { href: "/advocates", label: "Advocates" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
 ];
 
@@ -30,12 +29,6 @@ export function TopNav() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Link
-            href="/companies/login"
-            className="hidden text-sm font-medium text-ink-700 hover:text-ink-900 md:inline"
-          >
-            For businesses
-          </Link>
           <Link href="/builders/login" className="btn-ghost">Log in</Link>
           <Link href="/signup" className="btn-lime">Start building</Link>
         </div>

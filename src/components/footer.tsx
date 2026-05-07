@@ -9,7 +9,6 @@ const cols = [
       { href: "/library", label: "Library" },
       { href: "/workshops", label: "Workshops" },
       { href: "/ide", label: "Cloud IDE" },
-      { href: "/pricing", label: "Pricing" },
     ],
   },
   {
