@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nebius Builders — The operating layer for OpenClaw events",
+  title: "Nebius Builders — Nebius for AI Builders",
   description:
-    "Hackathons, hack nights, demo nights, and workshops for OpenClaw builders — powered by Nebius Token Factory, Contree workspaces, and Nebius Serverless deploys.",
+    "Training, fine-tuning, and inference at scale on Nebius — plus the community of builders shipping on it. Workshops, demos, hackathons, and office hours, with $100 of Token Factory or AI Cloud credits to start.",
   metadataBase: new URL("https://builders.nebius.com"),
   openGraph: {
     title: "Nebius Builders",
-    description: "The operating layer for OpenClaw developer events.",
+    description:
+      "Nebius for AI Builders. Training, fine-tuning, and inference at scale — plus the community that ships on it.",
     url: "https://builders.nebius.com",
     siteName: "Nebius Builders",
     type: "website",

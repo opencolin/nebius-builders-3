@@ -30,7 +30,7 @@ export function TopNav() {
         </div>
         <div className="flex items-center gap-2">
           <Link href="/builders/login" className="btn-ghost">Log in</Link>
-          <Link href="/signup" className="btn-lime">Start building</Link>
+          <Link href="/signup" className="btn-lime">Sign up</Link>
         </div>
       </div>
     </header>
