@@ -2,12 +2,14 @@ import Link from "next/link";
 import { TopNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { EventsBrowser } from "@/components/events-browser";
+import { EventsMap } from "@/components/events-map";
 import { completedBuilderEvents, publishedBuilderEvents } from "@/lib/builder-events";
 import { programMetrics, formatNumber, formatCurrency } from "@/lib/network";
 
 export default function EventsIndex() {
   const upcoming = publishedBuilderEvents();
   const past = completedBuilderEvents();
+  const mappable = upcoming.filter((e) => !e.isOnline && (e.lat !== 0 || e.lng !== 0));
 
   return (
     <>
@@ -54,6 +56,33 @@ export default function EventsIndex() {
 
         <section className="section bg-ink-50">
           <div className="container-page">
+            <div className="mb-12">
+              <div className="mb-5 flex items-end justify-between gap-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">
+                    Map
+                  </p>
+                  <h2 className="mt-1 h-display text-2xl font-bold tracking-tight">
+                    Where builders are showing up
+                  </h2>
+                </div>
+                <p className="text-xs text-ink-500">
+                  {mappable.length} events shown · online and global tours excluded
+                </p>
+              </div>
+              <EventsMap events={mappable} />
+              <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-ink-500">
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full border-2 border-lime bg-navy-700" />
+                  Builder-hosted
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="inline-block h-2.5 w-2.5 rounded-full border-2 border-navy-700 bg-lime" />
+                  Nebius official
+                </span>
+                <span>· click a dot for details</span>
+              </p>
+            </div>
             <EventsBrowser upcoming={upcoming} past={past} />
             <p className="mt-12 text-sm text-ink-500">
               Hosting an event?{" "}

@@ -55,7 +55,7 @@ export function Products() {
     <Section>
       <SectionHeader
         eyebrow="Products"
-        title="Choose a starting point for your workload"
+        title="Choose a starting point for your work"
         body="Four products. Pick the one that fits how you want to build."
       />
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
