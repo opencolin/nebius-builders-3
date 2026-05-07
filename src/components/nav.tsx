@@ -3,8 +3,10 @@ import { NebiusLogo } from "./nebius-logo";
 
 const links = [
   { href: "/events", label: "Events" },
-  { href: "/workshops", label: "Workshops" },
-  { href: "/ide", label: "IDE" },
+  { href: "/library", label: "Library" },
+  { href: "/ambassadors", label: "Ambassadors" },
+  { href: "/leaderboard", label: "Leaderboard" },
+  { href: "/advocates", label: "Advocates" },
   { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
 ];
@@ -17,16 +19,25 @@ export function TopNav() {
           <NebiusLogo />
           <nav className="hidden gap-1 md:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">
+              <Link
+                key={l.href}
+                href={l.href}
+                className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900"
+              >
                 {l.label}
               </Link>
             ))}
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/companies/login" className="hidden text-sm font-medium text-ink-700 hover:text-ink-900 md:inline">For businesses</Link>
+          <Link
+            href="/companies/login"
+            className="hidden text-sm font-medium text-ink-700 hover:text-ink-900 md:inline"
+          >
+            For businesses
+          </Link>
           <Link href="/builders/login" className="btn-ghost">Log in</Link>
-          <Link href="/builders/login" className="btn-lime">Start building</Link>
+          <Link href="/signup" className="btn-lime">Start building</Link>
         </div>
       </div>
     </header>

@@ -1,23 +1,25 @@
 import Link from "next/link";
-import { events } from "@/lib/data";
-import { EventCard } from "@/components/event-card";
+import { BuilderEventCard } from "@/components/builder-event-card";
 import { Section, SectionHeader } from "@/components/section";
+import { publishedBuilderEvents } from "@/lib/builder-events";
 
 export function ActiveEvents() {
-  const featured = events.filter((e) => e.state !== "COMPLETED").slice(0, 4);
+  const next = publishedBuilderEvents().slice(0, 3);
   return (
     <Section bg="tint">
       <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <SectionHeader
-          eyebrow="What's on this week"
-          title="Live and upcoming"
-          body="Public events you can drop into. Token Factory keys load with one click."
+          eyebrow="Next up"
+          title="Upcoming Nebius builder events"
+          body="Builder-hosted meetups and the Nebius official tour. Token Factory keys load on the day."
         />
-        <Link href="/events" className="btn-outline">All events →</Link>
+        <Link href="/events" className="btn-outline">
+          See all on the map →
+        </Link>
       </div>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {featured.map((e) => (
-          <EventCard key={e.id} event={e} />
+      <div className="grid gap-6 md:grid-cols-3">
+        {next.map((e) => (
+          <BuilderEventCard key={e.id} event={e} />
         ))}
       </div>
     </Section>

@@ -1,24 +1,31 @@
-import { workshops } from "@/lib/data";
-import { WorkshopCard } from "@/components/workshop-card";
-import { Section, SectionHeader } from "@/components/section";
 import Link from "next/link";
+import { LibraryCard } from "@/components/library-card";
+import { Section, SectionHeader } from "@/components/section";
+import { library } from "@/lib/library";
 
 export function WorkshopSpotlight() {
-  const [featured, ...rest] = workshops;
+  const featured =
+    library.find((l) => l.slug === "running-openclaw-on-nebius") ?? library[0];
+  const rest = library
+    .filter((l) => l.slug !== featured.slug && l.type === "WORKSHOP")
+    .slice(0, 2);
+
   return (
-    <Section bg="tint">
+    <Section>
       <div className="mb-10 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
         <SectionHeader
-          eyebrow="Workshops"
+          eyebrow="Library"
           title="Watch what shipped, run it yourself."
-          body="Every workshop links to a Contree-ready workspace so you can replay the demo and keep building."
+          body="Workshops, videos, and example repos curated by Nebius DevRel and the community."
         />
-        <Link href="/workshops" className="btn-outline">All workshops →</Link>
+        <Link href="/library" className="btn-outline">
+          Browse the full library →
+        </Link>
       </div>
-      <WorkshopCard workshop={featured} featured />
+      <LibraryCard entry={featured} featured />
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         {rest.map((w) => (
-          <WorkshopCard key={w.slug} workshop={w} />
+          <LibraryCard key={w.slug} entry={w} />
         ))}
       </div>
     </Section>

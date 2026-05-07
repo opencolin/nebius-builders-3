@@ -3,46 +3,49 @@ import { NebiusLogo } from "./nebius-logo";
 
 const cols = [
   {
-    title: "Product",
+    title: "Build",
     links: [
       { href: "/events", label: "Events" },
+      { href: "/library", label: "Library" },
       { href: "/workshops", label: "Workshops" },
       { href: "/ide", label: "Cloud IDE" },
       { href: "/pricing", label: "Pricing" },
     ],
   },
   {
-    title: "Builders",
+    title: "Community",
     links: [
-      { href: "/builders/login", label: "Log in" },
-      { href: "/docs/builders/install-openclaw", label: "Install OpenClaw" },
-      { href: "/docs/builders/create-a-team", label: "Create a team" },
-      { href: "/docs/builders/submit-a-project", label: "Submit a project" },
-    ],
-  },
-  {
-    title: "Businesses",
-    links: [
-      { href: "/companies/login", label: "Host an event" },
-      { href: "/pricing", label: "Pricing" },
-      { href: "/docs/event-managers/create-an-event", label: "Create an event" },
-      { href: "#contact", label: "Talk to us" },
+      { href: "/ambassadors", label: "Ambassador program" },
+      { href: "/leaderboard", label: "Leaderboard" },
+      { href: "/network", label: "Builder network" },
+      { href: "/advocates", label: "Dev Advocates" },
+      { href: "/signup", label: "Sign up" },
     ],
   },
   {
     title: "Resources",
     links: [
       { href: "/docs", label: "Docs" },
-      { href: "/docs/openclaw/token-factory", label: "Token Factory" },
-      { href: "https://docs.contree.dev/", label: "Contree" },
-      { href: "https://github.com/opencolin/openclaw-deploy", label: "openclaw-deploy" },
+      { href: "https://docs.tokenfactory.nebius.com/", label: "Token Factory" },
+      { href: "https://docs.nebius.com/cloud", label: "AI Cloud" },
+      { href: "https://github.com/nebius", label: "GitHub" },
+      { href: "https://www.youtube.com/@nebiusofficial/videos", label: "YouTube" },
+    ],
+  },
+  {
+    title: "Programs",
+    links: [
+      { href: "/ambassadors", label: "Builders Network" },
+      { href: "https://nebius.com/startups/", label: "Startup Program" },
+      { href: "https://academy.nebius.com/", label: "AI for Tech Academy" },
+      { href: "/companies/login", label: "Host an event" },
     ],
   },
   {
     title: "Company",
     links: [
       { href: "/about", label: "About" },
-      { href: "/about#careers", label: "Careers" },
+      { href: "https://nebius.com", label: "Nebius.com" },
       { href: "/about#privacy", label: "Privacy" },
       { href: "#contact", label: "Contact" },
     ],
@@ -57,19 +60,40 @@ export function Footer() {
           <div className="col-span-2 space-y-4">
             <NebiusLogo />
             <p className="max-w-xs text-sm text-ink-600">
-              The operating layer for OpenClaw developer events. Built on Nebius.
+              Nebius for AI Builders. Training, fine-tuning, and inference at scale — plus the
+              community that ships on it.
             </p>
-            <p className="text-sm text-ink-500">San Francisco · Remote · Accepting Q3 bookings</p>
+            <p className="text-sm text-ink-500">
+              San Francisco · Remote · builders@nebius.com
+            </p>
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-ink-500">{col.title}</h4>
+              <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-ink-500">
+                {col.title}
+              </h4>
               <ul className="space-y-2">
-                {col.links.map((l) => (
-                  <li key={l.href}>
-                    <Link href={l.href} className="text-sm text-ink-700 hover:text-ink-900">{l.label}</Link>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const isExternal = l.href.startsWith("http");
+                  return (
+                    <li key={l.href}>
+                      {isExternal ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-sm text-ink-700 hover:text-ink-900"
+                        >
+                          {l.label} ↗
+                        </a>
+                      ) : (
+                        <Link href={l.href} className="text-sm text-ink-700 hover:text-ink-900">
+                          {l.label}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}

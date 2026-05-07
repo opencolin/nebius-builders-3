@@ -2,13 +2,15 @@ import { TopNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/marketing/hero";
 import { ActiveEvents } from "@/components/marketing/active-events";
-import { DualPitch } from "@/components/marketing/dual-pitch";
-import { IdePreview } from "@/components/marketing/ide-preview";
+import { Products } from "@/components/marketing/products";
+import { UseCases } from "@/components/marketing/use-cases";
 import { WorkshopSpotlight } from "@/components/marketing/workshop-spotlight";
-import { OldVsNew } from "@/components/marketing/old-vs-new";
-import { PricingTable } from "@/components/marketing/pricing-table";
+import { Community } from "@/components/marketing/community";
+import { Programs } from "@/components/marketing/programs";
+import { DualPitch } from "@/components/marketing/dual-pitch";
 import { PartnerWall } from "@/components/marketing/partner-wall";
 import { Testimonial } from "@/components/marketing/testimonial";
+import { BuildInPublic } from "@/components/marketing/build-in-public";
 import { Contact } from "@/components/marketing/contact";
 
 export default function Home() {
@@ -18,13 +20,15 @@ export default function Home() {
       <main>
         <Hero />
         <ActiveEvents />
-        <DualPitch />
-        <IdePreview />
+        <Products />
+        <UseCases />
         <WorkshopSpotlight />
-        <OldVsNew />
-        <PricingTable />
+        <Community />
+        <Programs />
+        <DualPitch />
         <PartnerWall />
         <Testimonial />
+        <BuildInPublic />
         <Contact />
       </main>
       <Footer />
