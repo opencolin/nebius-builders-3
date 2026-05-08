@@ -26,8 +26,10 @@ const cols = [
     title: "Resources",
     links: [
       { href: "/docs", label: "Docs" },
-      { href: "https://docs.tokenfactory.nebius.com/", label: "Token Factory" },
-      { href: "https://docs.nebius.com/cloud", label: "AI Cloud" },
+      { href: "https://docs.nebius.com/", label: "Nebius docs" },
+      { href: "https://docs.tokenfactory.nebius.com/quickstart", label: "Token Factory quickstart" },
+      { href: "http://docs.tavily.com/", label: "Tavily docs" },
+      { href: "https://nebius.com/blog?tags=builder-updates", label: "Builder updates blog" },
       { href: "https://github.com/nebius", label: "GitHub" },
       { href: "https://www.youtube.com/@nebiusofficial/videos", label: "YouTube" },
     ],

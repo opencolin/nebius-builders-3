@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Section, SectionHeader } from "@/components/section";
 import { cn } from "@/lib/utils";
 
@@ -16,18 +17,18 @@ const products: Product[] = [
     name: "AI Cloud",
     blurb:
       "Spin up GPU VMs and multi-node clusters for training and custom stacks, with full control.",
-    primaryHref: "https://nebius.com/services/ai-cloud",
+    primaryHref: "/ai-cloud",
     primaryLabel: "Start building",
-    secondaryHref: "https://docs.nebius.com/cloud",
+    secondaryHref: "https://docs.nebius.com/",
     secondaryLabel: "How-tos",
   },
   {
     name: "Token Factory",
     blurb:
       "Serve open-source models via an OpenAI-compatible API with real-time and batch inference, dedicated endpoints, and production SLAs.",
-    primaryHref: "https://nebius.com/services/token-factory",
+    primaryHref: "/token-factory",
     primaryLabel: "Start building",
-    secondaryHref: "https://docs.nebius.com/token-factory",
+    secondaryHref: "https://docs.tokenfactory.nebius.com/quickstart",
     secondaryLabel: "How-tos",
     highlight: true,
   },
@@ -35,9 +36,9 @@ const products: Product[] = [
     name: "Serverless",
     blurb:
       "Build and deploy serverless AI jobs and endpoints from your container in minutes — no Kubernetes, no infrastructure.",
-    primaryHref: "https://nebius.com/services/serverless",
+    primaryHref: "/serverless",
     primaryLabel: "Start building",
-    secondaryHref: "https://docs.nebius.com/serverless",
+    secondaryHref: "https://docs.nebius.com/",
     secondaryLabel: "How-tos",
   },
   {
@@ -70,26 +71,40 @@ export function Products() {
             <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50">{p.name}</h3>
             <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{p.blurb}</p>
             <div className="flex flex-wrap gap-3 border-t border-ink-200 dark:border-ink-700 pt-4 text-xs">
-              <a
-                href={p.primaryHref}
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-navy-700 dark:text-lime underline-offset-4 hover:underline"
-              >
-                {p.primaryLabel} ↗
-              </a>
-              <a
-                href={p.secondaryHref}
-                target="_blank"
-                rel="noreferrer"
-                className="text-ink-600 dark:text-ink-300 hover:text-ink-900"
-              >
-                {p.secondaryLabel} ↗
-              </a>
+              <ProductLinkLabel href={p.primaryHref} className="font-semibold text-navy-700 dark:text-lime underline-offset-4 hover:underline">
+                {p.primaryLabel}
+              </ProductLinkLabel>
+              <ProductLinkLabel href={p.secondaryHref} className="text-ink-600 dark:text-ink-300 hover:text-ink-900 dark:hover:text-ink-50">
+                {p.secondaryLabel}
+              </ProductLinkLabel>
             </div>
           </div>
         ))}
       </div>
     </Section>
+  );
+}
+
+function ProductLinkLabel({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const isExternal = href.startsWith("http");
+  if (isExternal) {
+    return (
+      <a href={href} target="_blank" rel="noreferrer" className={className}>
+        {children} ↗
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children} →
+    </Link>
   );
 }
