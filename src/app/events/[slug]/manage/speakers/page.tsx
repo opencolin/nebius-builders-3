@@ -13,7 +13,7 @@ export default function SpeakersTab({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex items-end justify-between">
             <div>
               <h2 className="h-display text-2xl font-bold">Speakers</h2>
-              <p className="text-sm text-ink-500">Invite by email — they fill the form, you approve, the Present button appears on their dashboard.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Invite by email — they fill the form, you approve, the Present button appears on their dashboard.</p>
             </div>
             <button className="btn-lime">+ Invite speaker</button>
           </div>
@@ -25,7 +25,7 @@ export default function SpeakersTab({ params }: { params: { slug: string } }) {
                   <p className="font-semibold">{s.name}</p>
                   <span className={s.status === "APPROVED" ? "pill-lime" : "pill-outline"}>{s.status.toLowerCase()}</span>
                 </div>
-                <p className="mt-1 text-xs text-ink-500">{s.company}</p>
+                <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">{s.company}</p>
                 <p className="mt-3 text-sm">{s.talk}</p>
                 <div className="mt-4 flex gap-2">
                   {s.status === "INVITED" ? (
@@ -56,7 +56,7 @@ export default function SpeakersTab({ params }: { params: { slug: string } }) {
               <button className="btn-outline">Cancel</button>
               <button className="btn-lime">Send invite</button>
             </div>
-            <p className="mt-3 text-xs text-ink-500">We'll email a form requesting their bio, photo, and slide deck.</p>
+            <p className="mt-3 text-xs text-ink-500 dark:text-ink-400">We'll email a form requesting their bio, photo, and slide deck.</p>
           </div>
         </div>
       </section>

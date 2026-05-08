@@ -13,7 +13,7 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-end">
             <div>
               <h2 className="h-display text-2xl font-bold">Projects ({eventProjects.length})</h2>
-              <p className="text-sm text-ink-500">Filter by partner, expand for details, export to CSV.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Filter by partner, expand for details, export to CSV.</p>
             </div>
             <div className="flex gap-2">
               <button className="btn-outline text-sm">Expand all</button>
@@ -30,7 +30,7 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
                     <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-lime text-sm font-bold text-navy-700">{p.rank}</span>
                     <div>
                       <p className="font-semibold">{p.name}</p>
-                      <p className="text-xs text-ink-500">{p.team} · {p.partners.join(" · ")}</p>
+                      <p className="text-xs text-ink-500 dark:text-ink-400">{p.team} · {p.partners.join(" · ")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs">
@@ -43,13 +43,13 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
                   <p className="text-sm text-ink-800">{p.description}</p>
                   <div className="mt-4 grid gap-4 md:grid-cols-2">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">Technologies</p>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Technologies</p>
                       <ul className="mt-2 flex flex-wrap gap-2">
                         {p.technologies.map((t) => <li key={t} className="pill-ink">{t}</li>)}
                       </ul>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">Partners</p>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Partners</p>
                       <ul className="mt-2 flex flex-wrap gap-2">
                         {p.partners.map((t) => <li key={t} className="pill-outline">{t}</li>)}
                       </ul>

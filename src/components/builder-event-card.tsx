@@ -55,11 +55,11 @@ export function BuilderEventCard({ event }: { event: BuilderEvent }) {
         <div className="absolute left-4 top-4 flex flex-wrap gap-2">
           <StatePill event={event} />
           {event.isOfficial ? (
-            <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">Nebius official</span>
+            <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">Nebius official</span>
           ) : null}
         </div>
         <div className="absolute bottom-3 right-3">
-          <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.city}</span>
+          <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.city}</span>
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">

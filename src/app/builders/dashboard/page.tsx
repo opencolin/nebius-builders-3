@@ -23,9 +23,9 @@ export default function BuilderDashboard() {
           <div className="container-page py-10">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Builder console</p>
-                <h1 className="h-display mt-1 text-3xl font-bold tracking-tight">Welcome back, {currentUser.name.split(" ")[0]}.</h1>
-                <p className="mt-2 text-ink-600">{liveStats.eventsLive} events live · 3 sponsors hiring this week</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Builder console</p>
+                <h1 className="h-display mt-1 text-3xl font-bold tracking-tight text-ink-900 dark:text-ink-50">Welcome back, {currentUser.name.split(" ")[0]}.</h1>
+                <p className="mt-2 text-ink-600 dark:text-ink-300">{liveStats.eventsLive} events live · 3 sponsors hiring this week</p>
               </div>
               <div className="flex gap-2">
                 <Link href="/ide" className="btn-navy">Open IDE →</Link>
@@ -40,8 +40,8 @@ export default function BuilderDashboard() {
                 ["Rank", "#312"],
               ].map(([l, v]) => (
                 <div key={l} className="card">
-                  <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500">{l}</dt>
-                  <dd className="mt-2 text-2xl font-bold text-navy-700">{v}</dd>
+                  <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{l}</dt>
+                  <dd className="mt-2 text-2xl font-bold text-navy-700 dark:text-lime">{v}</dd>
                 </div>
               ))}
             </dl>

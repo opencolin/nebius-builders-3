@@ -53,18 +53,18 @@ export default function Settings({ params }: { params: { slug: string } }) {
 
           <div className="card">
             <h2 className="text-lg font-semibold">Team access</h2>
-            <p className="text-sm text-ink-500">Anyone you add gets access to the full event management portal.</p>
+            <p className="text-sm text-ink-500 dark:text-ink-400">Anyone you add gets access to the full event management portal.</p>
             <table className="mt-5 w-full text-sm">
-              <thead className="text-xs uppercase tracking-widest text-ink-500">
+              <thead className="text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400">
                 <tr><th className="pb-2 text-left">Name</th><th className="pb-2 text-left">Email</th><th className="pb-2 text-left">Role</th><th></th></tr>
               </thead>
               <tbody className="divide-y divide-ink-200">
                 {team.map((t) => (
                   <tr key={t.email}>
                     <td className="py-3 font-medium">{t.name}</td>
-                    <td className="py-3 text-ink-700">{t.email}</td>
+                    <td className="py-3 text-ink-700 dark:text-ink-200">{t.email}</td>
                     <td className="py-3"><span className="pill-outline">{t.role}</span></td>
-                    <td className="py-3 text-right"><button className="text-xs text-ink-500 hover:text-ink-700">Remove</button></td>
+                    <td className="py-3 text-right"><button className="text-xs text-ink-500 dark:text-ink-400 hover:text-ink-700">Remove</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -77,7 +77,7 @@ export default function Settings({ params }: { params: { slug: string } }) {
 
           <div className="card">
             <h2 className="text-lg font-semibold">Danger zone</h2>
-            <p className="text-sm text-ink-500">Cancel the event or transfer ownership.</p>
+            <p className="text-sm text-ink-500 dark:text-ink-400">Cancel the event or transfer ownership.</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <button className="btn-outline">Transfer ownership</button>
               <button className="btn-outline border-red-300 text-red-700 hover:bg-red-50">Cancel event</button>

@@ -9,7 +9,11 @@ export function AppHeader({ subtitle = "Builders", links }: { subtitle?: string;
           <NebiusLogo subtitle={subtitle} />
           <nav className="hidden gap-1 md:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900">
+              <Link
+                key={l.href}
+                href={l.href}
+                className="rounded-md px-3 py-1.5 text-sm font-medium text-ink-700 hover:bg-ink-100 hover:text-ink-900 dark:text-ink-200 dark:hover:bg-ink-800 dark:hover:text-ink-50"
+              >
                 {l.label}
               </Link>
             ))}

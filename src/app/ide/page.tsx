@@ -25,9 +25,9 @@ export default function IdePage() {
       <main>
         <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Cloud IDE</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Cloud IDE</p>
             <h1 className="h-display max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">Open a workspace. Ship an agent.</h1>
-            <p className="mt-5 max-w-2xl text-lg text-ink-600">Contree workspace + code-server editor + Token Factory inference + Nebius Serverless deploy. The whole loop, in your browser.</p>
+            <p className="mt-5 max-w-2xl text-lg text-ink-600 dark:text-ink-300">Contree workspace + code-server editor + Token Factory inference + Nebius Serverless deploy. The whole loop, in your browser.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/builders/login" className="btn-lime">Open the IDE →</Link>
               <Link href="https://github.com/opencolin/openclaw-deploy" className="btn-outline">openclaw-deploy on GitHub ↗</Link>
@@ -44,7 +44,7 @@ export default function IdePage() {
               {features.map((f) => (
                 <div key={f.title} className="card">
                   <h3 className="text-base font-semibold">{f.title}</h3>
-                  <p className="mt-2 text-sm text-ink-600">{f.body}</p>
+                  <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">{f.body}</p>
                 </div>
               ))}
             </div>
@@ -59,7 +59,7 @@ export default function IdePage() {
                 <div key={s.tag} className="card">
                   <span className="pill-lime">Step {s.tag}</span>
                   <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-ink-600">{s.body}</p>
+                  <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">{s.body}</p>
                 </div>
               ))}
             </div>

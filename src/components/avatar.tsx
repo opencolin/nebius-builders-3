@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 const palette = [
   "bg-lime text-navy-700",
   "bg-navy-700 text-lime",
-  "bg-navy-100 text-navy-700",
+  "bg-navy-100 text-navy-700 dark:text-lime",
   "bg-lime-200 text-navy-700",
 ];
 

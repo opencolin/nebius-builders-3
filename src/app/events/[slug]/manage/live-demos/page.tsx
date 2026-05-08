@@ -20,7 +20,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-end">
             <div>
               <h2 className="h-display text-2xl font-bold">Base station</h2>
-              <p className="text-sm text-ink-500">Run on the room display. Accept incoming demo + presentation requests.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Run on the room display. Accept incoming demo + presentation requests.</p>
             </div>
             <div className="flex gap-2">
               <button className="btn-outline text-sm">Pair display</button>
@@ -60,7 +60,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
               </div>
             </div>
             <div className="card">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Queue</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Queue</h3>
               <ol className="mt-3 space-y-3">
                 {queue.map((q) => (
                   <li key={q.name} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-3 text-sm">
@@ -68,7 +68,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
                       <p className="font-medium">{q.name}</p>
                       <span className={q.state === "presenting" ? "pill-lime" : q.state === "needs approval" ? "pill bg-amber-100 text-amber-800" : "pill-outline"}>{q.state}</span>
                     </div>
-                    <p className="text-xs text-ink-500">{q.team} · {q.duration} · snapshot {q.snapshot}</p>
+                    <p className="text-xs text-ink-500 dark:text-ink-400">{q.team} · {q.duration} · snapshot {q.snapshot}</p>
                     {q.state === "needs approval" ? (
                       <div className="mt-2 flex gap-2">
                         <button className="btn-ghost text-xs">Reject</button>
@@ -83,7 +83,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
 
           <div className="mt-8 card">
             <h3 className="text-lg font-semibold">Capture pipeline</h3>
-            <p className="text-sm text-ink-500">Each demo records video, screen share, and presenter webcam. Files land in the post-event summary automatically.</p>
+            <p className="text-sm text-ink-500 dark:text-ink-400">Each demo records video, screen share, and presenter webcam. Files land in the post-event summary automatically.</p>
             <ol className="mt-4 grid gap-4 md:grid-cols-4">
               {[
                 ["Request", "Builder hits Present"],
@@ -94,7 +94,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
                 <li key={t} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-4">
                   <span className="pill-lime">Step {i + 1}</span>
                   <p className="mt-2 font-medium">{t}</p>
-                  <p className="text-xs text-ink-500">{b}</p>
+                  <p className="text-xs text-ink-500 dark:text-ink-400">{b}</p>
                 </li>
               ))}
             </ol>

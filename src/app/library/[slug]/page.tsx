@@ -51,7 +51,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
             <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-600 dark:text-ink-300">
               {rich.hosts.map((h) => (
                 <span key={h.name} className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-navy-700 dark:text-lime">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-navy-700">
                     {h.name[0]}
                   </span>
                   <span>

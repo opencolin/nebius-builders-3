@@ -24,14 +24,14 @@ export function PricingTable({ embed = false }: { embed?: boolean }) {
             )}
           >
             {p.highlight ? <span className="pill-lime mb-3 self-start">Most popular</span> : <span className="mb-3 h-[26px]" />}
-            <h3 className={cn("text-lg font-semibold", p.highlight ? "text-white" : "text-ink-900")}>{p.name}</h3>
+            <h3 className={cn("text-lg font-semibold", p.highlight ? "text-white" : "text-ink-900 dark:text-ink-50")}>{p.name}</h3>
             <div className="mt-2 flex items-baseline gap-1">
-              <span className={cn("text-3xl font-bold", p.highlight ? "text-white" : "text-ink-900")}>{p.price}</span>
-              {p.cadence ? <span className={cn("text-sm", p.highlight ? "text-ink-100" : "text-ink-500")}>{p.cadence}</span> : null}
+              <span className={cn("text-3xl font-bold", p.highlight ? "text-white" : "text-ink-900 dark:text-ink-50")}>{p.price}</span>
+              {p.cadence ? <span className={cn("text-sm", p.highlight ? "text-ink-100" : "text-ink-500 dark:text-ink-400")}>{p.cadence}</span> : null}
             </div>
-            <p className={cn("mt-2 text-sm", p.highlight ? "text-ink-100" : "text-ink-600")}>{p.eventsPerMonth}</p>
-            <p className={cn("mt-3 text-xs", p.highlight ? "text-ink-100/80" : "text-ink-500")}>{p.blurb}</p>
-            <ul className={cn("mt-5 space-y-2 text-sm", p.highlight ? "text-white" : "text-ink-700")}>
+            <p className={cn("mt-2 text-sm", p.highlight ? "text-ink-100" : "text-ink-600 dark:text-ink-300")}>{p.eventsPerMonth}</p>
+            <p className={cn("mt-3 text-xs", p.highlight ? "text-ink-100/80" : "text-ink-500 dark:text-ink-400")}>{p.blurb}</p>
+            <ul className={cn("mt-5 space-y-2 text-sm", p.highlight ? "text-white" : "text-ink-700 dark:text-ink-200")}>
               {p.features.map((f) => (
                 <li key={f} className="flex gap-2">
                   <span className={cn("mt-0.5", p.highlight ? "text-lime" : "text-lime-600")}>✓</span>

@@ -14,7 +14,7 @@ export default function PrizesTab({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex items-end justify-between">
             <div>
               <h2 className="h-display text-2xl font-bold">Prizes</h2>
-              <p className="text-sm text-ink-500">Distribution flows through Tremendous · current pool ${total.toLocaleString()}</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Distribution flows through Tremendous · current pool ${total.toLocaleString()}</p>
             </div>
             <button className="btn-lime">+ Add prize</button>
           </div>
@@ -24,11 +24,11 @@ export default function PrizesTab({ params }: { params: { slug: string } }) {
               <div key={p.title} className="card">
                 <div className="flex items-start justify-between">
                   <span className="pill-lime">${p.dollarValue.toLocaleString()}</span>
-                  <button className="text-xs text-ink-500 hover:text-ink-700">Edit</button>
+                  <button className="text-xs text-ink-500 dark:text-ink-400 hover:text-ink-700">Edit</button>
                 </div>
                 <h3 className="mt-3 text-base font-semibold">{p.title}</h3>
-                <p className="mt-1 text-sm text-ink-600">Specific enough to guide builders, broad enough to invite creativity.</p>
-                <div className="mt-4 flex items-center justify-between text-xs text-ink-500">
+                <p className="mt-1 text-sm text-ink-600 dark:text-ink-300">Specific enough to guide builders, broad enough to invite creativity.</p>
+                <div className="mt-4 flex items-center justify-between text-xs text-ink-500 dark:text-ink-400">
                   <span>Display: {p.value}</span>
                   <span className="pill-outline">Unassigned</span>
                 </div>
@@ -36,7 +36,7 @@ export default function PrizesTab({ params }: { params: { slug: string } }) {
             ))}
             <div className="card flex flex-col items-center justify-center border-dashed text-center">
               <p className="text-sm font-medium">+ New prize</p>
-              <p className="mt-1 text-xs text-ink-500">e.g. Best Token Factory build</p>
+              <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">e.g. Best Token Factory build</p>
             </div>
           </div>
 
@@ -64,7 +64,7 @@ export default function PrizesTab({ params }: { params: { slug: string } }) {
               <button className="btn-outline">Cancel</button>
               <button className="btn-lime">Save prize</button>
             </div>
-            <p className="mt-3 text-xs text-ink-500">Tremendous integration is gated to support@nebius.com today; we'll wire your payout on first prize.</p>
+            <p className="mt-3 text-xs text-ink-500 dark:text-ink-400">Tremendous integration is gated to support@nebius.com today; we'll wire your payout on first prize.</p>
           </div>
         </div>
       </section>

@@ -20,7 +20,7 @@ export default function FeedbackTab({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex flex-col items-start justify-between gap-3 md:flex-row md:items-end">
             <div>
               <h2 className="h-display text-2xl font-bold">Feedback</h2>
-              <p className="text-sm text-ink-500">AI-graded for technical depth. Default view shows accepted only.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">AI-graded for technical depth. Default view shows accepted only.</p>
             </div>
             <div className="flex gap-2">
               <button className="btn-outline text-sm">Run raffle</button>
@@ -36,8 +36,8 @@ export default function FeedbackTab({ params }: { params: { slug: string } }) {
               ["Avg LLM-score", "7.6"],
             ].map(([l, v]) => (
               <div key={l} className="card">
-                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500">{l}</p>
-                <p className="mt-2 text-2xl font-bold text-navy-700">{v}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{l}</p>
+                <p className="mt-2 text-2xl font-bold text-navy-700 dark:text-lime">{v}</p>
               </div>
             ))}
           </div>
@@ -56,11 +56,11 @@ export default function FeedbackTab({ params }: { params: { slug: string } }) {
                 <li key={s.id} className="grid gap-2 py-4 md:grid-cols-12">
                   <div className="md:col-span-2 text-sm">
                     <p className="font-medium">{s.from}</p>
-                    <p className="text-xs text-ink-500">→ {s.partner}</p>
+                    <p className="text-xs text-ink-500 dark:text-ink-400">→ {s.partner}</p>
                   </div>
                   <p className="md:col-span-7 text-sm text-ink-800">{s.snippet}</p>
                   <div className="md:col-span-3 flex items-center justify-end gap-2 text-xs">
-                    <span className={`pill ${s.llm > 6 ? "bg-lime text-navy-700" : "bg-ink-100 dark:bg-ink-800 text-ink-700"}`}>LLM {s.llm.toFixed(1)}</span>
+                    <span className={`pill ${s.llm > 6 ? "bg-lime text-navy-700" : "bg-ink-100 dark:bg-ink-800 text-ink-700 dark:text-ink-200"}`}>LLM {s.llm.toFixed(1)}</span>
                     {s.ai ? <span className="pill bg-amber-100 text-amber-800">Likely AI</span> : <span className="pill-outline">Human</span>}
                   </div>
                 </li>

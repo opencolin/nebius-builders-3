@@ -13,7 +13,7 @@ export default function VolunteersTab({ params }: { params: { slug: string } }) 
           <div className="mb-6 flex items-end justify-between">
             <div>
               <h2 className="h-display text-2xl font-bold">Volunteer opportunities</h2>
-              <p className="text-sm text-ink-500">Builders sign up via the Volunteer button on their dashboard.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Builders sign up via the Volunteer button on their dashboard.</p>
             </div>
             <button className="btn-lime">+ New opportunity</button>
           </div>
@@ -25,10 +25,10 @@ export default function VolunteersTab({ params }: { params: { slug: string } }) 
                   <p className="font-semibold">{o.title}</p>
                   <span className="pill-outline">{o.category}</span>
                 </div>
-                <p className="mt-2 text-sm text-ink-700">{o.timeSlot}</p>
-                <p className="text-xs text-ink-500">{o.location}</p>
+                <p className="mt-2 text-sm text-ink-700 dark:text-ink-200">{o.timeSlot}</p>
+                <p className="text-xs text-ink-500 dark:text-ink-400">{o.location}</p>
                 <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800"><div className="h-2 bg-lime-500" style={{ width: `${(o.filled / o.max) * 100}%` }} /></div>
-                <p className="mt-2 text-xs text-ink-500">{o.filled} / {o.max} filled</p>
+                <p className="mt-2 text-xs text-ink-500 dark:text-ink-400">{o.filled} / {o.max} filled</p>
                 <div className="mt-4 flex gap-2">
                   <button className="btn-outline text-xs">View signups</button>
                   <button className="btn-ghost text-xs">Edit</button>

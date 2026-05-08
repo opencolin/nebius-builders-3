@@ -29,7 +29,7 @@ export function LibraryCard({ entry, featured = false }: { entry: LibraryEntry; 
         </div>
         {entry.type === "VIDEO" || entry.type === "WORKSHOP" ? (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-white dark:bg-ink-900/95 text-navy-700 shadow-soft transition group-hover:scale-105">
+            <div className="grid h-14 w-14 place-items-center rounded-full bg-white dark:bg-ink-900/95 text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
             </div>
           </div>

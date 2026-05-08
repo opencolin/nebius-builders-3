@@ -23,14 +23,14 @@ export default function PartnersTab({ params }: { params: { slug: string } }) {
           <div className="mb-6 flex items-end justify-between">
             <div>
               <h2 className="h-display text-2xl font-bold">Partner companies</h2>
-              <p className="text-sm text-ink-500">Add before doors open so builders see complementary tools day one.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Add before doors open so builders see complementary tools day one.</p>
             </div>
             <button className="btn-lime">+ Add partner</button>
           </div>
 
           <div className="overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
             <table className="w-full text-sm">
-              <thead className="bg-ink-50 dark:bg-ink-800 text-xs font-semibold uppercase tracking-widest text-ink-500">
+              <thead className="bg-ink-50 dark:bg-ink-800 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
                 <tr>
                   <th className="px-4 py-3 text-left">Company</th>
                   <th className="px-4 py-3 text-left">Tier</th>
@@ -44,9 +44,9 @@ export default function PartnersTab({ params }: { params: { slug: string } }) {
                   <tr key={p.name} className="hover:bg-ink-50">
                     <td className="px-4 py-3 font-medium">{p.name}</td>
                     <td className="px-4 py-3"><span className="pill-outline">{p.tier}</span></td>
-                    <td className="px-4 py-3 text-xs text-ink-700">{p.challengeUrl || <span className="text-ink-400">—</span>}</td>
-                    <td className="px-4 py-3 text-xs text-ink-700">{p.discord || <span className="text-ink-400">—</span>}</td>
-                    <td className="px-4 py-3 text-right"><button className="text-xs font-medium text-navy-700 hover:underline">Edit</button></td>
+                    <td className="px-4 py-3 text-xs text-ink-700 dark:text-ink-200">{p.challengeUrl || <span className="text-ink-400">—</span>}</td>
+                    <td className="px-4 py-3 text-xs text-ink-700 dark:text-ink-200">{p.discord || <span className="text-ink-400">—</span>}</td>
+                    <td className="px-4 py-3 text-right"><button className="text-xs font-medium text-navy-700 dark:text-lime hover:underline">Edit</button></td>
                   </tr>
                 ))}
               </tbody>

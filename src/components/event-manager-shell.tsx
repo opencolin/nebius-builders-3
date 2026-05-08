@@ -29,11 +29,11 @@ export function EventManagerShell({ eventSlug, active, children }: { eventSlug: 
       <AppHeader subtitle="Builders for Business" links={companyNav} />
       <div className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
         <div className="container-page py-6">
-          <Link href="/companies/dashboard" className="text-sm text-ink-500 hover:text-ink-700">← All events</Link>
+          <Link href="/companies/dashboard" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">← All events</Link>
           <div className="mt-2 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
             <div>
               <h1 className="h-display text-2xl font-bold tracking-tight">{event?.title ?? "Event"}</h1>
-              <p className="text-sm text-ink-500">{event?.venue} · {event?.format.replace("_", " ").toLowerCase()}</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">{event?.venue} · {event?.format.replace("_", " ").toLowerCase()}</p>
             </div>
             <div className="flex gap-2">
               <Link href={`/events/${event?.slug}`} className="btn-outline text-sm">Public page</Link>
@@ -48,7 +48,7 @@ export function EventManagerShell({ eventSlug, active, children }: { eventSlug: 
             <Link
               key={s.label}
               href={`/events/${eventSlug}/manage${s.path}`}
-              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${active === s.label ? "bg-ink-900 text-white" : "text-ink-700 hover:bg-ink-100"}`}
+              className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${active === s.label ? "bg-ink-900 text-white" : "text-ink-700 dark:text-ink-200 hover:bg-ink-100"}`}
             >
               {s.label}
             </Link>

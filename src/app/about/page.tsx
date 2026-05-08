@@ -9,24 +9,24 @@ export default function AboutPage() {
       <main>
         <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-20">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">About</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">About</p>
             <h1 className="h-display max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">A Nebius product, built next to the builders.</h1>
-            <p className="mt-5 max-w-2xl text-lg text-ink-600">We make events that turn on lights in the right brains. The platform is the part you see — the rest is venue, food, judging, and a green room with good coffee.</p>
+            <p className="mt-5 max-w-2xl text-lg text-ink-600 dark:text-ink-300">We make events that turn on lights in the right brains. The platform is the part you see — the rest is venue, food, judging, and a green room with good coffee.</p>
           </div>
         </section>
 
         <Section bg="tint">
           <div className="grid gap-10 lg:grid-cols-3">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">What we measure</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">What we measure</p>
               <p className="mt-2 text-lg">Token Factory calls, deploys to Nebius, projects shipped per event, sponsor follow-ups within 7 days. Not badge scans.</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">What we don't</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">What we don't</p>
               <p className="mt-2 text-lg">Pixel-tracked emails. Webinar attendance vanity. "Engagement scores" detached from a shipped artifact.</p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Where we are</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Where we are</p>
               <p className="mt-2 text-lg">San Francisco · NYC · London · Berlin · Remote. Q3 2026 bookings open.</p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function AboutPage() {
               <a key={r.t} className="card flex items-center justify-between hover:border-navy-700" href="#apply">
                 <div>
                   <p className="font-semibold">{r.t}</p>
-                  <p className="text-sm text-ink-500">{r.l}</p>
+                  <p className="text-sm text-ink-500 dark:text-ink-400">{r.l}</p>
                 </div>
                 <span className="text-ink-400">→</span>
               </a>
@@ -56,7 +56,7 @@ export default function AboutPage() {
 
         <Section id="privacy" bg="tint">
           <SectionHeader eyebrow="Privacy" title="What we keep, what we don't." />
-          <div className="card max-w-3xl text-sm text-ink-700">
+          <div className="card max-w-3xl text-sm text-ink-700 dark:text-ink-200">
             <p>We collect what we need to run an event experience. We never sell builder data. Sponsors only see project-level data; per-builder follow-up requires the builder's per-project opt-in.</p>
             <p className="mt-3">Token Factory keys are scoped per user, never sent to the browser, and rotated automatically. Workspace state lives in Contree's image lineage and expires 30 days after the event closes.</p>
             <p className="mt-3">Full policy at <code className="kbd">/legal/privacy</code> (placeholder).</p>

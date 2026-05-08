@@ -22,7 +22,7 @@ export function LoginCard({
           </div>
           <div className="card p-8">
             <h1 className="h-display text-2xl font-bold tracking-tight">{title}</h1>
-            <p className="mt-2 text-sm text-ink-600">{subtitle}</p>
+            <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">{subtitle}</p>
             <div className="mt-6 grid gap-3">
               <Link href={redirect} className="btn-navy w-full">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.7.9 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.8 1 .8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg>
@@ -45,15 +45,15 @@ export function LoginCard({
               </div>
               <Link href={redirect} className="btn-lime w-full">Send magic link →</Link>
             </form>
-            <p className="mt-6 text-xs text-ink-500">
+            <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">
               By continuing you agree to our terms. Same-email accounts across providers auto-merge.
             </p>
           </div>
-          <p className="mt-6 text-center text-sm text-ink-500">
+          <p className="mt-6 text-center text-sm text-ink-500 dark:text-ink-400">
             {flavor === "builder" ? (
-              <>Hosting an event? <Link className="text-navy-700 underline-offset-4 hover:underline" href="/companies/login">Switch to business sign-in →</Link></>
+              <>Hosting an event? <Link className="text-navy-700 dark:text-lime underline-offset-4 hover:underline" href="/companies/login">Switch to business sign-in →</Link></>
             ) : (
-              <>Looking for a builder account? <Link className="text-navy-700 underline-offset-4 hover:underline" href="/builders/login">Switch to builder sign-in →</Link></>
+              <>Looking for a builder account? <Link className="text-navy-700 dark:text-lime underline-offset-4 hover:underline" href="/builders/login">Switch to builder sign-in →</Link></>
             )}
           </p>
         </div>

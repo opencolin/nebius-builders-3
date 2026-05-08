@@ -17,9 +17,9 @@ export default function ProfilePage() {
       <main className="bg-ink-50 dark:bg-ink-800">
         <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Profile</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Profile</p>
             <h1 className="h-display mt-1 text-3xl font-bold tracking-tight">Your builder identity</h1>
-            <p className="mt-2 text-ink-600">Visible to teammates, sponsors, and judges. Public on your project pages.</p>
+            <p className="mt-2 text-ink-600 dark:text-ink-300">Visible to teammates, sponsors, and judges. Public on your project pages.</p>
           </div>
         </section>
 
@@ -32,14 +32,14 @@ export default function ProfilePage() {
                 <span className="absolute -bottom-1 right-0 inline-flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-lime text-xs font-bold text-navy-700">N</span>
               </div>
               <p className="text-base font-semibold">{currentUser.name}</p>
-              <p className="text-sm text-ink-500">{currentUser.email}</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">{currentUser.email}</p>
               <p className="mt-3 pill-outline">Member since {currentUser.memberSince}</p>
-              <p className="mt-6 text-xs text-ink-500">Replace your avatar from your OAuth provider — we don't host upload.</p>
+              <p className="mt-6 text-xs text-ink-500 dark:text-ink-400">Replace your avatar from your OAuth provider — we don't host upload.</p>
             </div>
 
             <div className="card lg:col-span-2">
               <h2 className="text-lg font-semibold">Identity</h2>
-              <p className="text-sm text-ink-500">Read-only fields are pulled from your OAuth provider.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Read-only fields are pulled from your OAuth provider.</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="label">Name</label>
@@ -85,14 +85,14 @@ export default function ProfilePage() {
               <div className="card flex items-center justify-between">
                 <div>
                   <p className="font-semibold">Theme</p>
-                  <p className="text-sm text-ink-500">Light, dark, or system.</p>
+                  <p className="text-sm text-ink-500 dark:text-ink-400">Light, dark, or system.</p>
                 </div>
                 <select className="input w-auto"><option>System</option><option>Light</option><option>Dark</option></select>
               </div>
               <div className="card flex items-center justify-between">
                 <div>
                   <p className="font-semibold">Allow sponsor follow-up</p>
-                  <p className="text-sm text-ink-500">Set per-project on submit; this is the default.</p>
+                  <p className="text-sm text-ink-500 dark:text-ink-400">Set per-project on submit; this is the default.</p>
                 </div>
                 <label className="inline-flex cursor-pointer items-center gap-2"><input type="checkbox" defaultChecked className="h-4 w-4 accent-navy-700" />Enabled</label>
               </div>

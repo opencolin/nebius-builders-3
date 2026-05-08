@@ -27,12 +27,12 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
       <AppHeader links={builderNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
         <section className={`relative overflow-hidden border-b border-ink-200 dark:border-ink-700 bg-gradient-to-br ${event.cover}`}>
-          <div className="container-page py-10 text-navy-700">
+          <div className="container-page py-10 text-navy-700 dark:text-lime">
             <Link href="/builders/dashboard" className="text-sm hover:underline">← Console</Link>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.state.toLowerCase()}</span>}
-              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.format.replace("_", " ").toLowerCase()}</span>
-              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.city}</span>
+              {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.state.toLowerCase()}</span>}
+              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.format.replace("_", " ").toLowerCase()}</span>
+              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.city}</span>
             </div>
             <h1 className="h-display mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl">{event.title}</h1>
             <p className="mt-2 text-sm">{formatDate(event.startDateTime)} · {formatTime(event.startDateTime)} · {event.venue}</p>
@@ -40,7 +40,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
           <nav className="border-t border-navy-700/10 bg-white dark:bg-ink-900/85 backdrop-blur">
             <div className="container-page flex gap-1 overflow-x-auto py-2">
               {tabs.map((t, i) => (
-                <a key={t} href={`#${t.toLowerCase()}`} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${i === 0 ? "bg-ink-900 text-white" : "text-ink-700 hover:bg-ink-100"}`}>{t}</a>
+                <a key={t} href={`#${t.toLowerCase()}`} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${i === 0 ? "bg-ink-900 text-white" : "text-ink-700 dark:text-ink-200 hover:bg-ink-100"}`}>{t}</a>
               ))}
             </div>
           </nav>
@@ -63,7 +63,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
                 <ol className="mt-3 divide-y divide-ink-200">
                   {eventBlasts.map((b) => (
                     <li key={b.id} className="py-3 text-sm">
-                      <p className="text-xs uppercase tracking-widest text-ink-500">{formatTime(b.sentAt)}</p>
+                      <p className="text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400">{formatTime(b.sentAt)}</p>
                       <p className="mt-1 text-ink-800">{b.body}</p>
                     </li>
                   ))}
@@ -74,8 +74,8 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
                 <ul className="mt-3 grid gap-3 sm:grid-cols-3">
                   {eventPrizes.map((p) => (
                     <li key={p.title} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-3">
-                      <p className="text-xs uppercase tracking-widest text-ink-500">{p.title}</p>
-                      <p className="mt-1 text-xl font-bold text-navy-700">{p.value}</p>
+                      <p className="text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400">{p.title}</p>
+                      <p className="mt-1 text-xl font-bold text-navy-700 dark:text-lime">{p.value}</p>
                     </li>
                   ))}
                 </ul>
@@ -90,15 +90,15 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
                 <p className="mt-3 text-xs text-ink-100/80">Opens at code-server in a Contree sandbox.</p>
               </div>
               <div className="card">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Team</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Team</h3>
                 <p className="mt-2 text-sm font-medium">Muglife</p>
-                <p className="text-xs text-ink-500">2 members · 1 invite pending</p>
-                <Link href="/builders/teams" className="mt-3 block text-sm font-medium text-navy-700 hover:underline">Manage team →</Link>
+                <p className="text-xs text-ink-500 dark:text-ink-400">2 members · 1 invite pending</p>
+                <Link href="/builders/teams" className="mt-3 block text-sm font-medium text-navy-700 dark:text-lime hover:underline">Manage team →</Link>
               </div>
               <div className="card">
-                <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Demo slot</h3>
+                <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Demo slot</h3>
                 <p className="mt-2 text-sm">Slot 4 · 9:14 PM</p>
-                <p className="text-xs text-ink-500">Pin a snapshot before you walk up to the base station.</p>
+                <p className="text-xs text-ink-500 dark:text-ink-400">Pin a snapshot before you walk up to the base station.</p>
               </div>
             </aside>
           </div>
@@ -107,7 +107,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
         <section id="project" className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <h2 className="h-display text-2xl font-bold">Project submission</h2>
-            <p className="mt-2 max-w-2xl text-ink-600">Fill once, edit until the deadline. The video step records inside the browser and uploads to the platform automatically.</p>
+            <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">Fill once, edit until the deadline. The video step records inside the browser and uploads to the platform automatically.</p>
             <form className="mt-8 grid gap-5 lg:grid-cols-2">
               <div className="lg:col-span-2">
                 <label className="label" htmlFor="pname">Project name</label>
@@ -116,7 +116,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
               <div className="lg:col-span-2">
                 <label className="label" htmlFor="pdesc">Description</label>
                 <textarea id="pdesc" rows={4} className="input" defaultValue="An OpenClaw-driven coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains." />
-                <p className="mt-1 text-xs text-ink-500">Clear descriptions make it much easier for organizers and judges to review your work.</p>
+                <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">Clear descriptions make it much easier for organizers and judges to review your work.</p>
               </div>
               <div>
                 <label className="label" htmlFor="techs">Technologies</label>
@@ -136,7 +136,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
               </div>
               <div className="lg:col-span-2 flex items-start gap-3 rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-4 text-sm">
                 <input type="checkbox" id="contact" defaultChecked className="mt-0.5 h-4 w-4 accent-navy-700" />
-                <label htmlFor="contact" className="text-ink-700">Allow partner companies to contact us beyond judging.</label>
+                <label htmlFor="contact" className="text-ink-700 dark:text-ink-200">Allow partner companies to contact us beyond judging.</label>
               </div>
               <div className="lg:col-span-2 flex justify-between gap-2">
                 <button type="button" className="btn-outline">Save draft</button>
@@ -146,19 +146,19 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
 
             <div className="mt-12 card">
               <h3 className="text-lg font-semibold">Demo video</h3>
-              <p className="text-sm text-ink-500">Required for judging. Records in-browser using your screen, camera, and mic.</p>
+              <p className="text-sm text-ink-500 dark:text-ink-400">Required for judging. Records in-browser using your screen, camera, and mic.</p>
               <div className="mt-5 grid gap-4 md:grid-cols-3">
                 <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">1. Pick a screen</p>
-                  <p className="mt-1 text-xs text-ink-500">Full screen recommended</p>
+                  <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">Full screen recommended</p>
                 </div>
                 <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">2. Camera + mic on</p>
-                  <p className="mt-1 text-xs text-ink-500">We need to see and hear you</p>
+                  <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">We need to see and hear you</p>
                 </div>
                 <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">3. Hit record</p>
-                  <p className="mt-1 text-xs text-ink-500">90s minimum, 4 min max</p>
+                  <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">90s minimum, 4 min max</p>
                 </div>
               </div>
               <button className="btn-navy mt-6">Start recording</button>
@@ -169,7 +169,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
         <section id="feedback" className="section">
           <div className="container-page">
             <h2 className="h-display text-2xl font-bold">Feedback to partners</h2>
-            <p className="mt-2 max-w-2xl text-ink-600">Bonus: thoughtful feedback enters you in the raffle. AI-grading filters low-effort responses.</p>
+            <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">Bonus: thoughtful feedback enters you in the raffle. AI-grading filters low-effort responses.</p>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {event.partners.map((p) => (
                 <div key={p} className="card">

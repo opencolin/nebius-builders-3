@@ -38,16 +38,16 @@ export function EventCard({ event, href }: { event: Event; href?: string }) {
           <StatePill state={event.state} startDateTime={event.startDateTime} />
         </div>
         <div className="absolute bottom-3 right-3">
-          <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.city}</span>
+          <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.city}</span>
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">
-        <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-ink-500">
+        <p className="mb-1.5 text-xs font-medium uppercase tracking-wider text-ink-500 dark:text-ink-400">
           {formatLabel[event.format]} · {formatDate(event.startDateTime)} · {formatTime(event.startDateTime)}
         </p>
-        <h3 className="mb-2 text-base font-semibold leading-snug text-ink-900 group-hover:text-navy-700 dark:group-hover:text-lime">{event.title}</h3>
-        <p className="mb-4 line-clamp-2 text-sm text-ink-600">{event.description}</p>
-        <div className="mt-auto flex items-center justify-between text-xs text-ink-500">
+        <h3 className="mb-2 text-base font-semibold leading-snug text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">{event.title}</h3>
+        <p className="mb-4 line-clamp-2 text-sm text-ink-600 dark:text-ink-300">{event.description}</p>
+        <div className="mt-auto flex items-center justify-between text-xs text-ink-500 dark:text-ink-400">
           <span className="truncate pr-4">{event.isOnline ? "Online" : event.venue.split(",")[0]}</span>
           {event.prizePool ? <span className="pill-lime">{event.prizePool}</span> : (
             <span className="text-ink-400">{event.registered}/{event.capacity}</span>

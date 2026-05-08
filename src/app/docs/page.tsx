@@ -10,9 +10,9 @@ export default function DocsHome() {
       <main>
         <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Docs</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Docs</p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">Build with Nebius Builders.</h1>
-            <p className="mt-4 max-w-2xl text-lg text-ink-600">From your first OpenClaw install through your first hackathon win — and how to host one of your own.</p>
+            <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">From your first OpenClaw install through your first hackathon win — and how to host one of your own.</p>
             <div className="mt-6 max-w-xl">
               <input type="search" className="input" placeholder="Search docs… (⌘K)" />
             </div>
@@ -26,7 +26,7 @@ export default function DocsHome() {
                 <ul className="mt-4 space-y-2 text-sm">
                   {s.pages.map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/docs/${p.slug}`} className="block rounded-md px-2 py-1 text-ink-700 hover:bg-ink-100 hover:text-ink-900">→ {p.title}</Link>
+                      <Link href={`/docs/${p.slug}`} className="block rounded-md px-2 py-1 text-ink-700 dark:text-ink-200 hover:bg-ink-100 hover:text-ink-900">→ {p.title}</Link>
                     </li>
                   ))}
                 </ul>
