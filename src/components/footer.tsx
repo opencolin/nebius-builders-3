@@ -6,6 +6,7 @@ const cols = [
     title: "Build",
     links: [
       { href: "/events", label: "Events" },
+      { href: "/projects", label: "Projects" },
       { href: "/library", label: "Library" },
       { href: "/workshops", label: "Workshops" },
       { href: "/ide", label: "Cloud IDE" },
