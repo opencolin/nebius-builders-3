@@ -111,7 +111,7 @@ function DocsMenu() {
           </p>
           <ul className="grid gap-0.5">
             {docsLinks.map((d) => (
-              <li key={d.href}>
+              <li key={d.title}>
                 <a
                   href={d.href}
                   target={d.external ? "_blank" : undefined}
