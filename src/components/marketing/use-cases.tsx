@@ -38,7 +38,7 @@ export function UseCases() {
             rel="noreferrer"
             className="group flex h-full flex-col gap-3 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-6 transition-all hover:border-ink-300 hover:shadow-soft"
           >
-            <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
+            <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">
               {c.title}
             </h3>
             <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{c.blurb}</p>

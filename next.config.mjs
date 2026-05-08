@@ -7,6 +7,12 @@ const nextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/advocates", destination: "/team", permanent: true },
+      { source: "/advocates/:slug*", destination: "/team/:slug*", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

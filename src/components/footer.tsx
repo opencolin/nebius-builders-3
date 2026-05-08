@@ -18,7 +18,7 @@ const cols = [
       { href: "/ambassadors", label: "Ambassador program" },
       { href: "/leaderboard", label: "Leaderboard" },
       { href: "/network", label: "Builder network" },
-      { href: "/advocates", label: "Dev Advocates" },
+      { href: "/team", label: "Team" },
       { href: "/signup", label: "Sign up" },
     ],
   },

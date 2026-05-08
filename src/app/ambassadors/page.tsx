@@ -50,8 +50,8 @@ export default function AmbassadorsPage() {
               <Link href="/signup" className="btn-lime px-6 py-3.5 text-sm">
                 Sign up with GitHub →
               </Link>
-              <Link href="/advocates/colin" className="btn-outline px-6 py-3.5 text-sm">
-                Talk to a Dev Advocate
+              <Link href="/team/colin" className="btn-outline px-6 py-3.5 text-sm">
+                Talk to the team
               </Link>
             </div>
           </div>
@@ -172,10 +172,10 @@ export default function AmbassadorsPage() {
           />
           <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
             {advocates.map((adv) => (
-              <Link key={adv.slug} href={`/advocates/${adv.slug}`} className="group block">
+              <Link key={adv.slug} href={`/team/${adv.slug}`} className="group block">
                 <div className="card flex h-full flex-col gap-3">
                   <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={56} />
-                  <h4 className="text-base font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
+                  <h4 className="text-base font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">
                     {adv.name}
                   </h4>
                   <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
@@ -233,8 +233,8 @@ export default function AmbassadorsPage() {
               <Link href="/signup" className="btn-lime px-6 py-3.5">
                 Sign up with GitHub →
               </Link>
-              <Link href="/advocates/colin" className="btn-outline px-6 py-3.5">
-                Talk to a Dev Advocate
+              <Link href="/team/colin" className="btn-outline px-6 py-3.5">
+                Talk to the team
               </Link>
             </div>
           </div>

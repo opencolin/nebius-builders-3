@@ -18,8 +18,8 @@ export default function AdvocateDetail({ params }: { params: { slug: string } })
       <TopNav />
       <main className="bg-white dark:bg-ink-900">
         <section className="container-page pt-12 pb-6">
-          <Link href="/advocates" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
-            ← All advocates
+          <Link href="/team" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
+            ← Back to the team
           </Link>
           <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-center">
             <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={104} />

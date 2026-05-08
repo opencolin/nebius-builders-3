@@ -181,8 +181,8 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                   </Link>
                 </li>
                 <li>
-                  <Link className="underline-offset-4 hover:underline" href="/advocates">
-                    Talk to a Dev Advocate →
+                  <Link className="underline-offset-4 hover:underline" href="/team">
+                    Talk to the team →
                   </Link>
                 </li>
               </ul>

@@ -28,7 +28,7 @@ export default function ProjectsIndex() {
               What builders shipped on Nebius.
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
-              A live showcase of projects from Nebius Builders, Ambassadors, and Dev Advocates —
+              A live showcase of projects from Nebius Builders, Ambassadors, and the team —
               hack nights, hackathons, demo nights, and side projects shipped with Token Factory,
               AI Cloud, Soperator, and OpenClaw.
             </p>

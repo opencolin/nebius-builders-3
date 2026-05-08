@@ -49,7 +49,7 @@ export function Programs() {
                 p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200 dark:border-ink-700 hover:border-ink-300",
               )}
             >
-              <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
+              <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">
                 {p.name}
               </h3>
               <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{p.blurb}</p>

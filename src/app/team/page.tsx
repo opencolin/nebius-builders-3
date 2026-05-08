@@ -4,7 +4,7 @@ import { Footer } from "@/components/footer";
 import { Avatar } from "@/components/avatar";
 import { advocates } from "@/lib/advocates";
 
-export default function AdvocatesIndex() {
+export default function TeamIndex() {
   return (
     <>
       <TopNav />
@@ -12,15 +12,15 @@ export default function AdvocatesIndex() {
         <section className="border-b border-ink-200 bg-white dark:border-ink-800 dark:bg-ink-900">
           <div className="container-page py-16">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
-              Dev Advocates
+              Team
             </p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">
-              Meet the Nebius DevRel team
+              Meet the team behind Nebius Builders
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
-              Reach the right Nebius DevRel person directly. 15-minute office hours, no gatekeeping.
-              Cover questions about events, content, infrastructure, hiring leads — whatever helps
-              you ship.
+              Dev Advocates, DevRel engineers, and the people running events behind the scenes.
+              15-minute office hours, no gatekeeping. Cover questions about events, content,
+              infrastructure, hiring leads — whatever helps you ship.
             </p>
           </div>
         </section>
@@ -29,12 +29,12 @@ export default function AdvocatesIndex() {
           <div className="container-page">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {advocates.map((adv) => (
-                <Link key={adv.slug} href={`/advocates/${adv.slug}`} className="group block">
+                <Link key={adv.slug} href={`/team/${adv.slug}`} className="group block">
                   <div className="flex h-full flex-col gap-4 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-6 transition-colors hover:border-ink-300 hover:shadow-soft">
                     <div className="flex items-start gap-4">
                       <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={64} />
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-base font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
+                        <h3 className="text-base font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">
                           {adv.name}
                         </h3>
                         <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
@@ -67,7 +67,7 @@ export default function AdvocatesIndex() {
                 Reach out to Colin — he handles unrouted requests and can pull in a
                 Nebius engineer for technical questions outside DevRel's scope.
               </p>
-              <Link href="/advocates/colin" className="btn-navy mt-5">
+              <Link href="/team/colin" className="btn-navy mt-5">
                 Contact Colin →
               </Link>
             </div>
