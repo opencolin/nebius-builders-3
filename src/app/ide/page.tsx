@@ -23,7 +23,7 @@ export default function IdePage() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-16">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Cloud IDE</p>
             <h1 className="h-display max-w-4xl text-4xl font-bold tracking-tight md:text-6xl">Open a workspace. Ship an agent.</h1>
@@ -37,7 +37,7 @@ export default function IdePage() {
 
         <IdePreview />
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             <h2 className="h-display max-w-3xl text-3xl font-bold md:text-4xl">Six things you don't have to set up.</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -51,7 +51,7 @@ export default function IdePage() {
           </div>
         </section>
 
-        <section className="section bg-white">
+        <section className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <h2 className="h-display max-w-3xl text-3xl font-bold md:text-4xl">Deploy in three steps.</h2>
             <div className="mt-10 grid gap-6 md:grid-cols-3">

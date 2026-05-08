@@ -43,7 +43,7 @@ export default function FeedbackTab({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="mt-8 card">
-            <div className="flex items-center justify-between border-b border-ink-200 pb-3">
+            <div className="flex items-center justify-between border-b border-ink-200 dark:border-ink-700 pb-3">
               <h3 className="text-lg font-semibold">Recent feedback</h3>
               <div className="flex gap-2 text-xs">
                 <button className="pill-lime">Accepted</button>
@@ -60,7 +60,7 @@ export default function FeedbackTab({ params }: { params: { slug: string } }) {
                   </div>
                   <p className="md:col-span-7 text-sm text-ink-800">{s.snippet}</p>
                   <div className="md:col-span-3 flex items-center justify-end gap-2 text-xs">
-                    <span className={`pill ${s.llm > 6 ? "bg-lime text-navy-700" : "bg-ink-100 text-ink-700"}`}>LLM {s.llm.toFixed(1)}</span>
+                    <span className={`pill ${s.llm > 6 ? "bg-lime text-navy-700" : "bg-ink-100 dark:bg-ink-800 text-ink-700"}`}>LLM {s.llm.toFixed(1)}</span>
                     {s.ai ? <span className="pill bg-amber-100 text-amber-800">Likely AI</span> : <span className="pill-outline">Human</span>}
                   </div>
                 </li>

@@ -15,8 +15,8 @@ export default function TeamsPage() {
   return (
     <>
       <AppHeader links={builderNav} />
-      <main className="bg-ink-50">
-        <section className="border-b border-ink-200 bg-white">
+      <main className="bg-ink-50 dark:bg-ink-800">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Teams</p>
             <h1 className="h-display mt-1 text-3xl font-bold tracking-tight">Build with the right people.</h1>
@@ -56,7 +56,7 @@ export default function TeamsPage() {
                           <Link href="/builders/dashboard/events/evt_clawcamp/builder" className="btn-navy text-xs">Open team →</Link>
                         </div>
                       </div>
-                      <div className="mt-4 flex items-center justify-between rounded-lg border border-ink-200 bg-ink-50 p-3 text-sm">
+                      <div className="mt-4 flex items-center justify-between rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-3 text-sm">
                         <span><span className="font-medium">{t.project.name}</span> · status: {t.project.status.toLowerCase()} · video: {t.project.hasVideo ? "ready" : "not yet recorded"}</span>
                         <Link href="/builders/dashboard/events/evt_clawcamp/builder#project" className="text-xs font-medium text-navy-700 hover:underline">Edit project →</Link>
                       </div>

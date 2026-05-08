@@ -63,13 +63,13 @@ export function Products() {
           <div
             key={p.name}
             className={cn(
-              "flex h-full flex-col gap-3 rounded-card border bg-white p-6 transition-colors hover:border-ink-300",
-              p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200",
+              "flex h-full flex-col gap-3 rounded-card border bg-white dark:bg-ink-900 p-6 transition-colors hover:border-ink-300",
+              p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200 dark:border-ink-700",
             )}
           >
             <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50">{p.name}</h3>
             <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{p.blurb}</p>
-            <div className="flex flex-wrap gap-3 border-t border-ink-200 pt-4 text-xs">
+            <div className="flex flex-wrap gap-3 border-t border-ink-200 dark:border-ink-700 pt-4 text-xs">
               <a
                 href={p.primaryHref}
                 target="_blank"

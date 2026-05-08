@@ -27,7 +27,7 @@ export default function VolunteersTab({ params }: { params: { slug: string } }) 
                 </div>
                 <p className="mt-2 text-sm text-ink-700">{o.timeSlot}</p>
                 <p className="text-xs text-ink-500">{o.location}</p>
-                <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-100"><div className="h-2 bg-lime-500" style={{ width: `${(o.filled / o.max) * 100}%` }} /></div>
+                <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800"><div className="h-2 bg-lime-500" style={{ width: `${(o.filled / o.max) * 100}%` }} /></div>
                 <p className="mt-2 text-xs text-ink-500">{o.filled} / {o.max} filled</p>
                 <div className="mt-4 flex gap-2">
                   <button className="btn-outline text-xs">View signups</button>

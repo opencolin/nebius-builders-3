@@ -87,7 +87,7 @@ export function EventsMap({ events }: { events: BuilderEvent[] }) {
   return (
     <div
       ref={containerRef}
-      className="h-[460px] w-full overflow-hidden rounded-card border border-ink-200 bg-ink-50"
+      className="h-[460px] w-full overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800"
     />
   );
 }

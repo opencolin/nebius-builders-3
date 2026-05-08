@@ -69,7 +69,7 @@ export default function Settings({ params }: { params: { slug: string } }) {
                 ))}
               </tbody>
             </table>
-            <div className="mt-5 flex flex-col gap-2 border-t border-ink-200 pt-5 sm:flex-row">
+            <div className="mt-5 flex flex-col gap-2 border-t border-ink-200 dark:border-ink-700 pt-5 sm:flex-row">
               <input className="input flex-1" placeholder="teammate@nebius.com" />
               <button className="btn-lime">Add manager</button>
             </div>

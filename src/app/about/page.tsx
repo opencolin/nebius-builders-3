@@ -7,7 +7,7 @@ export default function AboutPage() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-20">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">About</p>
             <h1 className="h-display max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">A Nebius product, built next to the builders.</h1>

@@ -22,7 +22,7 @@ export default function WorkshopDetail({ params }: { params: { slug: string } })
   return (
     <>
       <TopNav />
-      <main className="bg-white">
+      <main className="bg-white dark:bg-ink-900">
         <section className="container-page pt-12 pb-6">
           <Link href="/workshops" className="text-sm text-ink-500 hover:text-ink-700">← All workshops</Link>
           <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Workshop · {formatDate(w.recordedAt)} · {formatDuration(w.durationSeconds)}</p>
@@ -39,10 +39,10 @@ export default function WorkshopDetail({ params }: { params: { slug: string } })
 
         <section className="container-page grid gap-8 pb-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <div className="aspect-video overflow-hidden rounded-card border border-ink-200 bg-navy-700">
+            <div className="aspect-video overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-navy-700">
               <a href={w.videoUrl} target="_blank" rel="noreferrer" className="group flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-700 via-navy-600 to-lime/40">
                 <div className="flex flex-col items-center gap-3 text-white">
-                  <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 shadow-soft transition group-hover:scale-105">
+                  <div className="grid h-20 w-20 place-items-center rounded-full bg-white dark:bg-ink-900 text-navy-700 shadow-soft transition group-hover:scale-105">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                   </div>
                   <p className="text-sm">{w.videoProvider === "ZOOM" ? "Watch on Zoom" : "Play"}</p>

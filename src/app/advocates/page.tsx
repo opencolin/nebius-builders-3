@@ -25,12 +25,12 @@ export default function AdvocatesIndex() {
           </div>
         </section>
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {advocates.map((adv) => (
                 <Link key={adv.slug} href={`/advocates/${adv.slug}`} className="group block">
-                  <div className="flex h-full flex-col gap-4 rounded-card border border-ink-200 bg-white p-6 transition-colors hover:border-ink-300 hover:shadow-soft">
+                  <div className="flex h-full flex-col gap-4 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-6 transition-colors hover:border-ink-300 hover:shadow-soft">
                     <div className="flex items-start gap-4">
                       <Avatar name={adv.name} handle={adv.githubHandle ?? adv.slug} size={64} />
                       <div className="min-w-0 flex-1">
@@ -61,7 +61,7 @@ export default function AdvocatesIndex() {
               ))}
             </div>
 
-            <div className="mt-12 rounded-card border border-ink-200 bg-white p-8">
+            <div className="mt-12 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-8">
               <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50">Don't see your region covered?</h3>
               <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">
                 Reach out to Colin — he handles unrouted requests and can pull in a

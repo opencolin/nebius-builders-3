@@ -1,6 +1,6 @@
 export function BuildInPublic() {
   return (
-    <section className="border-y border-ink-200 bg-white">
+    <section className="border-y border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
       <div className="container-page flex flex-wrap items-center justify-between gap-x-12 gap-y-4 py-12">
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">

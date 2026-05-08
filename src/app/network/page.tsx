@@ -32,7 +32,7 @@ export default function NetworkIndex() {
           </div>
         </section>
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             <NetworkBrowser />
           </div>

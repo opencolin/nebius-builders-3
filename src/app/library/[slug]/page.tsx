@@ -32,7 +32,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
   return (
     <>
       <TopNav />
-      <main className="bg-white">
+      <main className="bg-white dark:bg-ink-900">
         <section className="container-page pt-12 pb-6">
           <Link href="/library" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
             ← All entries
@@ -71,7 +71,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
         <section className="container-page grid gap-8 pb-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
             {rich ? (
-              <div className="aspect-video overflow-hidden rounded-card border border-ink-200 bg-navy-700">
+              <div className="aspect-video overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-navy-700">
                 <a
                   href={rich.videoUrl}
                   target="_blank"
@@ -79,7 +79,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                   className="group flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-700 via-navy-600 to-lime/40"
                 >
                   <div className="flex flex-col items-center gap-3 text-white">
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
+                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white dark:bg-ink-900 text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
                       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8 5v14l11-7z" />
                       </svg>
@@ -93,7 +93,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
               </div>
             ) : entry.externalUrl ? (
               <div
-                className={`aspect-video overflow-hidden rounded-card border border-ink-200 ${
+                className={`aspect-video overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 ${
                   entry.type === "REPO"
                     ? "bg-gradient-to-br from-ink-100 via-ink-50 to-lime/30"
                     : "bg-gradient-to-br from-navy-700 via-navy-600 to-lime/40"
@@ -110,7 +110,7 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
                       entry.type === "REPO" ? "text-ink-700 dark:text-ink-200" : "text-white"
                     }`}
                   >
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
+                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white dark:bg-ink-900 text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
                       {entry.type === "REPO" ? (
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z" />

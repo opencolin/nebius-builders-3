@@ -34,7 +34,7 @@ export default function LeaderboardPage() {
           </div>
         </section>
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             <div className="mb-10 grid grid-cols-2 gap-6 lg:grid-cols-4">
               <Stat label="Active builders" value={formatNumber(programMetrics.activeBuilders)} />

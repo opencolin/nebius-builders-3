@@ -16,7 +16,7 @@ export default function AdvocateDetail({ params }: { params: { slug: string } })
   return (
     <>
       <TopNav />
-      <main className="bg-white">
+      <main className="bg-white dark:bg-ink-900">
         <section className="container-page pt-12 pb-6">
           <Link href="/advocates" className="text-sm text-ink-500 dark:text-ink-400 hover:text-ink-700">
             ← All advocates

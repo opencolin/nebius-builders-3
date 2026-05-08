@@ -8,7 +8,7 @@ export default function DocsHome() {
     <>
       <TopNav />
       <main>
-        <section className="border-b border-ink-200 bg-white">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-16">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Docs</p>
             <h1 className="h-display text-4xl font-bold tracking-tight md:text-5xl">Build with Nebius Builders.</h1>
@@ -18,7 +18,7 @@ export default function DocsHome() {
             </div>
           </div>
         </section>
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
             {docSections.map((s) => (
               <div key={s.title} className="card">

@@ -17,13 +17,13 @@ export default function EventDetail({ params }: { params: { slug: string } }) {
     <>
       <TopNav />
       <main>
-        <section className={`relative overflow-hidden border-b border-ink-200 bg-gradient-to-br ${event.cover}`}>
+        <section className={`relative overflow-hidden border-b border-ink-200 dark:border-ink-700 bg-gradient-to-br ${event.cover}`}>
           <div className="container-page py-20 text-navy-700 dark:text-lime">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="pill bg-white/90 text-navy-700 dark:text-lime">{event.format.replace("_", " ").toLowerCase()}</span>
+              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.format.replace("_", " ").toLowerCase()}</span>
               {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : null}
-              {event.state === "UPCOMING" ? <span className="pill bg-white/90 text-navy-700 dark:text-lime">Upcoming</span> : null}
-              {event.state === "COMPLETED" ? <span className="pill bg-white/90 text-navy-700 dark:text-lime">Completed</span> : null}
+              {event.state === "UPCOMING" ? <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">Upcoming</span> : null}
+              {event.state === "COMPLETED" ? <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">Completed</span> : null}
             </div>
             <h1 className="h-display mt-5 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">{event.title}</h1>
             <p className="mt-5 max-w-2xl text-lg">{event.description}</p>
@@ -35,7 +35,7 @@ export default function EventDetail({ params }: { params: { slug: string } }) {
           </div>
         </section>
 
-        <section className="section bg-white">
+        <section className="section bg-white dark:bg-ink-900">
           <div className="container-page grid gap-10 lg:grid-cols-3">
             <div className="space-y-8 lg:col-span-2">
               <div className="card">
@@ -74,7 +74,7 @@ export default function EventDetail({ params }: { params: { slug: string } }) {
                 <h2 className="text-lg font-semibold">Prizes</h2>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-3">
                   {eventPrizes.map((p) => (
-                    <li key={p.title} className="rounded-lg border border-ink-200 bg-ink-50 p-4">
+                    <li key={p.title} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-4">
                       <p className="text-xs uppercase tracking-widest text-ink-500 dark:text-ink-400">{p.title}</p>
                       <p className="mt-2 text-2xl font-bold text-navy-700 dark:text-lime">{p.value}</p>
                     </li>

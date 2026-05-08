@@ -36,7 +36,7 @@ export default function WorkshopsIndex() {
           </div>
         </section>
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             {featured ? <LibraryCard entry={featured} featured /> : null}
             <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -47,7 +47,7 @@ export default function WorkshopsIndex() {
           </div>
         </section>
 
-        <section className="section bg-white">
+        <section className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">
               All entries

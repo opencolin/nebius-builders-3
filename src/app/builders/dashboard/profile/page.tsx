@@ -14,8 +14,8 @@ export default function ProfilePage() {
   return (
     <>
       <AppHeader links={builderNav} />
-      <main className="bg-ink-50">
-        <section className="border-b border-ink-200 bg-white">
+      <main className="bg-ink-50 dark:bg-ink-800">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-10">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500">Profile</p>
             <h1 className="h-display mt-1 text-3xl font-bold tracking-tight">Your builder identity</h1>
@@ -43,11 +43,11 @@ export default function ProfilePage() {
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="label">Name</label>
-                  <p className="rounded-lg border border-ink-200 bg-ink-50 px-3.5 py-2.5 text-sm">{currentUser.name}</p>
+                  <p className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 px-3.5 py-2.5 text-sm">{currentUser.name}</p>
                 </div>
                 <div>
                   <label className="label">Email</label>
-                  <p className="rounded-lg border border-ink-200 bg-ink-50 px-3.5 py-2.5 text-sm">{currentUser.email}</p>
+                  <p className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 px-3.5 py-2.5 text-sm">{currentUser.email}</p>
                 </div>
                 <div>
                   <label className="label" htmlFor="phone">Phone</label>
@@ -78,7 +78,7 @@ export default function ProfilePage() {
           </div>
         </section>
 
-        <section className="section bg-white">
+        <section className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <h2 className="h-display text-2xl font-bold">Preferences</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2">

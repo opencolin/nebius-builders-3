@@ -18,8 +18,8 @@ export default function BuilderDashboard() {
   return (
     <>
       <AppHeader links={builderNav} />
-      <main className="bg-ink-50">
-        <section className="border-b border-ink-200 bg-white">
+      <main className="bg-ink-50 dark:bg-ink-800">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-10">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
               <div>
@@ -60,7 +60,7 @@ export default function BuilderDashboard() {
           </div>
         </section>
 
-        <section className="section bg-white">
+        <section className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <div className="mb-6 flex items-end justify-between">
               <h2 className="h-display text-2xl font-bold">Watch next</h2>

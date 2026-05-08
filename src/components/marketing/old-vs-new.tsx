@@ -16,14 +16,14 @@ export function OldVsNew() {
         title="The old GTM is a badge scan."
         body="Live events with the SDK preloaded, real-time feedback, attributed leads."
       />
-      <div className="overflow-hidden rounded-card border border-ink-200 bg-white">
-        <div className="grid grid-cols-12 border-b border-ink-200 bg-ink-50 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-ink-500">
+      <div className="overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
+        <div className="grid grid-cols-12 border-b border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 px-6 py-3 text-xs font-semibold uppercase tracking-widest text-ink-500">
           <div className="col-span-4">Axis</div>
           <div className="col-span-4">Old GTM</div>
           <div className="col-span-4">Nebius Builders</div>
         </div>
         {rows.map((r) => (
-          <div key={r.axis} className="grid grid-cols-12 items-start gap-3 border-b border-ink-200 px-6 py-5 text-sm last:border-b-0">
+          <div key={r.axis} className="grid grid-cols-12 items-start gap-3 border-b border-ink-200 dark:border-ink-700 px-6 py-5 text-sm last:border-b-0">
             <div className="col-span-4 font-medium text-ink-900">{r.axis}</div>
             <div className="col-span-4 text-ink-500">{r.old}</div>
             <div className="col-span-4 text-ink-900"><span className="pill-lime mr-2">New</span>{r.neu}</div>

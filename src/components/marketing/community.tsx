@@ -71,13 +71,13 @@ export function Community() {
             <Outer
               key={c.title}
               {...outerProps}
-              className="group flex h-full flex-col gap-3 rounded-card border border-ink-200 bg-white p-6 transition-all hover:border-ink-300 hover:shadow-soft"
+              className="group flex h-full flex-col gap-3 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-6 transition-all hover:border-ink-300 hover:shadow-soft"
             >
               <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
                 {c.title}
               </h3>
               <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{c.blurb}</p>
-              <p className="border-t border-ink-200 pt-3 text-xs font-semibold text-navy-700 dark:text-lime group-hover:underline">
+              <p className="border-t border-ink-200 dark:border-ink-700 pt-3 text-xs font-semibold text-navy-700 dark:text-lime group-hover:underline">
                 {c.cta.replace("→", isExternal ? "↗" : "→")}
               </p>
             </Outer>

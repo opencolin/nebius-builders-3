@@ -27,7 +27,7 @@ export function EventManagerShell({ eventSlug, active, children }: { eventSlug: 
   return (
     <>
       <AppHeader subtitle="Builders for Business" links={companyNav} />
-      <div className="border-b border-ink-200 bg-white">
+      <div className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
         <div className="container-page py-6">
           <Link href="/companies/dashboard" className="text-sm text-ink-500 hover:text-ink-700">← All events</Link>
           <div className="mt-2 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
@@ -42,7 +42,7 @@ export function EventManagerShell({ eventSlug, active, children }: { eventSlug: 
           </div>
         </div>
       </div>
-      <div className="border-b border-ink-200 bg-white">
+      <div className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
         <div className="container-page flex gap-1 overflow-x-auto py-2">
           {sections.map((s) => (
             <Link
@@ -55,7 +55,7 @@ export function EventManagerShell({ eventSlug, active, children }: { eventSlug: 
           ))}
         </div>
       </div>
-      <main className="bg-ink-50">{children}</main>
+      <main className="bg-ink-50 dark:bg-ink-800">{children}</main>
     </>
   );
 }

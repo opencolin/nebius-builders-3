@@ -28,9 +28,9 @@ export default function PartnersTab({ params }: { params: { slug: string } }) {
             <button className="btn-lime">+ Add partner</button>
           </div>
 
-          <div className="overflow-hidden rounded-card border border-ink-200 bg-white">
+          <div className="overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
             <table className="w-full text-sm">
-              <thead className="bg-ink-50 text-xs font-semibold uppercase tracking-widest text-ink-500">
+              <thead className="bg-ink-50 dark:bg-ink-800 text-xs font-semibold uppercase tracking-widest text-ink-500">
                 <tr>
                   <th className="px-4 py-3 text-left">Company</th>
                   <th className="px-4 py-3 text-left">Tier</th>

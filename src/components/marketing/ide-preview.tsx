@@ -9,7 +9,7 @@ export function IdePreview() {
         title="Warm OpenClaw workspace. Token Factory loaded. Deploy in one click."
         body="Contree spins a sandboxed VM with code-server and OpenClaw preinstalled. Snapshot at any moment, fork to try a different approach, demo from a known-good state."
       />
-      <div className="overflow-hidden rounded-card border border-ink-200 bg-navy-700 shadow-soft">
+      <div className="overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-navy-700 shadow-soft">
         <div className="flex items-center justify-between border-b border-navy-600 px-4 py-2.5">
           <div className="flex items-center gap-2">
             <span className="h-3 w-3 rounded-full bg-red-400" />

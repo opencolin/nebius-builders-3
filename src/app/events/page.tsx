@@ -54,7 +54,7 @@ export default function EventsIndex() {
           </div>
         </section>
 
-        <section className="section bg-ink-50">
+        <section className="section bg-ink-50 dark:bg-ink-800">
           <div className="container-page">
             <div className="mb-12">
               <div className="mb-5 flex items-end justify-between gap-3">

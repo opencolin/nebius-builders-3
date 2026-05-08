@@ -56,7 +56,7 @@ export default function EventManageOverview({ params }: { params: { slug: string
                   ["Slot 3", "Orbital", "queued"],
                   ["Slot 4", "Thunder", "needs approval"],
                 ].map(([when, name, note]) => (
-                  <li key={when} className="flex items-center justify-between rounded-lg border border-ink-200 bg-white p-3">
+                  <li key={when} className="flex items-center justify-between rounded-lg border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-3">
                     <div>
                       <p className="text-xs uppercase tracking-widest text-ink-500">{when}</p>
                       <p className="font-medium">{name}</p>
@@ -70,7 +70,7 @@ export default function EventManageOverview({ params }: { params: { slug: string
               <h2 className="text-lg font-semibold">Recent blasts</h2>
               <ul className="mt-4 space-y-3 text-sm">
                 {eventBlasts.map((b) => (
-                  <li key={b.id} className="rounded-lg border border-ink-200 bg-white p-3">
+                  <li key={b.id} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-3">
                     <p className="text-xs uppercase tracking-widest text-ink-500">just sent</p>
                     <p className="mt-1 text-ink-800">{b.body}</p>
                   </li>
@@ -81,10 +81,10 @@ export default function EventManageOverview({ params }: { params: { slug: string
               <h2 className="text-lg font-semibold">Volunteer coverage</h2>
               <ul className="mt-4 grid gap-3 sm:grid-cols-3">
                 {eventVolunteerOpportunities.map((o) => (
-                  <li key={o.title} className="rounded-lg border border-ink-200 bg-white p-4">
+                  <li key={o.title} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-4">
                     <p className="font-medium">{o.title}</p>
                     <p className="text-xs text-ink-500">{o.timeSlot} · {o.location}</p>
-                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-ink-100"><div className="h-2 bg-lime-500" style={{ width: `${(o.filled / o.max) * 100}%` }} /></div>
+                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800"><div className="h-2 bg-lime-500" style={{ width: `${(o.filled / o.max) * 100}%` }} /></div>
                     <p className="mt-2 text-xs text-ink-500">{o.filled} / {o.max}</p>
                   </li>
                 ))}

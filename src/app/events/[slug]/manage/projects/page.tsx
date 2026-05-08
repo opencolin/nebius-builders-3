@@ -24,7 +24,7 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
 
           <div className="space-y-3">
             {eventProjects.map((p) => (
-              <details key={p.id} className="group rounded-card border border-ink-200 bg-white">
+              <details key={p.id} className="group rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-lime text-sm font-bold text-navy-700">{p.rank}</span>
@@ -39,7 +39,7 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
                     <span className="text-ink-400 transition group-open:rotate-90">▸</span>
                   </div>
                 </summary>
-                <div className="border-t border-ink-200 p-5">
+                <div className="border-t border-ink-200 dark:border-ink-700 p-5">
                   <p className="text-sm text-ink-800">{p.description}</p>
                   <div className="mt-4 grid gap-4 md:grid-cols-2">
                     <div>
@@ -55,7 +55,7 @@ export default function ProjectsTab({ params }: { params: { slug: string } }) {
                       </ul>
                     </div>
                   </div>
-                  <div className="mt-5 flex flex-wrap gap-2 border-t border-ink-200 pt-4">
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-ink-200 dark:border-ink-700 pt-4">
                     <button className="btn-outline text-xs">View video</button>
                     <button className="btn-outline text-xs">Approve demo</button>
                     <button className="btn-outline text-xs">Open repo ↗</button>

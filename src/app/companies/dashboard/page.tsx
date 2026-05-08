@@ -15,8 +15,8 @@ export default function CompanyDashboard() {
   return (
     <>
       <AppHeader subtitle="Builders for Business" links={companyNav} />
-      <main className="bg-ink-50">
-        <section className="border-b border-ink-200 bg-white">
+      <main className="bg-ink-50 dark:bg-ink-800">
+        <section className="border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-10">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
@@ -48,9 +48,9 @@ export default function CompanyDashboard() {
         <section className="section">
           <div className="container-page">
             <h2 className="mb-6 h-display text-2xl font-bold">Your events</h2>
-            <div className="overflow-hidden rounded-card border border-ink-200 bg-white">
+            <div className="overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
               <table className="w-full text-sm">
-                <thead className="bg-ink-50 text-xs font-semibold uppercase tracking-widest text-ink-500">
+                <thead className="bg-ink-50 dark:bg-ink-800 text-xs font-semibold uppercase tracking-widest text-ink-500">
                   <tr>
                     <th className="px-4 py-3 text-left">Event</th>
                     <th className="px-4 py-3 text-left">When</th>
@@ -83,7 +83,7 @@ export default function CompanyDashboard() {
           </div>
         </section>
 
-        <section id="devrel" className="section bg-white">
+        <section id="devrel" className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <h2 className="h-display text-2xl font-bold">DevRel toolkit</h2>
             <p className="mt-2 max-w-2xl text-ink-600">Everything we surface so your DevRel team can act on what shipped at your event.</p>
@@ -121,12 +121,12 @@ export default function CompanyDashboard() {
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div>
                     <p className="text-xs text-ink-500">Events used this cycle</p>
-                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100"><div className="h-2 bg-navy-700" style={{ width: "26%" }} /></div>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800"><div className="h-2 bg-navy-700" style={{ width: "26%" }} /></div>
                     <p className="mt-1 text-xs text-ink-500">4 of 15</p>
                   </div>
                   <div>
                     <p className="text-xs text-ink-500">IDE workspace minutes</p>
-                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100"><div className="h-2 bg-lime" style={{ width: "81%" }} /></div>
+                    <div className="mt-2 h-2 w-full overflow-hidden rounded-full bg-ink-100 dark:bg-ink-800"><div className="h-2 bg-lime" style={{ width: "81%" }} /></div>
                     <p className="mt-1 text-xs text-ink-500">812 of 1,000</p>
                   </div>
                 </div>

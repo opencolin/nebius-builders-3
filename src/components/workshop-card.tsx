@@ -6,11 +6,11 @@ export function WorkshopCard({ workshop, featured = false }: { workshop: Worksho
   return (
     <Link
       href={`/workshops/${workshop.slug}`}
-      className={`group flex flex-col overflow-hidden rounded-card border border-ink-200 bg-white transition-all hover:border-ink-300 hover:shadow-soft ${featured ? "md:flex-row" : ""}`}
+      className={`group flex flex-col overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 transition-all hover:border-ink-300 hover:shadow-soft ${featured ? "md:flex-row" : ""}`}
     >
       <div className={`relative aspect-video bg-gradient-to-br from-navy-700 via-navy-600 to-lime ${featured ? "md:aspect-auto md:w-1/2" : ""}`}>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="rounded-full bg-white/95 px-5 py-3 text-sm font-semibold text-navy-700">▶ Watch · {formatDuration(workshop.durationSeconds)}</div>
+          <div className="rounded-full bg-white dark:bg-ink-900/95 px-5 py-3 text-sm font-semibold text-navy-700">▶ Watch · {formatDuration(workshop.durationSeconds)}</div>
         </div>
         <div className="absolute right-3 top-3 pill-navy">{workshop.tags[0]}</div>
       </div>

@@ -20,7 +20,7 @@ export function PricingTable({ embed = false }: { embed?: boolean }) {
               "flex flex-col rounded-card border p-6 transition-all",
               p.highlight
                 ? "border-navy-700 bg-navy-700 text-white shadow-soft"
-                : "border-ink-200 bg-white"
+                : "border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900"
             )}
           >
             {p.highlight ? <span className="pill-lime mb-3 self-start">Most popular</span> : <span className="mb-3 h-[26px]" />}

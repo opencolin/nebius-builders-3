@@ -45,15 +45,15 @@ export function Programs() {
               key={p.name}
               {...outerProps}
               className={cn(
-                "group flex h-full flex-col gap-3 rounded-card border bg-white p-6 transition-all hover:shadow-soft",
-                p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200 hover:border-ink-300",
+                "group flex h-full flex-col gap-3 rounded-card border bg-white dark:bg-ink-900 p-6 transition-all hover:shadow-soft",
+                p.highlight ? "border-navy-700 ring-2 ring-lime/40" : "border-ink-200 dark:border-ink-700 hover:border-ink-300",
               )}
             >
               <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50 group-hover:text-navy-700">
                 {p.name}
               </h3>
               <p className="flex-1 text-sm text-ink-600 dark:text-ink-300">{p.blurb}</p>
-              <p className="border-t border-ink-200 pt-3 text-xs font-semibold text-navy-700 dark:text-lime group-hover:underline">
+              <p className="border-t border-ink-200 dark:border-ink-700 pt-3 text-xs font-semibold text-navy-700 dark:text-lime group-hover:underline">
                 {p.cta.replace("→", isExternal ? "↗" : "→")}
               </p>
             </Outer>

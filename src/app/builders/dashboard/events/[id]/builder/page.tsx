@@ -25,19 +25,19 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
   return (
     <>
       <AppHeader links={builderNav} />
-      <main className="bg-ink-50">
-        <section className={`relative overflow-hidden border-b border-ink-200 bg-gradient-to-br ${event.cover}`}>
+      <main className="bg-ink-50 dark:bg-ink-800">
+        <section className={`relative overflow-hidden border-b border-ink-200 dark:border-ink-700 bg-gradient-to-br ${event.cover}`}>
           <div className="container-page py-10 text-navy-700">
             <Link href="/builders/dashboard" className="text-sm hover:underline">← Console</Link>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : <span className="pill bg-white/90 text-navy-700">{event.state.toLowerCase()}</span>}
-              <span className="pill bg-white/90 text-navy-700">{event.format.replace("_", " ").toLowerCase()}</span>
-              <span className="pill bg-white/90 text-navy-700">{event.city}</span>
+              {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.state.toLowerCase()}</span>}
+              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.format.replace("_", " ").toLowerCase()}</span>
+              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.city}</span>
             </div>
             <h1 className="h-display mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl">{event.title}</h1>
             <p className="mt-2 text-sm">{formatDate(event.startDateTime)} · {formatTime(event.startDateTime)} · {event.venue}</p>
           </div>
-          <nav className="border-t border-navy-700/10 bg-white/85 backdrop-blur">
+          <nav className="border-t border-navy-700/10 bg-white dark:bg-ink-900/85 backdrop-blur">
             <div className="container-page flex gap-1 overflow-x-auto py-2">
               {tabs.map((t, i) => (
                 <a key={t} href={`#${t.toLowerCase()}`} className={`whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium ${i === 0 ? "bg-ink-900 text-white" : "text-ink-700 hover:bg-ink-100"}`}>{t}</a>
@@ -73,7 +73,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
                 <h2 className="text-lg font-semibold">Prizes</h2>
                 <ul className="mt-3 grid gap-3 sm:grid-cols-3">
                   {eventPrizes.map((p) => (
-                    <li key={p.title} className="rounded-lg border border-ink-200 bg-ink-50 p-3">
+                    <li key={p.title} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-3">
                       <p className="text-xs uppercase tracking-widest text-ink-500">{p.title}</p>
                       <p className="mt-1 text-xl font-bold text-navy-700">{p.value}</p>
                     </li>
@@ -104,7 +104,7 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
           </div>
         </section>
 
-        <section id="project" className="section bg-white">
+        <section id="project" className="section bg-white dark:bg-ink-900">
           <div className="container-page">
             <h2 className="h-display text-2xl font-bold">Project submission</h2>
             <p className="mt-2 max-w-2xl text-ink-600">Fill once, edit until the deadline. The video step records inside the browser and uploads to the platform automatically.</p>
@@ -132,9 +132,9 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
               </div>
               <div>
                 <label className="label" htmlFor="members">Team members</label>
-                <input id="members" disabled className="input bg-ink-50" defaultValue="Colin Lowenberg, Priya Iyer" />
+                <input id="members" disabled className="input bg-ink-50 dark:bg-ink-800" defaultValue="Colin Lowenberg, Priya Iyer" />
               </div>
-              <div className="lg:col-span-2 flex items-start gap-3 rounded-lg border border-ink-200 bg-ink-50 p-4 text-sm">
+              <div className="lg:col-span-2 flex items-start gap-3 rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-4 text-sm">
                 <input type="checkbox" id="contact" defaultChecked className="mt-0.5 h-4 w-4 accent-navy-700" />
                 <label htmlFor="contact" className="text-ink-700">Allow partner companies to contact us beyond judging.</label>
               </div>
@@ -148,15 +148,15 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
               <h3 className="text-lg font-semibold">Demo video</h3>
               <p className="text-sm text-ink-500">Required for judging. Records in-browser using your screen, camera, and mic.</p>
               <div className="mt-5 grid gap-4 md:grid-cols-3">
-                <div className="rounded-lg border border-dashed border-ink-200 bg-ink-50 p-5 text-center">
+                <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">1. Pick a screen</p>
                   <p className="mt-1 text-xs text-ink-500">Full screen recommended</p>
                 </div>
-                <div className="rounded-lg border border-dashed border-ink-200 bg-ink-50 p-5 text-center">
+                <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">2. Camera + mic on</p>
                   <p className="mt-1 text-xs text-ink-500">We need to see and hear you</p>
                 </div>
-                <div className="rounded-lg border border-dashed border-ink-200 bg-ink-50 p-5 text-center">
+                <div className="rounded-lg border border-dashed border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-5 text-center">
                   <p className="text-sm font-medium">3. Hit record</p>
                   <p className="mt-1 text-xs text-ink-500">90s minimum, 4 min max</p>
                 </div>

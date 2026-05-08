@@ -32,13 +32,13 @@ function StatePill({ state, startDateTime }: { state: Event["state"]; startDateT
 
 export function EventCard({ event, href }: { event: Event; href?: string }) {
   return (
-    <Link href={href ?? `/events/${event.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card border border-ink-200 bg-white transition-all hover:border-ink-300 hover:shadow-soft">
+    <Link href={href ?? `/events/${event.slug}`} className="group flex h-full flex-col overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 transition-all hover:border-ink-300 hover:shadow-soft">
       <div className={`relative h-36 bg-gradient-to-br ${event.cover}`}>
         <div className="absolute left-4 top-4 flex gap-2">
           <StatePill state={event.state} startDateTime={event.startDateTime} />
         </div>
         <div className="absolute bottom-3 right-3">
-          <span className="pill bg-white/90 text-navy-700">{event.city}</span>
+          <span className="pill bg-white dark:bg-ink-900/90 text-navy-700">{event.city}</span>
         </div>
       </div>
       <div className="flex flex-1 flex-col p-5">

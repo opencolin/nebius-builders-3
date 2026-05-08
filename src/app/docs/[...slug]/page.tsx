@@ -65,7 +65,7 @@ export default function DocPage({ params }: { params: { slug: string[] } }) {
   return (
     <>
       <TopNav />
-      <main className="bg-white">
+      <main className="bg-white dark:bg-ink-900">
         <div className="container-page grid gap-10 py-10 lg:grid-cols-[260px_1fr]">
           <aside className="hidden lg:block">
             <nav className="sticky top-24 space-y-6 text-sm">

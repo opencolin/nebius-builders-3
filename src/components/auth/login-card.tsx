@@ -13,7 +13,7 @@ export function LoginCard({
   redirect: string;
 }) {
   return (
-    <main className="min-h-screen bg-ink-50">
+    <main className="min-h-screen bg-ink-50 dark:bg-ink-800">
       <div className="container-page flex min-h-screen items-center justify-center py-16">
         <div className="w-full max-w-md">
           <div className="mb-8 flex flex-col items-center gap-4">

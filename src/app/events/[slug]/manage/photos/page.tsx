@@ -33,14 +33,14 @@ export default function PhotosTab({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="aspect-square rounded-card border-2 border-dashed border-ink-300 bg-ink-50 flex flex-col items-center justify-center text-center text-sm text-ink-500">
+            <div className="aspect-square rounded-card border-2 border-dashed border-ink-300 dark:border-ink-600 bg-ink-50 dark:bg-ink-800 flex flex-col items-center justify-center text-center text-sm text-ink-500">
               <span className="text-2xl">＋</span>
               <span className="mt-1">Drop photos here</span>
             </div>
             {tiles.map((t, i) => (
               <div key={i} className={`aspect-square rounded-card bg-gradient-to-br ${t} relative overflow-hidden`}>
                 <div className="absolute inset-0 grid place-items-center text-xs text-white/80 font-mono">IMG_{(i + 1).toString().padStart(4, "0")}.jpg</div>
-                <div className="absolute right-2 top-2"><button className="pill bg-white/90 text-navy-700">×</button></div>
+                <div className="absolute right-2 top-2"><button className="pill bg-white dark:bg-ink-900/90 text-navy-700">×</button></div>
               </div>
             ))}
           </div>

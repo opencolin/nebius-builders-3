@@ -47,7 +47,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-ink-200 p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-ink-200 dark:border-ink-700 p-4">
                 <div className="flex gap-2">
                   <button className="btn-outline text-xs">Zoom in</button>
                   <button className="btn-outline text-xs">Zoom out</button>
@@ -63,7 +63,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
               <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-500">Queue</h3>
               <ol className="mt-3 space-y-3">
                 {queue.map((q) => (
-                  <li key={q.name} className="rounded-lg border border-ink-200 bg-white p-3 text-sm">
+                  <li key={q.name} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-3 text-sm">
                     <div className="flex items-center justify-between">
                       <p className="font-medium">{q.name}</p>
                       <span className={q.state === "presenting" ? "pill-lime" : q.state === "needs approval" ? "pill bg-amber-100 text-amber-800" : "pill-outline"}>{q.state}</span>
@@ -91,7 +91,7 @@ export default function LiveDemos({ params }: { params: { slug: string } }) {
                 ["Stream", "WebRTC → base station"],
                 ["Capture", "HLS + post-production"],
               ].map(([t, b], i) => (
-                <li key={t} className="rounded-lg border border-ink-200 bg-ink-50 p-4">
+                <li key={t} className="rounded-lg border border-ink-200 dark:border-ink-700 bg-ink-50 dark:bg-ink-800 p-4">
                   <span className="pill-lime">Step {i + 1}</span>
                   <p className="mt-2 font-medium">{t}</p>
                   <p className="text-xs text-ink-500">{b}</p>

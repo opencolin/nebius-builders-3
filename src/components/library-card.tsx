@@ -23,13 +23,13 @@ export function LibraryCard({ entry, featured = false }: { entry: LibraryEntry; 
         className={`relative aspect-video bg-gradient-to-br ${cover} ${featured ? "md:aspect-auto md:w-1/2" : ""}`}
       >
         <div className="absolute right-3 top-3 pill-navy">{typePill[entry.type]}</div>
-        <div className="absolute bottom-3 left-3 pill-outline bg-white/95">
+        <div className="absolute bottom-3 left-3 pill-outline bg-white dark:bg-ink-900/95">
           {formatLevel(entry.level)}
           {entry.durationMin ? ` · ${entry.durationMin}m` : ""}
         </div>
         {entry.type === "VIDEO" || entry.type === "WORKSHOP" ? (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid h-14 w-14 place-items-center rounded-full bg-white/95 text-navy-700 shadow-soft transition group-hover:scale-105">
+            <div className="grid h-14 w-14 place-items-center rounded-full bg-white dark:bg-ink-900/95 text-navy-700 shadow-soft transition group-hover:scale-105">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
             </div>
           </div>

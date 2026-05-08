@@ -15,7 +15,7 @@ export default function SignupPage() {
   return (
     <>
       <TopNav />
-      <main className="bg-white">
+      <main className="bg-white dark:bg-ink-900">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
           <div className="absolute -right-24 -top-32 h-[420px] w-[420px] rounded-full bg-lime/40 blur-3xl" aria-hidden />
@@ -36,7 +36,7 @@ export default function SignupPage() {
                 {stats.map((s) => (
                   <div
                     key={s.desc}
-                    className="flex items-center gap-3 rounded-card border border-ink-200 bg-white px-4 py-3"
+                    className="flex items-center gap-3 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 px-4 py-3"
                   >
                     <span className="min-w-[64px] text-base font-bold text-navy-700 dark:text-lime">{s.label}</span>
                     <span className="text-sm text-ink-700 dark:text-ink-200">{s.desc}</span>
@@ -46,7 +46,7 @@ export default function SignupPage() {
             </div>
 
             <div className="relative">
-              <div className="rounded-card border border-ink-200 bg-white p-8 shadow-soft">
+              <div className="rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-8 shadow-soft">
                 <h2 className="text-xl font-semibold">Pick a sign-in method</h2>
                 <p className="mt-2 text-sm text-ink-600 dark:text-ink-300">
                   We use OAuth so you don't have to remember another password. GitHub connect counts
@@ -65,7 +65,7 @@ export default function SignupPage() {
                   </Link>
                 </div>
 
-                <div className="mt-6 border-t border-ink-200 pt-5">
+                <div className="mt-6 border-t border-ink-200 dark:border-ink-700 pt-5">
                   <p className="text-xs text-ink-500 dark:text-ink-400">
                     Or sign in with{" "}
                     <Link href="/builders/login" className="font-medium text-navy-700 dark:text-lime underline-offset-4 hover:underline">
@@ -87,7 +87,7 @@ export default function SignupPage() {
                 </p>
               </div>
 
-              <div className="mt-6 rounded-card border border-ink-200 bg-navy-700 p-6 text-white">
+              <div className="mt-6 rounded-card border border-ink-200 dark:border-ink-700 bg-navy-700 p-6 text-white">
                 <p className="text-sm font-semibold">Already a builder?</p>
                 <p className="mt-2 text-sm text-ink-100">
                   Open your portal to track points, claim credits, and submit content.

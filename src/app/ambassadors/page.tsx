@@ -26,7 +26,7 @@ export default function AmbassadorsPage() {
       <TopNav />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-ink-200 bg-white">
+        <section className="relative overflow-hidden border-b border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
           <div className="absolute -left-20 -bottom-20 h-[480px] w-[480px] rounded-full bg-lime/40 blur-3xl" aria-hidden />
           <div className="container-page relative pt-24 pb-20">
@@ -220,7 +220,7 @@ export default function AmbassadorsPage() {
         </Section>
 
         {/* CTA */}
-        <section className="border-t border-ink-200 bg-white">
+        <section className="border-t border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900">
           <div className="container-page py-20 text-center">
             <h2 className="h-display text-3xl font-bold tracking-tight md:text-4xl">
               Ready to host your first event?
@@ -268,8 +268,8 @@ function TierCard({
 }) {
   return (
     <div
-      className={`flex h-full flex-col gap-4 rounded-card border bg-white p-6 ${
-        highlight ? "border-navy-700 shadow-soft" : "border-ink-200"
+      className={`flex h-full flex-col gap-4 rounded-card border bg-white dark:bg-ink-900 p-6 ${
+        highlight ? "border-navy-700 shadow-soft" : "border-ink-200 dark:border-ink-700"
       }`}
     >
       <div>
