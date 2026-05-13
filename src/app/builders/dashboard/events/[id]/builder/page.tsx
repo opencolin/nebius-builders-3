@@ -29,15 +29,21 @@ export default function BuilderEventHub({ params }: { params: { id: string } }) 
       <AppHeader links={builderNav} />
       <main className="bg-ink-50 dark:bg-ink-800">
         <section className={`relative overflow-hidden border-b border-ink-200 dark:border-ink-700 bg-gradient-to-br ${event.cover}`}>
-          <div className="container-page py-10 text-navy-700 dark:text-lime">
-            <Link href="/builders/dashboard" className="text-sm hover:underline">← Console</Link>
+          {/* Hero text stays theme-independent — the event cover gradient is the same
+              in light and dark mode, so navy-on-cover wins regardless. */}
+          <div className="container-page py-10 text-navy-700">
+            <Link href="/builders/dashboard" className="text-sm font-medium text-navy-700 hover:underline">← Console</Link>
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              {event.state === "LIVE" ? <span className="pill-navy"><span className="live-dot mr-1" /> Live now</span> : <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.state.toLowerCase()}</span>}
-              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.format.replace("_", " ").toLowerCase()}</span>
-              <span className="pill bg-white dark:bg-ink-900/90 text-navy-700 dark:text-lime">{event.city}</span>
+              {event.state === "LIVE" ? (
+                <span className="pill bg-navy-700 text-white"><span className="live-dot mr-1" /> Live now</span>
+              ) : (
+                <span className="pill bg-white text-navy-700">{event.state.toLowerCase()}</span>
+              )}
+              <span className="pill bg-white text-navy-700">{event.format.replace("_", " ").toLowerCase()}</span>
+              <span className="pill bg-white text-navy-700">{event.city}</span>
             </div>
-            <h1 className="h-display mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl">{event.title}</h1>
-            <p className="mt-2 text-sm">{formatDate(event.startDateTime)} · {formatTime(event.startDateTime)} · {event.venue}</p>
+            <h1 className="h-display mt-4 text-3xl font-bold leading-tight tracking-tight text-navy-700 md:text-4xl">{event.title}</h1>
+            <p className="mt-2 text-sm text-navy-700/80">{formatDate(event.startDateTime)} · {formatTime(event.startDateTime)} · {event.venue}</p>
           </div>
           <nav className="border-t border-navy-700/10 bg-white dark:bg-ink-900/85 backdrop-blur">
             <div className="container-page flex gap-1 overflow-x-auto py-2">
