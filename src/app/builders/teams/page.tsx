@@ -8,6 +8,7 @@ const builderNav = [
   { label: "Events", href: "/events" },
   { label: "Teams", href: "/builders/teams" },
   { label: "Workshops", href: "/workshops" },
+  { label: "Leaderboard", href: "/leaderboard" },
   { label: "Profile", href: "/builders/dashboard/profile" },
 ];
 
