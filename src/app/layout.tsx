@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MockupReviewModal } from "@/components/mockup-review-modal";
+import { FeedbackWidget } from "@/components/feedback-widget";
 
 export const metadata: Metadata = {
   title: "Nebius Builders — Nebius for AI Builders",
@@ -35,7 +37,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin=""
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <MockupReviewModal />
+        <FeedbackWidget />
+      </body>
     </html>
   );
 }
