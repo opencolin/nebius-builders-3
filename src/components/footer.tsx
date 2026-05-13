@@ -49,6 +49,7 @@ const cols = [
     links: [
       { href: "/about", label: "About" },
       { href: "https://nebius.com", label: "Nebius.com" },
+      { href: "https://careers.nebius.com/", label: "Careers" },
       { href: "/about#privacy", label: "Privacy" },
       { href: "#contact", label: "Contact" },
     ],
