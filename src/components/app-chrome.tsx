@@ -20,7 +20,7 @@ export function AppHeader({ subtitle = "Builders", links }: { subtitle?: string;
           </nav>
         </div>
         <div className="flex items-center gap-3">
-          <Link href="/" className="btn-ghost text-sm">Marketing site</Link>
+          <Link href="/" className="btn-ghost text-sm">Log out</Link>
           <button className="inline-flex items-center gap-2 rounded-full border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 py-1 pl-1 pr-3 text-sm">
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-bold text-navy-700">CL</span>
             Colin
