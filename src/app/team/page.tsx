@@ -61,15 +61,37 @@ export default function TeamIndex() {
               ))}
             </div>
 
-            <div className="mt-12 rounded-card border border-ink-200 dark:border-ink-700 bg-white dark:bg-ink-900 p-8">
-              <h3 className="text-lg font-semibold text-ink-900 dark:text-ink-50">Don't see your region covered?</h3>
-              <p className="mt-2 max-w-2xl text-ink-600 dark:text-ink-300">
-                Reach out to Colin — he handles unrouted requests and can pull in a
-                Nebius engineer for technical questions outside DevRel's scope.
-              </p>
-              <Link href="/team/colin" className="btn-navy mt-5">
-                Contact Colin →
-              </Link>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              <div className="rounded-card border border-ink-200 bg-white p-8 dark:border-ink-700 dark:bg-ink-900">
+                <p className="text-xs font-semibold uppercase tracking-widest text-navy-700 dark:text-lime">
+                  Office hours
+                </p>
+                <h3 className="mt-2 text-lg font-semibold text-ink-900 dark:text-ink-50">
+                  Book a 1:1 with the team.
+                </h3>
+                <p className="mt-2 text-ink-600 dark:text-ink-300">
+                  Every advocate runs a weekly slot for their region — SF, London, Singapore, NYC.
+                  15-minute drop-in or 60-minute working session.
+                </p>
+                <Link href="/office-hours" className="btn-lime mt-5">
+                  See the schedule →
+                </Link>
+              </div>
+              <div className="rounded-card border border-ink-200 bg-white p-8 dark:border-ink-700 dark:bg-ink-900">
+                <p className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">
+                  Region not covered?
+                </p>
+                <h3 className="mt-2 text-lg font-semibold text-ink-900 dark:text-ink-50">
+                  Talk to Colin.
+                </h3>
+                <p className="mt-2 text-ink-600 dark:text-ink-300">
+                  He handles unrouted requests and can pull in a Nebius engineer for technical
+                  questions outside DevRel's scope.
+                </p>
+                <Link href="/team/colin" className="btn-outline mt-5">
+                  Contact Colin →
+                </Link>
+              </div>
             </div>
           </div>
         </section>

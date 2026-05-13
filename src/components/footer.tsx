@@ -16,6 +16,7 @@ const cols = [
     title: "Community",
     links: [
       { href: "/ambassadors", label: "Ambassador program" },
+      { href: "/office-hours", label: "Office hours" },
       { href: "/leaderboard", label: "Leaderboard" },
       { href: "/network", label: "Builder network" },
       { href: "/team", label: "Team" },

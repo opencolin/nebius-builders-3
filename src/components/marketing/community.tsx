@@ -28,7 +28,7 @@ const cards: Card[] = [
     blurb:
       "Regular office hours with the Nebius Builders team — Dev Advocates and DevRel engineers. Debug, tune performance, and get unblocked fast.",
     cta: "View schedule →",
-    href: "/team",
+    href: "/office-hours",
   },
   {
     title: "GitHub",
