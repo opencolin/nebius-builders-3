@@ -6,6 +6,7 @@
 // by replacing the fetchHtml() body.
 
 import type { BuilderEvent, BuilderEventFormat } from "./builder-events";
+import { dedupeEvents } from "./event-dedupe";
 
 // ---------------------------------------------------------------------------
 // HTML fetching
@@ -274,9 +275,9 @@ export async function refreshAllSources(): Promise<RefreshResult> {
   ]);
   const lumaEvents = luma.status === "fulfilled" ? luma.value : [];
   const nebiusEvents = nebius.status === "fulfilled" ? nebius.value : [];
-  const merged = [...nebiusEvents, ...lumaEvents].sort(
-    (a, b) => +new Date(a.startsAt) - +new Date(b.startsAt),
-  );
+  // Dedupe across sources — Nebius.Build/LON ↔ Nebius.Build/LONDON, Applied
+  // AI Conference appearing on both, etc. — and keep the richer copy of each.
+  const merged = dedupeEvents([...nebiusEvents, ...lumaEvents]);
   return {
     fetchedAt: new Date().toISOString(),
     events: merged,

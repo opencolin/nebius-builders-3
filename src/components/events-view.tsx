@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { EventsBrowser } from "@/components/events-browser";
 import type { BuilderEvent } from "@/lib/builder-events";
+import { mergeEventLists } from "@/lib/event-dedupe";
 import { cn } from "@/lib/utils";
 
 // Leaflet renders only in the browser — pull the map in client-side.
@@ -22,6 +23,13 @@ type SourceStatus = {
   url: string;
 };
 
+type PersistStatus = {
+  persistedDb: boolean;
+  inserted: number;
+  updated: number;
+  failed: number;
+};
+
 type RefreshPayload = {
   fetchedAt: string;
   events: BuilderEvent[];
@@ -29,6 +37,7 @@ type RefreshPayload = {
     luma: SourceStatus;
     nebius: SourceStatus;
   };
+  persist?: PersistStatus;
 };
 
 type Status = "idle" | "refreshing" | "done" | "error";
@@ -62,6 +71,8 @@ export function EventsView({
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   const [sources, setSources] = useState<RefreshPayload["sources"] | null>(null);
+  const [persist, setPersist] = useState<PersistStatus | null>(null);
+  const [delta, setDelta] = useState<{ added: number; updated: number } | null>(null);
 
   const mappable = useMemo(
     () => upcoming.filter((e) => !e.isOnline && (e.lat !== 0 || e.lng !== 0)),
@@ -71,6 +82,7 @@ export function EventsView({
   async function refresh() {
     setStatus("refreshing");
     setError(null);
+    setDelta(null);
     try {
       const res = await fetch("/api/events/refresh", { method: "POST" });
       const data = (await res.json()) as RefreshPayload | { error: string };
@@ -86,9 +98,21 @@ export function EventsView({
         setStatus("error");
         return;
       }
-      setUpcoming(data.events);
+      // MERGE the live results into the existing list rather than replacing.
+      // mergeEventLists() dedupes by (4-char title prefix + start date) and
+      // keeps the richer copy when there's a collision, so the hand-curated
+      // entries from builder-events.ts stay put unless a live source has a
+      // better version of the same row.
+      const before = upcoming.length;
+      const beforeIds = new Set(upcoming.map((e) => e.id));
+      const next = mergeEventLists(upcoming, data.events);
+      const added = next.filter((e) => !beforeIds.has(e.id)).length;
+      const updated = next.length - before - added < 0 ? 0 : Math.max(0, data.events.length - added);
+      setUpcoming(next);
       setFetchedAt(data.fetchedAt);
       setSources(data.sources);
+      setPersist(data.persist ?? null);
+      setDelta({ added, updated });
       setStatus("done");
     } catch (err: any) {
       setError(err?.message ?? "Network error");
@@ -146,6 +170,27 @@ export function EventsView({
               <span className="ml-auto flex flex-wrap items-center gap-2 text-xs">
                 <SourceBadge label="Luma" status={sources.luma} />
                 <SourceBadge label="Nebius" status={sources.nebius} />
+                {delta ? (
+                  <span className="inline-flex items-center gap-1 rounded-pill border border-ink-200 bg-white px-2 py-0.5 text-ink-700 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200">
+                    +{delta.added} new
+                  </span>
+                ) : null}
+                {persist?.persistedDb ? (
+                  <span
+                    title={`${persist.inserted} inserted · ${persist.updated} updated${persist.failed ? ` · ${persist.failed} failed` : ""}`}
+                    className="inline-flex items-center gap-1 rounded-pill border border-emerald-300 bg-emerald-50 px-2 py-0.5 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
+                  >
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    DB · {persist.inserted + persist.updated} saved
+                  </span>
+                ) : persist ? (
+                  <span
+                    title="DATABASE_URL is unset on this preview. Wire Neon via Vercel marketplace to enable persistence."
+                    className="inline-flex items-center gap-1 rounded-pill border border-ink-200 bg-ink-50 px-2 py-0.5 text-ink-600 dark:border-ink-700 dark:bg-ink-800 dark:text-ink-300"
+                  >
+                    DB · not wired
+                  </span>
+                ) : null}
               </span>
             ) : null}
             {status === "error" && error ? (
