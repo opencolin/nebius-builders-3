@@ -8,7 +8,7 @@ const links = [
   { href: "/library", label: "Library" },
   { href: "/ambassadors", label: "Ambassadors" },
   { href: "/leaderboard", label: "Leaderboard" },
-  { href: "/team", label: "Team" },
+  { href: "/office-hours", label: "Office Hours" },
 ];
 
 const docsLinks: {
