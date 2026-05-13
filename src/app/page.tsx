@@ -5,6 +5,7 @@ import { ActiveEvents } from "@/components/marketing/active-events";
 import { Products } from "@/components/marketing/products";
 import { UseCases } from "@/components/marketing/use-cases";
 import { WorkshopSpotlight } from "@/components/marketing/workshop-spotlight";
+import { BuilderSpotlight } from "@/components/marketing/builder-spotlight";
 import { Community } from "@/components/marketing/community";
 import { Programs } from "@/components/marketing/programs";
 import { DualPitch } from "@/components/marketing/dual-pitch";
@@ -23,6 +24,7 @@ export default function Home() {
         <Products />
         <UseCases />
         <WorkshopSpotlight />
+        <BuilderSpotlight />
         <Community />
         <Programs />
         <DualPitch />
