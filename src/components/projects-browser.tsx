@@ -5,13 +5,15 @@ import { ProjectCard } from "@/components/project-card";
 import { projects, projectEvents, projectTechs } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 
-const PRODUCTS = ["ALL", "tokenfactory", "aicloud", "soperator", "openclaw"];
+const PRODUCTS = ["ALL", "tokenfactory", "aicloud", "soperator", "openclaw", "tavily", "other"];
 const productLabels: Record<string, string> = {
   ALL: "All",
   tokenfactory: "Token Factory",
   aicloud: "AI Cloud",
   soperator: "Soperator",
   openclaw: "OpenClaw",
+  tavily: "Tavily",
+  other: "Other",
 };
 
 const AWARDS = ["ALL", "AWARDED"] as const;

@@ -791,6 +791,8 @@ export function formatProductFocus(products: string[]): string {
     aicloud: "AI Cloud",
     soperator: "Soperator",
     openclaw: "OpenClaw",
+    tavily: "Tavily",
+    other: "Other",
   };
   return products.map((p) => map[p] ?? p).join(" · ");
 }
