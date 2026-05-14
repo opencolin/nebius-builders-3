@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { AppHeader } from "@/components/app-chrome";
-import { EventCard } from "@/components/event-card";
-import { WorkshopCard } from "@/components/workshop-card";
-import { events, workshops, currentUser, liveStats } from "@/lib/data";
+import { BuilderEventCard } from "@/components/builder-event-card";
+import { currentUser } from "@/lib/data";
+import {
+  completedBuilderEvents,
+  publishedBuilderEvents,
+} from "@/lib/builder-events";
+import { library } from "@/lib/library";
+import { projects } from "@/lib/projects";
 
 const builderNav = [
   { label: "Console", href: "/builders/dashboard" },
@@ -15,8 +20,21 @@ const builderNav = [
 ];
 
 export default function BuilderDashboard() {
-  const upcoming = events.filter((e) => e.state !== "COMPLETED");
-  const past = events.filter((e) => e.state === "COMPLETED");
+  const upcoming = publishedBuilderEvents().slice(0, 6);
+  const past = completedBuilderEvents().slice(0, 3);
+  const watchNext = library
+    .filter((l) => l.type === "WORKSHOP" || l.type === "VIDEO")
+    .slice(0, 3);
+
+  const eventsLive = upcoming.filter((e) => {
+    const now = Date.now();
+    return now >= +new Date(e.startsAt) && now <= +new Date(e.endsAt);
+  }).length;
+
+  const colinProjects = projects.filter((p) =>
+    p.authors.some((a) => a.handle === "opencolin"),
+  ).length;
+
   return (
     <>
       <AppHeader links={builderNav} />
@@ -27,7 +45,11 @@ export default function BuilderDashboard() {
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-500 dark:text-ink-400">Builder console</p>
                 <h1 className="h-display mt-1 text-3xl font-bold tracking-tight text-ink-900 dark:text-ink-50">Welcome back, {currentUser.name.split(" ")[0]}.</h1>
-                <p className="mt-2 text-ink-600 dark:text-ink-300">{liveStats.eventsLive} events live · 3 sponsors hiring this week</p>
+                <p className="mt-2 text-ink-600 dark:text-ink-300">
+                  {eventsLive > 0
+                    ? `${eventsLive} event${eventsLive === 1 ? "" : "s"} live right now`
+                    : `${upcoming.length} upcoming events on the calendar`}
+                </p>
               </div>
               <div className="flex gap-2">
                 <Link href="/ide" className="btn-navy">Open IDE →</Link>
@@ -36,10 +58,10 @@ export default function BuilderDashboard() {
             </div>
             <dl className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
               {[
-                ["Total demos", "12"],
-                ["Projects shipped", "8"],
-                ["Workshop minutes", "184"],
-                ["Rank", "#312"],
+                ["Upcoming events", `${upcoming.length}`],
+                ["Past events", `${past.length}`],
+                ["Library entries", `${library.length}`],
+                ["Your projects", `${colinProjects}`],
               ].map(([l, v]) => (
                 <div key={l} className="card">
                   <dt className="text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">{l}</dt>
@@ -56,9 +78,13 @@ export default function BuilderDashboard() {
               <h2 className="h-display text-2xl font-bold">Upcoming events</h2>
               <Link href="/events" className="btn-ghost text-sm">All events →</Link>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {upcoming.map((e) => <EventCard key={e.id} event={e} href={`/builders/dashboard/events/${e.id}/builder`} />)}
-            </div>
+            {upcoming.length === 0 ? (
+              <p className="text-sm text-ink-500 dark:text-ink-400">No upcoming events on the calendar.</p>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {upcoming.map((e) => <BuilderEventCard key={e.id} event={e} />)}
+              </div>
+            )}
           </div>
         </section>
 
@@ -66,10 +92,25 @@ export default function BuilderDashboard() {
           <div className="container-page">
             <div className="mb-6 flex items-end justify-between">
               <h2 className="h-display text-2xl font-bold">Watch next</h2>
-              <Link href="/workshops" className="btn-ghost text-sm">All workshops →</Link>
+              <Link href="/library" className="btn-ghost text-sm">All library entries →</Link>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-              {workshops.map((w) => <WorkshopCard key={w.slug} workshop={w} />)}
+              {watchNext.map((entry) => (
+                <Link
+                  key={entry.slug}
+                  href={`/library/${entry.slug}`}
+                  className="card group flex h-full flex-col gap-3"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-widest text-navy-700 dark:text-lime">
+                    {entry.type === "WORKSHOP" ? "Workshop" : "Video"}
+                    {entry.durationMin ? ` · ${entry.durationMin} min` : ""}
+                  </p>
+                  <h3 className="text-base font-semibold leading-snug text-ink-900 dark:text-ink-50 group-hover:text-navy-700 dark:group-hover:text-lime">
+                    {entry.title}
+                  </h3>
+                  <p className="text-sm text-ink-600 dark:text-ink-300 line-clamp-3">{entry.blurb}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -77,9 +118,13 @@ export default function BuilderDashboard() {
         <section className="section">
           <div className="container-page">
             <h2 className="mb-6 h-display text-2xl font-bold">Past events</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {past.map((e) => <EventCard key={e.id} event={e} href={`/builders/dashboard/events/${e.id}/builder`} />)}
-            </div>
+            {past.length === 0 ? (
+              <p className="text-sm text-ink-500 dark:text-ink-400">No past events recorded yet.</p>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {past.map((e) => <BuilderEventCard key={e.id} event={e} />)}
+              </div>
+            )}
           </div>
         </section>
       </main>

@@ -10,7 +10,6 @@ import { Community } from "@/components/marketing/community";
 import { Programs } from "@/components/marketing/programs";
 import { DualPitch } from "@/components/marketing/dual-pitch";
 import { PartnerWall } from "@/components/marketing/partner-wall";
-import { Testimonial } from "@/components/marketing/testimonial";
 import { BuildInPublic } from "@/components/marketing/build-in-public";
 import { Contact } from "@/components/marketing/contact";
 
@@ -29,7 +28,6 @@ export default function Home() {
         <Programs />
         <DualPitch />
         <PartnerWall />
-        <Testimonial />
         <BuildInPublic />
         <Contact />
       </main>

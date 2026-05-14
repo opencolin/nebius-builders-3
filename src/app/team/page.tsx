@@ -18,9 +18,9 @@ export default function TeamIndex() {
               Meet the team behind Nebius Builders
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-ink-600 dark:text-ink-300">
-              Dev Advocates, DevRel engineers, and the people running events behind the scenes.
-              15-minute office hours, no gatekeeping. Cover questions about events, content,
-              infrastructure, hiring leads — whatever helps you ship.
+              One Dev Advocate today, more landing soon. 15-minute office hours, no gatekeeping —
+              cover questions about events, content, infrastructure, hiring leads, whatever helps
+              you ship.
             </p>
           </div>
         </section>
@@ -70,8 +70,8 @@ export default function TeamIndex() {
                   Book a 1:1 with the team.
                 </h3>
                 <p className="mt-2 text-ink-600 dark:text-ink-300">
-                  Every advocate runs a weekly slot for their region — SF, London, Singapore, NYC.
-                  15-minute drop-in or 60-minute working session.
+                  Weekly slot in San Francisco — 15-minute drop-in or 60-minute working session.
+                  Additional regional slots open as the team grows.
                 </p>
                 <Link href="/office-hours" className="btn-lime mt-5">
                   See the schedule →

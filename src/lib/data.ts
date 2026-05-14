@@ -1,5 +1,9 @@
-// Centralized mock data for Nebius Builders frontend.
-// Replace with API calls as the backend lands.
+// Product-shape placeholders + real reference data.
+//
+// All mock entries (fake events, fake teams, fake testimonial quote, fake
+// in-event content) were removed. What's left here is either real (partners,
+// the user's own profile, doc structure) or product-shape placeholders that
+// don't pretend to be data (pricing tiers).
 
 export type EventFormat =
   | "HACKATHON"
@@ -58,6 +62,7 @@ export type Plan = {
   highlight?: boolean;
 };
 
+// Real partners — names pulled from sponsor walls of actual events.
 export const partners: { name: string; tag?: string }[] = [
   { name: "Anthropic" },
   { name: "AWS" },
@@ -87,207 +92,13 @@ export const partners: { name: string; tag?: string }[] = [
   { name: "OpenClaw" },
 ];
 
-export const events: Event[] = [
-  {
-    id: "evt_om1",
-    slug: "openmind-om1-build-night",
-    title: "OpenMind OM1 Build Night w/ OpenAI Codex",
-    format: "HACK_NIGHT",
-    state: "LIVE",
-    startDateTime: "2026-05-06T18:00:00-07:00",
-    endDateTime: "2026-05-06T22:00:00-07:00",
-    city: "SF",
-    venue: "Wordware HQ, 625 2nd St, San Francisco, CA",
-    isOnline: false,
-    cover: "from-lime-200 via-lime-300 to-lime-400",
-    description:
-      "Ship a working OM1 agent in three hours. Token Factory keys provided; Wordware will demo their planner stack at the top of the hour.",
-    capacity: 80,
-    registered: 74,
-    partners: ["OpenMind", "OpenAI", "Wordware", "Nebius"],
-    prizePool: "$5,000",
-  },
-  {
-    id: "evt_clash",
-    slug: "clash-of-prompts-symbiotic",
-    title: "Clash of Prompts by Symbiotic ($25K + in prizes)",
-    format: "HACKATHON",
-    state: "UPCOMING",
-    startDateTime: "2026-05-07T09:30:00-07:00",
-    endDateTime: "2026-05-08T19:00:00-07:00",
-    city: "SF",
-    venue: "1185 Mason St, San Francisco, CA",
-    isOnline: false,
-    cover: "from-navy-500 via-navy-600 to-navy-700",
-    description:
-      "36-hour hackathon. Build agents that can clash, cooperate, or out-prompt each other for a $25K+ prize pool.",
-    capacity: 200,
-    registered: 187,
-    partners: ["Symbiotic AI", "Nebius", "Anthropic", "Tavily"],
-    prizePool: "$25,000+",
-  },
-  {
-    id: "evt_aide",
-    slug: "ai-developers-entrepreneurs",
-    title: "AI Developers & Entrepreneurs",
-    format: "MEETUP",
-    state: "UPCOMING",
-    startDateTime: "2026-05-11T15:00:00-07:00",
-    city: "LA",
-    venue: "Online",
-    isOnline: true,
-    cover: "from-ink-100 via-ink-200 to-lime-200",
-    description:
-      "Monthly meetup for AI builders and founders. Lightning demos, hiring corner, office hours with Nebius solutions.",
-    capacity: 500,
-    registered: 312,
-    partners: ["Nebius", "OpenClaw"],
-  },
-  {
-    id: "evt_tessl",
-    slug: "hack-night-at-tessl",
-    title: "Hack Night at Tessl",
-    format: "HACK_NIGHT",
-    state: "UPCOMING",
-    startDateTime: "2026-05-13T15:00:00+00:00",
-    city: "London",
-    venue: "Tessl, EC2A, London",
-    isOnline: false,
-    cover: "from-lime-100 via-ink-100 to-navy-700",
-    description: "Fly through three sponsor tracks. Pizza, prizes, and a Token Factory leaderboard.",
-    capacity: 60,
-    registered: 41,
-    partners: ["Tessl", "Nebius"],
-  },
-  {
-    id: "evt_clawcamp",
-    slug: "clawcamp-personal-agent",
-    title: "ClawCamp: Up-level Your OpenClaw Personal Agent Superpowers",
-    format: "MINI_CONFERENCE",
-    state: "COMPLETED",
-    startDateTime: "2026-04-16T17:30:00+00:00",
-    city: "Remote",
-    venue: "Online",
-    isOnline: true,
-    cover: "from-lime-300 via-lime-400 to-lime-500",
-    description: "ClawCamp curriculum: install, configure, and ship a personal agent on Nebius.",
-    capacity: 1000,
-    registered: 612,
-    partners: ["OpenClaw", "Nebius"],
-  },
-  {
-    id: "evt_aws",
-    slug: "ai-demo-night-aws-builder-loft",
-    title: "AI Demo Night at AWS Builder Loft",
-    format: "DEMO_NIGHT",
-    state: "COMPLETED",
-    startDateTime: "2026-04-02T18:00:00-07:00",
-    city: "SF",
-    venue: "AWS Builder Loft, 525 Market St, San Francisco, CA",
-    isOnline: false,
-    cover: "from-navy-400 via-navy-500 to-navy-700",
-    description: "Eight teams. Four minutes each. One winner.",
-    capacity: 200,
-    registered: 200,
-    partners: ["AWS", "Nebius", "Anthropic"],
-  },
-  {
-    id: "evt_qdrant",
-    slug: "openai-qdrant-tandem-revenue",
-    title: "OpenAI x Qdrant x Tandem AI Revenue Hackathon",
-    format: "HACKATHON",
-    state: "COMPLETED",
-    startDateTime: "2026-03-15T09:00:00-07:00",
-    endDateTime: "2026-03-16T19:00:00-07:00",
-    city: "SF",
-    venue: "1185 Mason St, San Francisco, CA",
-    isOnline: false,
-    cover: "from-lime-300 via-lime-400 to-navy-500",
-    description: "Build the next revenue-generating agent stack. $40K prize pool.",
-    capacity: 180,
-    registered: 180,
-    partners: ["OpenAI", "Qdrant", "Tandem AI", "Nebius"],
-    prizePool: "$40,000",
-  },
-];
+// Event listings live in `builder-events.ts` (curated + Luma-scraped).
+// This array stays for the manager-screen mockups; empty so no fake rows appear.
+export const events: Event[] = [];
 
-export const workshops: Workshop[] = [
-  {
-    slug: "running-openclaw-on-nebius",
-    title: "Running OpenClaw on Nebius",
-    hosts: [
-      { name: "Colin Lowenberg", role: "Host", company: "Nebius Builders" },
-      { name: "Michal", role: "Solutions Engineer", company: "Nebius" },
-    ],
-    recordedAt: "2026-04-22T17:00:00+00:00",
-    durationSeconds: 60 * 58,
-    videoProvider: "ZOOM",
-    videoUrl:
-      "https://nebius.zoom.us/rec/share/W7W_7xxYZBSGjcHEro0egvt2xhH00z3CIjdcSwuLI0-AZ0sDr7PiYrPJ5WeB_rnC.YsDri-mrKWuiSVj8",
-    thumbnailUrl: "",
-    description:
-      "Colin Lowenberg and Michal from Nebius hosted a webinar demonstrating how to run OpenClaw on Nebius' cloud infrastructure, specifically using Token Factory and Serverless AI services. The presentation covered installing OpenClaw locally and connecting it to Token Factory's API for accessing various open-source language models at lower costs compared to proprietary services like ChatGPT. Michal explained how to deploy OpenClaw to Nebius Serverless using Docker containers, showing the process through a CLI skill that automates the deployment. The session included live demonstrations of configuring different models, setting up sub-agents, and managing security considerations. Participants asked questions about phone number integration, model switching, cost estimation, and deployment from GitHub, with Michal confirming that GitHub deployment is on their roadmap. The webinar concluded with discussions about AI's impact on jobs and recommendations for using Tavily for web search capabilities within OpenClaw.",
-    chapters: [
-      { startSec: 0, title: "Intro & agenda" },
-      { startSec: 180, title: "Install OpenClaw locally" },
-      { startSec: 540, title: "Connect to Token Factory" },
-      { startSec: 900, title: "Model selection & cost estimation" },
-      { startSec: 1380, title: "Configure sub-agents" },
-      { startSec: 1860, title: "Deploy to Nebius Serverless via Docker" },
-      { startSec: 2280, title: "CLI deploy skill walkthrough" },
-      { startSec: 2700, title: "Security considerations" },
-      { startSec: 2940, title: "Q&A — phone, GitHub deploy, jobs, Tavily" },
-    ],
-    tags: ["openclaw", "nebius", "token-factory", "serverless", "deploy", "workshop"],
-    ctaUrl: "https://github.com/opencolin/openclaw-deploy",
-    ctaLabel: "Run on Nebius →",
-    watchCount: 412,
-  },
-  {
-    slug: "token-factory-101",
-    title: "Token Factory 101: Inference economics for builders",
-    hosts: [{ name: "Anya Kuznetsova", role: "Product", company: "Nebius" }],
-    recordedAt: "2026-04-08T16:00:00+00:00",
-    durationSeconds: 60 * 32,
-    videoProvider: "MUX",
-    videoUrl: "#",
-    thumbnailUrl: "",
-    description:
-      "How Token Factory routes requests across open-source models, what the cost curve looks like at scale, and the three patterns we see top builders use to keep their burn flat.",
-    chapters: [
-      { startSec: 0, title: "What is Token Factory" },
-      { startSec: 240, title: "Model catalog walkthrough" },
-      { startSec: 720, title: "Cost patterns" },
-      { startSec: 1320, title: "Live: switching models in OpenClaw" },
-    ],
-    tags: ["token-factory", "inference", "cost", "tutorial"],
-    ctaUrl: "/ide",
-    ctaLabel: "Try it in the IDE →",
-    watchCount: 318,
-  },
-  {
-    slug: "contree-fork-and-snapshot",
-    title: "Contree fork & snapshot: agent ergonomics",
-    hosts: [{ name: "Marek Fischer", role: "Engineer", company: "Nebius" }],
-    recordedAt: "2026-03-25T18:00:00+00:00",
-    durationSeconds: 60 * 41,
-    videoProvider: "MUX",
-    videoUrl: "#",
-    thumbnailUrl: "",
-    description:
-      "Why VM-isolated sandboxes with Git-like branching change how AI coding agents explore solutions — and how to wire it into your hackathon workflow.",
-    chapters: [
-      { startSec: 0, title: "Why branching" },
-      { startSec: 360, title: "Snapshot anatomy" },
-      { startSec: 900, title: "Demo-from-snapshot pattern" },
-      { startSec: 1620, title: "MCP integration" },
-    ],
-    tags: ["contree", "sandbox", "agents", "tooling"],
-    ctaUrl: "https://docs.contree.dev/",
-    ctaLabel: "Read the docs →",
-    watchCount: 256,
-  },
-];
+// Workshop entries live in `library.ts` now. The richer detail shape stays
+// available as a type for any future custom workshop pages.
+export const workshops: Workshop[] = [];
 
 export const plans: Plan[] = [
   {
@@ -350,19 +161,11 @@ export const plans: Plan[] = [
   },
 ];
 
-export const liveStats = {
-  buildersOnline: 25_482,
-  eventsLive: 9,
-  workshopMinutesWatched: 184_322,
-  partnerCompanies: partners.length,
-  projectsShipped: 752,
-  eventsRun: 121,
-};
-
+// Real account that drives the logged-in mockup screens.
 export const currentUser = {
   id: "u_colin",
   name: "Colin Lowenberg",
-  email: "colin@lowenberg.org",
+  email: "collin@dabl.club",
   phone: null as string | null,
   image:
     "https://lh3.googleusercontent.com/a/ACg8ocKTnbT2BnjWt0ivcEbGHnVBACUTTF1Ma4WwZJOXbNG5UkCTEz9ZsQ=s96-c",
@@ -373,30 +176,25 @@ export const currentUser = {
   twitterHandle: null as string | null,
 };
 
-export const teamsAsLeader = [
-  {
-    id: "team_muglife",
-    name: "Muglife",
-    event: events.find((e) => e.id === "evt_clawcamp")!,
-    invitations: [{ email: "alex@example.com", status: "PENDING" as const }],
-    members: [
-      { name: "Colin Lowenberg", role: "Lead" },
-      { name: "Priya Iyer", role: "Frontend" },
-    ],
-    project: { name: "Muglife", status: "DRAFT" as const, hasVideo: false },
-  },
-];
+// Team management is empty — joined-team data shipped real once we wire the
+// Neon-backed team table. Until then the dashboard renders empty states.
+export const teamsAsLeader: {
+  id: string;
+  name: string;
+  event: Event;
+  invitations: { email: string; status: "PENDING" }[];
+  members: { name: string; role: string }[];
+  project: { name: string; status: "DRAFT" | "PUBLISHED"; hasVideo: boolean };
+}[] = [];
 
 export const teamsAsMember: typeof teamsAsLeader = [];
 
-export const pendingInvitations = [
-  {
-    id: "inv_1",
-    teamName: "Token Brigade",
-    eventName: "Clash of Prompts by Symbiotic",
-    leaderName: "Marcus Yang",
-  },
-];
+export const pendingInvitations: {
+  id: string;
+  teamName: string;
+  eventName: string;
+  leaderName: string;
+}[] = [];
 
 export type ProjectSummary = {
   id: string;
@@ -410,86 +208,32 @@ export type ProjectSummary = {
   demoApproved: boolean;
 };
 
-export const eventProjects: ProjectSummary[] = [
-  {
-    id: "proj_muglife",
-    rank: 1,
-    name: "Muglife",
-    team: "Muglife",
-    description: "An OpenClaw-driven coffee-shop concierge agent that books, reorders, and routes loyalty perks across chains.",
-    technologies: ["OpenClaw", "Token Factory", "Tavily", "Stripe"],
-    partners: ["Nebius", "OpenClaw", "Stripe", "Tavily"],
-    votes: 142,
-    demoApproved: true,
-  },
-  {
-    id: "proj_quiver",
-    rank: 2,
-    name: "Quiver",
-    team: "Arrow Labs",
-    description: "Vector memory benchmarking harness with deterministic replay across MotherDuck and Qdrant.",
-    technologies: ["OpenClaw", "MotherDuck", "Qdrant"],
-    partners: ["Qdrant", "MotherDuck", "Nebius"],
-    votes: 121,
-    demoApproved: true,
-  },
-  {
-    id: "proj_orbital",
-    rank: 3,
-    name: "Orbital",
-    team: "Heliotrope",
-    description: "Multi-agent ground-station scheduler that ranks burn windows and auto-files FCC paperwork.",
-    technologies: ["OpenClaw", "Token Factory", "GLM-5"],
-    partners: ["Nebius", "OpenClaw"],
-    votes: 98,
-    demoApproved: false,
-  },
-  {
-    id: "proj_thunder",
-    rank: 4,
-    name: "Thunder",
-    team: "Sky Patrol",
-    description: "Weather-aware power-grid agent that pre-buys hedges before storms hit.",
-    technologies: ["OpenClaw", "Token Factory"],
-    partners: ["Nebius", "OpenClaw"],
-    votes: 87,
-    demoApproved: true,
-  },
-];
+// In-event leaderboard / vote tally: empty until live events feed it.
+export const eventProjects: ProjectSummary[] = [];
 
-export const eventBlasts = [
-  {
-    id: "blast_1",
-    sentAt: "2026-05-06T18:15:00-07:00",
-    body: "Pizza is here on the second floor. Sponsor table for Wordware just opened — first 20 builders get an early-access invite.",
-  },
-  {
-    id: "blast_2",
-    sentAt: "2026-05-06T16:30:00-07:00",
-    body: "Token Factory keys are loaded into your IDE. Default model is GLM-5; switch from the model picker if you need vision.",
-  },
-];
+// Event-management mock arrays — all empty so manager screens render empty
+// states instead of fictional rows.
+export const eventBlasts: { id: string; sentAt: string; body: string }[] = [];
 
-export const eventPrizes = [
-  { title: "Best Use of OpenClaw", value: "$2,500", dollarValue: 2500 },
-  { title: "Best Token Factory Build", value: "$1,500", dollarValue: 1500 },
-  { title: "Best Demo", value: "$1,000", dollarValue: 1000 },
-];
+export const eventPrizes: { title: string; value: string; dollarValue: number }[] = [];
 
-export const eventVolunteerOpportunities = [
-  { title: "Check-in Support", category: "Reception", timeSlot: "5:00 PM - 7:00 PM", location: "Lobby", filled: 2, max: 3 },
-  { title: "Pizza Captain", category: "Food", timeSlot: "7:00 PM - 8:00 PM", location: "Kitchen", filled: 1, max: 2 },
-  { title: "Demo Stage MC", category: "Stage", timeSlot: "9:00 PM - 10:00 PM", location: "Main hall", filled: 1, max: 1 },
-];
+export const eventVolunteerOpportunities: {
+  title: string;
+  category: string;
+  timeSlot: string;
+  location: string;
+  filled: number;
+  max: number;
+}[] = [];
 
-export const eventSpeakers = [
-  { name: "Filip Janik", company: "Wordware", status: "APPROVED" as const, talk: "Planner stacks with sub-agents" },
-  { name: "Sara Chen", company: "OpenMind", status: "APPROVED" as const, talk: "OM1 architecture" },
-  { name: "Devon Park", company: "Qdrant", status: "INVITED" as const, talk: "Vector memory in production" },
-];
+export const eventSpeakers: {
+  name: string;
+  company: string;
+  status: "APPROVED" | "INVITED" | "DECLINED";
+  talk: string;
+}[] = [];
 
-// (Event manager nav lives in components/event-manager-shell.tsx and is rendered relative to the active event slug.)
-
+// Real product surface area used by the /docs route.
 export const docSections = [
   {
     title: "Get started",
@@ -535,9 +279,3 @@ export const docSections = [
     ],
   },
 ];
-
-export const testimonial = {
-  quote:
-    "We rewrote our DevRel motion around Nebius Builders. Real integration telemetry meant our engineers stopped chasing badge scans and started reading code.",
-  attribution: "Director of Developer Relations, Contextual AI",
-};

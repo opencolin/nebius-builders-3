@@ -4,9 +4,9 @@
 
 export type OfficeHoursSlot = {
   advocateSlug: string;
-  cadence: string;        // "Every Thursday"
-  timeWindow: string;     // "10:00–11:00 BST"
-  audience: string;       // "EU + UK builders"
+  cadence: string;        // "Every Tuesday"
+  timeWindow: string;     // "11:00–12:00 PT"
+  audience: string;       // "Bay Area + US-Pacific builders"
   scope: string[];        // bullet-list of topics in scope
 };
 
@@ -21,42 +21,6 @@ export const officeHoursSlots: OfficeHoursSlot[] = [
       "Hackathon / workshop planning",
       "Ambassador program intake",
       "Getting unstuck on OpenClaw + Nebius deploys",
-    ],
-  },
-  {
-    advocateSlug: "amelia",
-    cadence: "Every Thursday",
-    timeWindow: "10:00–11:00 BST",
-    audience: "EU + UK builders",
-    scope: [
-      "Soperator and managed Slurm on Nebius",
-      "Distributed training + GPU sizing",
-      "Multi-node K8s job patterns",
-      "Anything time-zone-friendly for Europe",
-    ],
-  },
-  {
-    advocateSlug: "kenji",
-    cadence: "Every Wednesday",
-    timeWindow: "16:00–17:00 SGT",
-    audience: "APAC builders",
-    scope: [
-      "Fine-tuning recipes on Token Factory + AI Cloud",
-      "Agent patterns and tool-calling",
-      "Open-model selection across the Token Factory catalog",
-      "Conference + meetup planning for APAC",
-    ],
-  },
-  {
-    advocateSlug: "raquel",
-    cadence: "Every Monday",
-    timeWindow: "14:00–15:00 ET",
-    audience: "US-East + Latin America builders",
-    scope: [
-      "AI Cloud onboarding for new accounts",
-      "Enterprise + startup credit questions",
-      "Bilingual EN/ES sessions on request",
-      "Production deploys + uptime questions",
     ],
   },
 ];

@@ -3,17 +3,9 @@ import { notFound } from "next/navigation";
 import { TopNav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { findLibrary, formatLevel, formatProductFocus, library } from "@/lib/library";
-import { workshops } from "@/lib/data";
-import { formatDate, formatDuration } from "@/lib/utils";
 
 export function generateStaticParams() {
   return library.map((l) => ({ slug: l.slug }));
-}
-
-function secsToTimestamp(s: number) {
-  const m = Math.floor(s / 60);
-  const sec = s % 60;
-  return `${m}:${sec.toString().padStart(2, "0")}`;
 }
 
 const typeLabel: Record<string, string> = {
@@ -25,9 +17,6 @@ const typeLabel: Record<string, string> = {
 export default function LibraryDetail({ params }: { params: { slug: string } }) {
   const entry = findLibrary(params.slug);
   if (!entry) return notFound();
-
-  // Some entries also have a rich workshop (chapters, hosts, etc.) in data.ts.
-  const rich = workshops.find((w) => w.slug === params.slug || params.slug === "running-openclaw-on-nebius" && w.slug === "running-openclaw-on-nebius");
 
   return (
     <>
@@ -42,56 +31,19 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
             {" · "}
             {formatLevel(entry.level)}
             {entry.durationMin ? ` · ${entry.durationMin}m` : ""}
-            {rich ? ` · ${formatDate(rich.recordedAt)}` : ""}
           </p>
           <h1 className="h-display mt-3 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">
             {entry.title}
           </h1>
-          {rich ? (
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-ink-600 dark:text-ink-300">
-              {rich.hosts.map((h) => (
-                <span key={h.name} className="flex items-center gap-2">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-lime text-xs font-semibold text-navy-700">
-                    {h.name[0]}
-                  </span>
-                  <span>
-                    <strong className="text-ink-900 dark:text-ink-50">{h.name}</strong> · {h.role}, {h.company}
-                  </span>
-                </span>
-              ))}
-            </div>
-          ) : (
-            <p className="mt-4 text-sm text-ink-600 dark:text-ink-300">
-              {entry.isOfficial ? "Nebius DevRel" : `@${entry.submitterHandle ?? "community"}`}
-              {entry.submitterDisplayName ? ` · ${entry.submitterDisplayName}` : ""}
-            </p>
-          )}
+          <p className="mt-4 text-sm text-ink-600 dark:text-ink-300">
+            {entry.isOfficial ? "Nebius DevRel" : `@${entry.submitterHandle ?? "community"}`}
+            {entry.submitterDisplayName ? ` · ${entry.submitterDisplayName}` : ""}
+          </p>
         </section>
 
         <section className="container-page grid gap-8 pb-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            {rich ? (
-              <div className="aspect-video overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 bg-navy-700">
-                <a
-                  href={rich.videoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex h-full w-full items-center justify-center bg-gradient-to-br from-navy-700 via-navy-600 to-lime/40"
-                >
-                  <div className="flex flex-col items-center gap-3 text-white">
-                    <div className="grid h-20 w-20 place-items-center rounded-full bg-white dark:bg-ink-900 text-navy-700 dark:text-lime shadow-soft transition group-hover:scale-105">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="text-sm">{rich.videoProvider === "ZOOM" ? "Watch on Zoom" : "Play"}</p>
-                    <p className="text-xs text-ink-100/80">
-                      {formatDuration(rich.durationSeconds)} · {rich.watchCount.toLocaleString()} watches
-                    </p>
-                  </div>
-                </a>
-              </div>
-            ) : entry.externalUrl ? (
+            {entry.externalUrl ? (
               <div
                 className={`aspect-video overflow-hidden rounded-card border border-ink-200 dark:border-ink-700 ${
                   entry.type === "REPO"
@@ -150,22 +102,8 @@ export default function LibraryDetail({ params }: { params: { slug: string } }) 
 
             <div className="mt-10">
               <h2 className="text-xl font-bold tracking-tight">About this entry</h2>
-              <p className="mt-3 whitespace-pre-line text-ink-700 dark:text-ink-200">{rich?.description ?? entry.blurb}</p>
+              <p className="mt-3 whitespace-pre-line text-ink-700 dark:text-ink-200">{entry.blurb}</p>
             </div>
-
-            {rich?.chapters?.length ? (
-              <div className="mt-10">
-                <h2 className="text-xl font-bold tracking-tight">Chapters</h2>
-                <ol className="mt-3 space-y-2 text-sm">
-                  {rich.chapters.map((c) => (
-                    <li key={c.startSec} className="flex items-start gap-3">
-                      <span className="kbd">{secsToTimestamp(c.startSec)}</span>
-                      <span className="text-ink-700 dark:text-ink-200">{c.title}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ) : null}
 
             <div className="mt-10">
               <h2 className="text-xl font-bold tracking-tight">Recommended next</h2>
