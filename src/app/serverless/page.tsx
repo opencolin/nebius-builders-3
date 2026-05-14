@@ -172,7 +172,7 @@ export default function ServerlessPage() {
             {
               title: "Voice & media",
               body: "Transcription, diarization, and TTS in batch with Jobs; live phone agents (Telnyx + Token Factory) on Endpoints.",
-              links: [{ label: "VoiceDeck project", href: "/projects/voicedeck" }],
+              links: [{ label: "K1 Walking & Talking", href: "/projects/k1-walking-talking" }],
             },
             {
               title: "Robotics",

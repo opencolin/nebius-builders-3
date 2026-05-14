@@ -1,6 +1,6 @@
-// Showcase projects shipped by Nebius Builders, Ambassadors, and Advocates.
-// Inspired by ethglobal.com/showcase: cover + title + lede + builders + tech +
-// hackathon/event + awards.
+// Showcase projects shipped by Nebius Builders.
+// Seeded from the Nebius.Build SF Hackathon (March 15, 2026) — public repos
+// the user pointed at; descriptions paraphrased from each repo's README.
 
 export type ProjectAuthorRole = "builder" | "ambassador" | "advocate";
 
@@ -33,198 +33,114 @@ export type Project = {
   shippedAt: string;
 };
 
+const HACKATHON = "Nebius.Build SF Hackathon — March 2026";
+const SHIPPED = "2026-03-16T00:00:00Z";
+
 export const projects: Project[] = [
   {
-    slug: "muglife",
-    title: "Muglife",
-    lede: "OpenClaw concierge agent that books, reorders, and routes loyalty perks across coffee chains.",
+    slug: "injester",
+    title: "Injester",
+    lede:
+      "Drop any URL in, get back an AI-agent-actionable version of the page in seconds — and a side-by-side benchmark showing the agent succeed on the optimized version where it failed on the raw one.",
     description:
-      "Multi-shop coffee concierge: ranks current cup quality, optimizes loyalty stack, and pre-orders so you skip the line. Token Factory powers the planner; Tavily handles real-time menu scrapes; Stripe handles payment.",
+      "Pipeline: Tavily Extract strips the HTML noise, a Nebius Token Factory model (Llama 3.1 70B / Qwen) restructures the content into agent-friendly form, then a self-improvement loop iterates on its own restructuring prompt for three rounds. A three-panel UI shows the human web, the AI view, and the benchmark score. FastAPI on Python for the backend, React on the front.",
     cover: "from-lime-300 via-lime-200 to-navy-700",
-    productFocus: ["openclaw", "tokenfactory"],
-    technologies: ["OpenClaw", "Token Factory", "Tavily", "Stripe"],
-    authors: [
-      { name: "Colin Lowenberg", handle: "opencolin", role: "advocate" },
-      { name: "Priya Iyer", handle: "priya", role: "builder" },
-    ],
-    eventId: "evt_clawcamp",
-    eventTitle: "ClawCamp: Personal Agent Superpowers",
-    awards: [{ label: "1st place — Best Use of OpenClaw", sponsor: "OpenClaw" }],
-    githubUrl: "https://github.com/opencolin/muglife",
-    demoUrl: "https://muglife.demo",
-    shippedAt: "2026-04-16T22:00:00Z",
-  },
-  {
-    slug: "quiver",
-    title: "Quiver",
-    lede: "Vector-memory benchmarking harness with deterministic replay across MotherDuck and Qdrant.",
-    description:
-      "Benchmark eval suite for agentic memory. Replays the same workload across MotherDuck and Qdrant, scores recall + latency + cost, and renders a side-by-side report. Open source under MIT.",
-    cover: "from-navy-600 via-navy-700 to-navy-900",
-    productFocus: ["tokenfactory", "aicloud"],
-    technologies: ["OpenClaw", "MotherDuck", "Qdrant", "Token Factory"],
-    authors: [{ name: "Alex Boros", handle: "aboros", role: "ambassador" }],
-    eventId: "evt_qdrant",
-    eventTitle: "OpenAI x Qdrant x Tandem AI Revenue Hackathon",
-    awards: [{ label: "2nd place", sponsor: "Qdrant" }],
-    githubUrl: "https://github.com/aboros/quiver",
-    shippedAt: "2026-03-16T19:00:00Z",
-  },
-  {
-    slug: "orbital",
-    title: "Orbital",
-    lede: "Multi-agent ground-station scheduler that ranks burn windows and auto-files FCC paperwork.",
-    description:
-      "Sub-agent fleet plans satellite contacts, optimizes burn windows for minimum fuel, and files the FCC special-temporary-authority paperwork in the right format. Built in 36 hours at Clash of Prompts.",
-    cover: "from-navy-800 via-navy-700 to-lime/50",
-    productFocus: ["tokenfactory", "openclaw"],
-    technologies: ["OpenClaw", "Token Factory", "GLM-5"],
-    authors: [
-      { name: "Jason Lee", handle: "jlee", role: "builder" },
-      { name: "Mei Miao", handle: "mmiao", role: "builder" },
-    ],
-    eventId: "evt_clash",
-    eventTitle: "Clash of Prompts by Symbiotic",
-    githubUrl: "https://github.com/jlee/orbital",
-    shippedAt: "2026-05-08T19:00:00Z",
-  },
-  {
-    slug: "thunder",
-    title: "Thunder",
-    lede: "Weather-aware power-grid agent that pre-buys hedges before storms hit.",
-    description:
-      "Watches NOAA models + ERCOT prices, simulates outage probability hour-by-hour, and pre-positions PJM/ERCOT hedges so utilities don't get caught short.",
-    cover: "from-lime-400 via-lime-200 to-ink-200",
     productFocus: ["tokenfactory"],
-    technologies: ["OpenClaw", "Token Factory"],
-    authors: [{ name: "Daniel Perez", handle: "dperez", role: "builder" }],
-    eventId: "evt_om1",
-    eventTitle: "OpenMind OM1 Build Night",
-    awards: [{ label: "Honorable mention" }],
-    githubUrl: "https://github.com/dperez/thunder",
-    demoUrl: "https://thunder.demo",
-    shippedAt: "2026-05-06T22:00:00Z",
+    technologies: ["Python", "FastAPI", "React", "Tavily", "Llama 3.1 70B", "Qwen"],
+    authors: [{ name: "injester-ai", handle: "injester-ai", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/InjesterLol/Main",
+    shippedAt: SHIPPED,
   },
   {
-    slug: "gemma-finetune",
-    title: "QLoRA Fine-tune Gemma 4 on Nebius",
-    lede: "Validated 9-node fine-tune recipe + workshop runbook. Lifted ~30 attendees to a deployed adapter live.",
+    slug: "runrobot",
+    title: "runrobot",
+    lede:
+      "Open-source package + runtime tooling for robot policies. Train once, package once, run the same artifact in a browser demo, in simulation, and on the actual robot.",
     description:
-      "Reference recipe for hands-on fine-tuning workshops. Bash + Python infra skills wrap Nebius AI Cloud, allocate GPU pools per attendee, and hand out usable adapters by the end of the session.",
-    cover: "from-navy-700 via-lime-300 to-lime-200",
-    productFocus: ["aicloud", "tokenfactory"],
-    technologies: ["Nebius AI Cloud", "Token Factory", "QLoRA", "Gemma 4"],
-    authors: [{ name: "Ray Zahid", handle: "rayyanzahid", role: "ambassador" }],
-    eventId: "e_8",
-    eventTitle: "Sandbox VR SF — Fine-tuning Workshop",
-    awards: [{ label: "Curated by Nebius DevRel" }],
-    githubUrl: "https://github.com/RayyanZahid/gemma-finetune",
-    shippedAt: "2026-05-05T22:00:00Z",
+      "A policy is a trained, packaged, and published software program. runrobot defines that package — policy.yaml, robot.yaml, scene.yaml, and a validator — plus the runtime to execute it across browser, sim, and hardware. The goal is to stop shipping robotics teams the integration tax of porting one policy at a time across three different runtimes. SDKs and APIs publish to RunRobot Cloud or an on-prem deployment.",
+    cover: "from-navy-800 via-navy-700 to-lime/40",
+    productFocus: ["aicloud"],
+    technologies: ["TypeScript", "JavaScript", "Policy YAML", "WebGL"],
+    authors: [{ name: "RunRobotics", handle: "runrobotics", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/runrobotics/runrobot",
+    shippedAt: SHIPPED,
   },
   {
-    slug: "nebius-mcp",
-    title: "Nebius MCP Server",
-    lede: "Model Context Protocol server that lets MCP-aware clients operate Nebius resources as native tools.",
+    slug: "robostore",
+    title: "RoboStore",
+    lede:
+      "Self-expanding robot agent: it detects its own hardware gaps, shops a parts catalog, auto-generates the integration skill, installs it, and retries the task.",
     description:
-      "Expose AI Cloud + Token Factory as MCP tools to Claude Code, OpenClaw, and any MCP client. Manage VMs, deploy endpoints, and rotate keys without leaving your agent.",
-    cover: "from-navy-700 via-navy-500 to-lime/50",
-    productFocus: ["openclaw", "aicloud"],
-    technologies: ["MCP", "Python", "Nebius AI Cloud"],
-    authors: [{ name: "Colin Lowenberg", handle: "opencolin", role: "advocate" }],
-    githubUrl: "https://github.com/opencolin/nebius-mcp",
-    shippedAt: "2026-05-03T17:16:00Z",
-  },
-  {
-    slug: "evals-week",
-    title: "Evals Week",
-    lede: "Open-source eval harness benchmarked across the entire Token Factory model catalog in one week.",
-    description:
-      "Drop in a yaml of evals; the harness runs them in parallel across all open-source Token Factory models, computes the cost/quality frontier, and ships a weekly report. Used by ~50 builders at the Brooklyn meetup.",
-    cover: "from-navy-800 via-navy-600 to-lime",
-    productFocus: ["tokenfactory"],
-    technologies: ["OpenClaw", "Token Factory", "Python"],
-    authors: [{ name: "Alex Boros", handle: "aboros", role: "ambassador" }],
-    eventId: "e_2",
-    eventTitle: "LLM Evals — A Workshop for Builders",
-    githubUrl: "https://github.com/aboros/evals-week",
-    shippedAt: "2026-04-30T01:00:00Z",
-  },
-  {
-    slug: "soperator-tui",
-    title: "Soperator TUI",
-    lede: "Terminal dashboard for managed Slurm clusters on Nebius. Tail jobs, cancel runs, view GPU heat.",
-    description:
-      "ncurses-style TUI that reads Soperator's state and lets cluster operators tail jobs, cancel runs, and see per-GPU temperature/utilization at a glance. Goes well with a giant monitor and a desk fan.",
-    cover: "from-ink-800 via-navy-700 to-lime/50",
-    productFocus: ["soperator", "aicloud"],
-    technologies: ["Soperator", "Python", "Slurm"],
-    authors: [{ name: "Jia Wen", handle: "jwen", role: "ambassador" }],
-    eventId: "e_3",
-    eventTitle: "GPU Cluster Office Hours",
-    githubUrl: "https://github.com/jwen/soperator-tui",
-    shippedAt: "2026-05-20T19:00:00Z",
-  },
-  {
-    slug: "voicedeck",
-    title: "VoiceDeck",
-    lede: "Telnyx-driven phone agent that joins your standup, takes notes, and files JIRA tickets.",
-    description:
-      "Dial-in agent. Joins standups via SIP, transcribes with Token Factory's Whisper-class model, summarizes, and files JIRA tickets for action items. Won the OpenMind Build Night Best Demo.",
-    cover: "from-lime-200 via-lime-300 to-lime-400",
-    productFocus: ["tokenfactory", "openclaw"],
-    technologies: ["OpenClaw", "Telnyx", "Token Factory", "JIRA"],
-    authors: [
-      { name: "Sarah Koshy", handle: "skoshy", role: "ambassador" },
-      { name: "Henry Wang", handle: "hwang", role: "builder" },
-    ],
-    eventId: "evt_om1",
-    eventTitle: "OpenMind OM1 Build Night",
-    awards: [{ label: "Best Demo", sponsor: "OpenMind" }],
-    githubUrl: "https://github.com/skoshy/voicedeck",
-    demoUrl: "https://voicedeck.demo",
-    videoUrl: "https://youtu.be/example-voicedeck",
-    shippedAt: "2026-05-06T22:30:00Z",
-  },
-  {
-    slug: "nemoclaw-tui",
-    title: "NemoClaw Inspector",
-    lede: "Live GPU memory + sub-agent visualizer for OpenClaw running on Nebius GPU Serverless (NemoClaw).",
-    description:
-      "When a sub-agent forks, you can see the new context window, the GPU layer it landed on, and how much vRAM headroom remains. Drops into any OpenClaw + NemoClaw deployment.",
-    cover: "from-navy-900 via-navy-700 to-lime/40",
-    productFocus: ["aicloud", "openclaw"],
-    technologies: ["OpenClaw", "NemoClaw", "TypeScript"],
-    authors: [{ name: "Marek Fischer", handle: "marek", role: "advocate" }],
-    githubUrl: "https://github.com/marek/nemoclaw-inspector",
-    shippedAt: "2026-04-12T12:00:00Z",
-  },
-  {
-    slug: "ar-pricing",
-    title: "AR Pricing Agent",
-    lede: "Arabic-NLP pricing concierge that negotiates B2B SaaS contracts in MENA Arabic dialects.",
-    description:
-      "Fine-tuned on Qwen-2.5 with Token Factory inference. Handles Egyptian, Gulf, and Levantine dialects, sticks to the company price-floor, and never hallucinates SLAs. Pilot live with two SF startups expanding to MENA.",
+      "Given a task it can't complete (\"navigate, pick up the red box, return\") the agent identifies what hardware it's missing, queries a real parts catalog via Tavily, generates a YAML skill file with install instructions and the ROS2 packages required, then re-attempts the task. Three Nebius-hosted agents run in parallel under OpenClaw orchestration: SCOUT (Qwen2-VL-72B) for vision, PLANNER (Qwen3-235B) for task decomposition, SAFETY for parallel risk-assessment rollouts.",
     cover: "from-lime-400 via-lime-200 to-navy-500",
-    productFocus: ["tokenfactory", "aicloud"],
-    technologies: ["Token Factory", "Qwen-2.5", "QLoRA"],
-    authors: [{ name: "Esra Hassan", handle: "ehassan", role: "builder" }],
-    eventId: "e_7",
-    eventTitle: "Cairo AI Founder Mixer",
-    githubUrl: "https://github.com/ehassan/ar-pricing",
-    shippedAt: "2026-05-30T20:00:00Z",
+    productFocus: ["openclaw", "tokenfactory", "aicloud"],
+    technologies: ["Python", "OpenClaw", "Qwen2-VL-72B", "Qwen3-235B", "Token Factory", "ROS2"],
+    authors: [{ name: "Joshua Iokua", handle: "joshuaiokua", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/joshuaiokua/nebius-hackathon",
+    shippedAt: SHIPPED,
   },
   {
-    slug: "claude-code-proxy",
-    title: "Claude Code → Token Factory Proxy",
-    lede: "Run Claude Code on open-source models via Nebius Token Factory.",
+    slug: "topology",
+    title: "TOPOLOGY",
+    lede:
+      "Evolutionary agent-organization discovery: ten LLM-agent teams with randomly generated org genomes compete on a task; the weakest dissolve, the strongest mutate, and over five generations evolution finds the optimal architecture.",
     description:
-      "Drop-in HTTP proxy that translates Claude API requests into OpenAI-compatible Token Factory calls. Lets you run Claude Code with any of the 44+ open-source models hosted on Nebius.",
-    cover: "from-navy-700 via-navy-600 to-lime/50",
-    productFocus: ["openclaw", "tokenfactory"],
-    technologies: ["Python", "Token Factory", "OpenAI SDK"],
-    authors: [{ name: "Kiran (community)", handle: "KiranChilledOut", role: "builder" }],
-    githubUrl: "https://github.com/KiranChilledOut/claude-code-proxy",
-    shippedAt: "2026-05-05T09:46:00Z",
+      "Every \"gene\" — hierarchy, communication pattern, decision-making style, work distribution, roles, team size — has mechanical consequences on how the team executes. A real-time Canvas2D viz shows all ten team topologies; teams fade when they die and bloom from their parent's position when they spawn. Three Nebius model tiers: Llama 3.1 8B-fast for agent execution and role generation, Llama 3.3 70B-fast for evaluation, DeepSeek-R1 for the final synthesis naming the winning archetype.",
+    cover: "from-navy-700 via-navy-600 to-lime/40",
+    productFocus: ["tokenfactory"],
+    technologies: ["Python", "WebSockets", "Canvas2D", "Llama 3.1 8B", "Llama 3.3 70B", "DeepSeek-R1"],
+    authors: [{ name: "nxrobins", handle: "nxrobins", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/nxrobins/topology",
+    shippedAt: SHIPPED,
+  },
+  {
+    slug: "k1-walking-talking",
+    title: "K1 Walking & Talking",
+    lede:
+      "Voice-controlled humanoid: speak to the Booster K1 and it walks, follows you around, tracks objects, dances, waves, and remembers faces.",
+    description:
+      "Real-time voice loop on Gemini Live API drives a Booster K1 humanoid. YOLOv8 handles object detection on stereo cameras; ROS2 topics carry frames from the camera bridge; face recognition keeps track of who's in the room. The control machine talks to the robot over Ethernet — works equally well running on a laptop or on the K1's onboard Jetson.",
+    cover: "from-lime-300 via-lime-400 to-navy-700",
+    productFocus: ["tokenfactory", "aicloud"],
+    technologies: ["Python", "Gemini Live API", "YOLOv8", "ROS2", "Booster K1", "Stereo Vision"],
+    authors: [{ name: "Armin Foroughi", handle: "arminforoughi", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/arminforoughi/nebius_k1",
+    shippedAt: SHIPPED,
+  },
+  {
+    slug: "asha",
+    title: "Asha",
+    lede:
+      "WhatsApp-native AI assistant for small home businesses. Takes orders in natural language (including Hinglish), remembers \"your usual,\" handles confirmations, and sends owners a daily summary.",
+    description:
+      "Built for owners who already live in WhatsApp — Asha sits inside the chat thread instead of asking them to download yet another app. Twilio routes the messages; a multi-agent system on Nebius Serverless handles intent extraction, customer memory, and order coordination; Supabase backs the database and the realtime owner dashboard. Asha means \"hope\" in Hindi.",
+    cover: "from-lime-200 via-lime-300 to-lime-400",
+    productFocus: ["tokenfactory", "aicloud"],
+    technologies: ["TypeScript", "Python", "Twilio", "WhatsApp Business API", "Nebius Serverless", "Supabase"],
+    authors: [{ name: "Mohammed Israfeel", handle: "misran3", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/misran3/asha",
+    shippedAt: SHIPPED,
+  },
+  {
+    slug: "linda-nebius",
+    title: "Nebius Hackathon — @lindamao",
+    lede:
+      "Hackathon repo by @lindamao from Nebius.Build SF. Early-stage; README is still a placeholder, code is Python.",
+    description:
+      "Submitted at the Nebius.Build SF Hackathon. The repo is still being filled out — once @lindamao adds a description and live demo, this card will surface them. Sponsoring this card in the showcase for now since it represents a real builder shipping at the event.",
+    cover: "from-navy-700 via-navy-500 to-lime/40",
+    productFocus: ["tokenfactory"],
+    technologies: ["Python"],
+    authors: [{ name: "Linda Mao", handle: "lindamao", role: "builder" }],
+    eventTitle: HACKATHON,
+    githubUrl: "https://github.com/lindamao/nebius_hackathon",
+    shippedAt: SHIPPED,
   },
 ];
 
