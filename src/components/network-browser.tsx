@@ -6,24 +6,31 @@ import { type BuilderProfile, formatNumber, sortedBuilders, tierLabel } from "@/
 import { cn } from "@/lib/utils";
 
 const TIERS = ["ALL", "AMBASSADOR", "CONTRIBUTOR", "BUILDER"] as const;
+const ORIGINS = ["ALL", "hackathon", "contributor"] as const;
 
 export function NetworkBrowser() {
   const [tier, setTier] = useState<(typeof TIERS)[number]>("ALL");
+  const [origin, setOrigin] = useState<(typeof ORIGINS)[number]>("ALL");
   const [search, setSearch] = useState("");
 
   const filtered = useMemo<BuilderProfile[]>(() => {
     return sortedBuilders().filter((b) => {
       const tierMatch = tier === "ALL" || b.tier === tier;
-      if (!search) return tierMatch;
+      const originMatch =
+        origin === "ALL" ||
+        (origin === "hackathon" && (b.origin === "hackathon" || b.origin === "curated")) ||
+        (origin === "contributor" && b.origin === "contributor");
+      if (!search) return tierMatch && originMatch;
       const q = search.toLowerCase();
       const searchMatch =
         b.handle.toLowerCase().includes(q) ||
         b.name.toLowerCase().includes(q) ||
         (b.city?.toLowerCase().includes(q) ?? false) ||
+        (b.contributedRepos?.some((r) => r.toLowerCase().includes(q)) ?? false) ||
         b.expertise.some((e) => e.toLowerCase().includes(q));
-      return tierMatch && searchMatch;
+      return tierMatch && originMatch && searchMatch;
     });
-  }, [tier, search]);
+  }, [tier, origin, search]);
 
   return (
     <>
@@ -54,6 +61,30 @@ export function NetworkBrowser() {
                 )}
               >
                 {t === "ALL" ? "All" : t.charAt(0) + t.slice(1).toLowerCase()}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-ink-500 dark:text-ink-400">Origin</p>
+          <div className="flex flex-wrap gap-2">
+            {ORIGINS.map((o) => (
+              <button
+                key={o}
+                type="button"
+                onClick={() => setOrigin(o)}
+                className={cn(
+                  "rounded-pill border px-3 py-1.5 text-xs font-medium transition-colors",
+                  o === origin
+                    ? "border-navy-700 bg-navy-700 text-white dark:border-lime dark:bg-lime dark:text-navy-700"
+                    : "border-ink-200 bg-white text-ink-700 hover:border-ink-300 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200 dark:hover:border-ink-600",
+                )}
+              >
+                {o === "ALL"
+                  ? "All"
+                  : o === "hackathon"
+                  ? "Hackathon"
+                  : "OSS contributor"}
               </button>
             ))}
           </div>
@@ -93,6 +124,9 @@ export function NetworkBrowser() {
                   {formatNumber(b.pointsTotal)} pts
                   {b.awardsCount ? (
                     <span className="ml-2 text-ink-500 dark:text-ink-400">· {b.awardsCount} award{b.awardsCount > 1 ? "s" : ""}</span>
+                  ) : null}
+                  {b.commitsCount && !b.awardsCount ? (
+                    <span className="ml-2 text-ink-500 dark:text-ink-400">· {formatNumber(b.commitsCount)} commits</span>
                   ) : null}
                 </span>
                 {b.githubHandle ? (

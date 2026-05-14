@@ -6,6 +6,7 @@
 // the auto-derivation for people we know personally (custom bio, city, etc.).
 
 import { projects, type Project } from "@/lib/projects";
+import { nebiusContributors, type NebiusContributor } from "@/lib/nebius-contributors";
 
 export type BuilderTier = "BUILDER" | "CONTRIBUTOR" | "AMBASSADOR" | "FOUNDING";
 
@@ -33,6 +34,12 @@ export type BuilderProfile = {
   projectSlugs?: string[];
   /** How many awards they hold across all their projects. */
   awardsCount?: number;
+  /** Total commits across Nebius open-source repos, if any. */
+  commitsCount?: number;
+  /** Nebius OSS repos they've shipped code to, sorted by commit count desc. */
+  contributedRepos?: string[];
+  /** Marks how they landed on the network. */
+  origin?: "curated" | "hackathon" | "contributor";
 };
 
 // -- Curated (real people we know, with full profiles) -----------------------
@@ -53,6 +60,7 @@ const curated: BuilderProfile[] = [
     signedUpAt: "2026-04-12T08:00:00Z",
     lastActiveAt: "2026-05-06T18:45:00Z",
     wantsToHost: true,
+    origin: "curated",
   },
 ];
 
@@ -191,12 +199,86 @@ function buildDerivedBuilders(): BuilderProfile[] {
       wantsToHost: false,
       projectSlugs: a.projectSlugs,
       awardsCount: a.awards,
+      origin: "hackathon",
     }));
+}
+
+// -- Derived from Nebius OSS contributions ------------------------------------
+
+function contributorBio(c: NebiusContributor): string {
+  if (c.bio) return c.bio;
+  const repoCount = c.repos.length;
+  const top = c.repos[0]?.repo;
+  if (!top) return `Contributor on Nebius open-source repos.`;
+  if (repoCount === 1) {
+    return `Shipped ${c.commits.toLocaleString()} commit${c.commits === 1 ? "" : "s"} to nebius/${top}.`;
+  }
+  return `Shipped ${c.commits.toLocaleString()} commits across ${repoCount} Nebius open-source repos (top: nebius/${top}).`;
+}
+
+function contributorTier(c: NebiusContributor): BuilderTier {
+  if (c.commits >= 250) return "AMBASSADOR";
+  if (c.commits >= 25) return "CONTRIBUTOR";
+  return "BUILDER";
+}
+
+function contributorPoints(c: NebiusContributor): number {
+  // 250 base + 5/commit. Capped at 6000 so a Cilium-scale committer doesn't
+  // dwarf hackathon winners. 1 commit = 255 pts; 100 commits = 750; 1000+ = 5250+.
+  return Math.min(6000, 250 + c.commits * 5);
+}
+
+function contributorExpertise(c: NebiusContributor): string[] {
+  // Use the repo names as expertise tags (cleaned). Cap at 4.
+  return c.repos.slice(0, 4).map((r) => r.repo);
+}
+
+function contributorSubline(c: NebiusContributor): string {
+  const n = c.commits;
+  const r = c.repos.length;
+  return `${n.toLocaleString()} commit${n === 1 ? "" : "s"} · ${r} repo${r === 1 ? "" : "s"}`;
+}
+
+function buildContributorBuilders(skipHandles: Set<string>): BuilderProfile[] {
+  return nebiusContributors
+    .filter((c) => !skipHandles.has(c.login.toLowerCase()))
+    .map<BuilderProfile>((c) => {
+      const cityCountry = c.location ? c.location.split(",").map((s) => s.trim()) : [];
+      return {
+        id: `b_${c.login.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
+        handle: c.login,
+        name: c.name,
+        bio: contributorBio(c),
+        city: cityCountry[0] || undefined,
+        country: cityCountry[1] || undefined,
+        subline: c.location ? undefined : contributorSubline(c),
+        tier: contributorTier(c),
+        pointsTotal: contributorPoints(c),
+        githubHandle: c.login,
+        twitterHandle: c.twitter || undefined,
+        expertise: contributorExpertise(c),
+        // We don't know when they signed up — use today as a placeholder.
+        signedUpAt: "2026-05-13T00:00:00Z",
+        lastActiveAt: "2026-05-13T00:00:00Z",
+        wantsToHost: false,
+        commitsCount: c.commits,
+        contributedRepos: c.repos.map((r) => r.repo),
+        origin: "contributor",
+      };
+    });
 }
 
 const derived = buildDerivedBuilders();
 
-export const builders: BuilderProfile[] = [...curated, ...derived];
+// Skip anyone already represented as curated or hackathon-derived. Hackathon
+// builders who ALSO contribute to Nebius OSS keep their hackathon profile.
+const usedHandles = new Set<string>([
+  ...curated.map((b) => b.handle.toLowerCase()),
+  ...derived.map((b) => b.handle.toLowerCase()),
+]);
+const contributorDerived = buildContributorBuilders(usedHandles);
+
+export const builders: BuilderProfile[] = [...curated, ...derived, ...contributorDerived];
 
 export const sortedBuilders = () =>
   [...builders].sort((a, b) => b.pointsTotal - a.pointsTotal);
@@ -211,7 +293,7 @@ export const programMetrics = {
   creditsClaimedUsdDelta: 24_000,
   eventsRunDelta: 12,
   signupsDelta: 183,
-  buildersDelta: derived.length,
+  buildersDelta: derived.length + contributorDerived.length,
 };
 
 export function tierLabel(tier: BuilderTier): string {
