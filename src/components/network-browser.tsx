@@ -19,7 +19,7 @@ export function NetworkBrowser() {
       const searchMatch =
         b.handle.toLowerCase().includes(q) ||
         b.name.toLowerCase().includes(q) ||
-        b.city.toLowerCase().includes(q) ||
+        (b.city?.toLowerCase().includes(q) ?? false) ||
         b.expertise.some((e) => e.toLowerCase().includes(q));
       return tierMatch && searchMatch;
     });
@@ -65,42 +65,50 @@ export function NetworkBrowser() {
       </p>
 
       <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((b) => (
-          <div key={b.id} className="card flex h-full flex-col gap-3">
-            <div className="flex items-start gap-3">
-              <Avatar name={b.name} handle={b.githubHandle} size={56} />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold dark:text-ink-50">@{b.handle}</p>
-                <p className="truncate text-sm text-ink-600 dark:text-ink-300">{b.name}</p>
-                <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">
-                  {b.city}, {b.country}
-                </p>
+        {filtered.map((b) => {
+          const location = b.city ? `${b.city}, ${b.country}` : b.subline;
+          return (
+            <div key={b.id} className="card flex h-full flex-col gap-3">
+              <div className="flex items-start gap-3">
+                <Avatar name={b.name} handle={b.githubHandle} size={56} />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold dark:text-ink-50">@{b.handle}</p>
+                  <p className="truncate text-sm text-ink-600 dark:text-ink-300">{b.name}</p>
+                  {location ? (
+                    <p className="mt-1 text-xs text-ink-500 dark:text-ink-400">{location}</p>
+                  ) : null}
+                </div>
+                <span className="pill-outline text-[10px]">{tierLabel(b.tier)}</span>
               </div>
-              <span className="pill-outline text-[10px]">{tierLabel(b.tier)}</span>
-            </div>
-            <p className="text-sm text-ink-600 line-clamp-3 dark:text-ink-300">{b.bio}</p>
-            <div className="flex flex-wrap gap-1.5">
-              {b.expertise.slice(0, 4).map((e) => (
-                <span key={e} className="pill-outline">
-                  {e}
+              <p className="text-sm text-ink-600 line-clamp-3 dark:text-ink-300">{b.bio}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {b.expertise.slice(0, 4).map((e) => (
+                  <span key={e} className="pill-outline">
+                    {e}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-auto flex items-center justify-between border-t border-ink-200 pt-3 text-xs text-ink-500 dark:border-ink-800 dark:text-ink-400">
+                <span className="font-semibold text-navy-700 dark:text-lime">
+                  {formatNumber(b.pointsTotal)} pts
+                  {b.awardsCount ? (
+                    <span className="ml-2 text-ink-500 dark:text-ink-400">· {b.awardsCount} award{b.awardsCount > 1 ? "s" : ""}</span>
+                  ) : null}
                 </span>
-              ))}
+                {b.githubHandle ? (
+                  <a
+                    href={`https://github.com/${b.githubHandle}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-navy-700 underline-offset-4 hover:underline dark:text-lime"
+                  >
+                    github ↗
+                  </a>
+                ) : null}
+              </div>
             </div>
-            <div className="mt-auto flex items-center justify-between border-t border-ink-200 pt-3 text-xs text-ink-500 dark:border-ink-800 dark:text-ink-400">
-              <span className="font-semibold text-navy-700 dark:text-lime">{formatNumber(b.pointsTotal)} pts</span>
-              {b.githubHandle ? (
-                <a
-                  href={`https://github.com/${b.githubHandle}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-medium text-navy-700 underline-offset-4 hover:underline dark:text-lime"
-                >
-                  github ↗
-                </a>
-              ) : null}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {filtered.length === 0 ? (

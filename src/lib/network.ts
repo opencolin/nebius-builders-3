@@ -1,5 +1,11 @@
-// Public Builders Network — directory of community builders and the leaderboard
-// they fall on. Seeded from nebius-builders repo #1 (src/lib/mock.ts BUILDERS).
+// Public Builders Network — directory of community builders.
+//
+// The list is derived from `projects.ts` so every gallery entrant lands here
+// automatically. As we scrape more hackathons in, those builders join the
+// network without anyone editing this file. A small `curated` list overrides
+// the auto-derivation for people we know personally (custom bio, city, etc.).
+
+import { projects, type Project } from "@/lib/projects";
 
 export type BuilderTier = "BUILDER" | "CONTRIBUTOR" | "AMBASSADOR" | "FOUNDING";
 
@@ -8,8 +14,11 @@ export type BuilderProfile = {
   handle: string;
   name: string;
   bio: string;
-  city: string;
-  country: string;
+  /** Optional — derived builders may not have a known location. */
+  city?: string;
+  country?: string;
+  /** Shown in place of "City, Country" when location is unknown. */
+  subline?: string;
   tier: BuilderTier;
   pointsTotal: number;
   twitterHandle?: string;
@@ -20,9 +29,15 @@ export type BuilderProfile = {
   signedUpAt: string;
   lastActiveAt: string;
   wantsToHost: boolean;
+  /** Project slugs they're credited on. Empty for non-hackathon builders. */
+  projectSlugs?: string[];
+  /** How many awards they hold across all their projects. */
+  awardsCount?: number;
 };
 
-export const builders: BuilderProfile[] = [
+// -- Curated (real people we know, with full profiles) -----------------------
+
+const curated: BuilderProfile[] = [
   {
     id: "b_ray",
     handle: "rayyanzahid",
@@ -39,192 +54,164 @@ export const builders: BuilderProfile[] = [
     lastActiveAt: "2026-05-06T18:45:00Z",
     wantsToHost: true,
   },
-  {
-    id: "b_alex",
-    handle: "aboros",
-    name: "Alex Boros",
-    bio: "Building agentic search infra. Hosts monthly LLM evals meetup in Brooklyn.",
-    city: "Brooklyn",
-    country: "US",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 1924,
-    twitterHandle: "aboros",
-    githubHandle: "aboros",
-    expertise: ["agents", "evals", "rag"],
-    signedUpAt: "2026-04-15T14:22:00Z",
-    lastActiveAt: "2026-05-05T22:11:00Z",
-    wantsToHost: true,
-  },
-  {
-    id: "b_jia",
-    handle: "jwen",
-    name: "Jia Wen",
-    bio: "PhD in distributed systems. Teaches GPU workshops at Stanford.",
-    city: "Palo Alto",
-    country: "US",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 1712,
-    twitterHandle: "jiawen_dev",
-    githubHandle: "jwen",
-    expertise: ["gpu-clusters", "distributed-systems", "training"],
-    signedUpAt: "2026-04-18T10:00:00Z",
-    lastActiveAt: "2026-05-06T09:00:00Z",
-    wantsToHost: true,
-  },
-  {
-    id: "b_sk",
-    handle: "skoshy",
-    name: "Sarah Koshy",
-    bio: "AI infra at Mem0. Berlin meetup organizer.",
-    city: "Berlin",
-    country: "DE",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 1508,
-    githubHandle: "skoshy",
-    twitterHandle: "skoshy",
-    expertise: ["memory", "agents", "fine-tuning"],
-    signedUpAt: "2026-04-20T08:00:00Z",
-    lastActiveAt: "2026-05-04T18:00:00Z",
-    wantsToHost: true,
-  },
-  {
-    id: "b_mm",
-    handle: "mmiao",
-    name: "Mei Miao",
-    bio: "Indie hacker. Building Token Factory tutorials in Mandarin.",
-    city: "Singapore",
-    country: "SG",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 982,
-    githubHandle: "mmiao",
-    youtubeChannel: "UCmiaoexample",
-    expertise: ["tokenfactory", "tutorials", "content"],
-    signedUpAt: "2026-04-22T16:00:00Z",
-    lastActiveAt: "2026-05-06T01:30:00Z",
-    wantsToHost: false,
-  },
-  {
-    id: "b_dp",
-    handle: "dperez",
-    name: "Daniel Perez",
-    bio: "Robotics at NVIDIA. Sometimes plays with Soperator at home.",
-    city: "Austin",
-    country: "US",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 847,
-    githubHandle: "dperez",
-    twitterHandle: "dperezdev",
-    expertise: ["robotics", "soperator", "kubernetes"],
-    signedUpAt: "2026-04-25T11:00:00Z",
-    lastActiveAt: "2026-05-05T14:00:00Z",
-    wantsToHost: true,
-  },
-  {
-    id: "b_eh",
-    handle: "ehassan",
-    name: "Esra Hassan",
-    bio: "Cairo. Founder, AI for Arabic NLP startup.",
-    city: "Cairo",
-    country: "EG",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 612,
-    githubHandle: "ehassan",
-    expertise: ["nlp", "fine-tuning", "founder"],
-    signedUpAt: "2026-04-28T09:00:00Z",
-    lastActiveAt: "2026-05-03T16:00:00Z",
-    wantsToHost: false,
-  },
-  {
-    id: "b_fn",
-    handle: "fnakamura",
-    name: "Fumi Nakamura",
-    bio: "Tokyo. Recursive self-improvement enjoyer.",
-    city: "Tokyo",
-    country: "JP",
-    tier: "CONTRIBUTOR",
-    pointsTotal: 534,
-    githubHandle: "fnakamura",
-    twitterHandle: "fnakamura_dev",
-    expertise: ["agents", "tokenfactory"],
-    signedUpAt: "2026-04-29T03:00:00Z",
-    lastActiveAt: "2026-05-06T10:00:00Z",
-    wantsToHost: true,
-  },
-  {
-    id: "b_go",
-    handle: "goku",
-    name: "Goku Patel",
-    bio: "Just signed up. Has one repo using Token Factory already.",
-    city: "Mumbai",
-    country: "IN",
-    tier: "BUILDER",
-    pointsTotal: 487,
-    githubHandle: "goku",
-    expertise: ["llm-training"],
-    signedUpAt: "2026-05-04T08:39:00Z",
-    lastActiveAt: "2026-05-06T14:22:00Z",
-    wantsToHost: false,
-  },
-  {
-    id: "b_hw",
-    handle: "hwang",
-    name: "Henry Wang",
-    bio: "London. Posts Token Factory benchmarks weekly.",
-    city: "London",
-    country: "GB",
-    tier: "BUILDER",
-    pointsTotal: 412,
-    githubHandle: "hwang",
-    blogUrl: "https://hwang.dev/blog",
-    expertise: ["benchmarks", "tokenfactory", "content"],
-    signedUpAt: "2026-04-30T15:00:00Z",
-    lastActiveAt: "2026-05-06T08:00:00Z",
-    wantsToHost: false,
-  },
-  {
-    id: "b_iy",
-    handle: "iyamamoto",
-    name: "Ichi Yamamoto",
-    bio: "Osaka. Tinkers with edge inference.",
-    city: "Osaka",
-    country: "JP",
-    tier: "BUILDER",
-    pointsTotal: 389,
-    githubHandle: "iyamamoto",
-    expertise: ["inference", "edge"],
-    signedUpAt: "2026-05-01T07:00:00Z",
-    lastActiveAt: "2026-05-05T09:00:00Z",
-    wantsToHost: false,
-  },
-  {
-    id: "b_jl",
-    handle: "jlee",
-    name: "Jason Lee",
-    bio: "Toronto. Just claimed both intro credits.",
-    city: "Toronto",
-    country: "CA",
-    tier: "BUILDER",
-    pointsTotal: 301,
-    githubHandle: "jlee",
-    expertise: ["agents"],
-    signedUpAt: "2026-05-02T10:00:00Z",
-    lastActiveAt: "2026-05-06T13:00:00Z",
-    wantsToHost: false,
-  },
 ];
+
+// -- Derived from project galleries ------------------------------------------
+
+type Accum = {
+  handle: string;
+  name: string;
+  projectSlugs: string[];
+  awards: number;
+  events: Set<string>;
+  techs: Map<string, number>;
+  focuses: Set<string>;
+  latestEventDate: string;
+};
+
+function shortenEvent(title: string): string {
+  // "Nebius.Build SF Hackathon — March 2026" → "Nebius.Build SF"
+  // "JetBrains × OpenAI Codex Hackathon — April 2026" → "JetBrains × OpenAI Codex"
+  const head = title.split(" Hackathon")[0] ?? title;
+  return head.trim();
+}
+
+function projectTitleBySlug(slug: string, all: Project[]): string {
+  return all.find((p) => p.slug === slug)?.title ?? slug;
+}
+
+function bioFor(a: Accum, all: Project[]): string {
+  const eventsArr = [...a.events].map(shortenEvent);
+  const titles = a.projectSlugs.slice(0, 2).map((s) => projectTitleBySlug(s, all));
+  if (a.projectSlugs.length === 1) {
+    return `Built ${titles[0]} at ${eventsArr[0] ?? "a recent hackathon"}.`;
+  }
+  if (a.projectSlugs.length === 2 && eventsArr.length === 1) {
+    return `Built ${titles[0]} and ${titles[1]} at ${eventsArr[0]}.`;
+  }
+  if (a.projectSlugs.length === 2) {
+    return `Built ${titles[0]} and ${titles[1]} across ${eventsArr.join(" and ")}.`;
+  }
+  return `Shipped ${a.projectSlugs.length} projects across ${eventsArr.join(" and ")}.`;
+}
+
+function tierFor(a: Accum): BuilderTier {
+  if (a.awards >= 1) return "AMBASSADOR";
+  if (a.projectSlugs.length >= 2) return "CONTRIBUTOR";
+  return "BUILDER";
+}
+
+function pointsFor(a: Accum): number {
+  // 250 base + 200/project + 1000/award. A solo finalist lands at ~1450,
+  // a winner with 2 projects at ~1850, a no-award single-project at 450.
+  return 250 + a.projectSlugs.length * 200 + a.awards * 1000;
+}
+
+function expertiseFor(a: Accum): string[] {
+  // Top techs by frequency, with productFocus tags blended in afterward.
+  const byFreq = [...a.techs.entries()]
+    .sort((x, y) => y[1] - x[1])
+    .map(([t]) => t);
+  const focusLabels: Record<string, string> = {
+    tokenfactory: "Token Factory",
+    aicloud: "AI Cloud",
+    openclaw: "OpenClaw",
+    soperator: "Soperator",
+    tavily: "Tavily",
+  };
+  const focusTags = [...a.focuses]
+    .filter((f) => f !== "other")
+    .map((f) => focusLabels[f] ?? f);
+  const seen = new Set<string>();
+  const merged: string[] = [];
+  for (const t of [...byFreq, ...focusTags]) {
+    const key = t.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    merged.push(t);
+    if (merged.length >= 4) break;
+  }
+  return merged;
+}
+
+function sublineFor(a: Accum): string {
+  const events = [...a.events].map(shortenEvent);
+  const n = a.projectSlugs.length;
+  const eventLabel = events.length > 1 ? `${events.length} hackathons` : events[0] ?? "Hackathon";
+  return `${eventLabel} · ${n} ${n === 1 ? "project" : "projects"}`;
+}
+
+function buildDerivedBuilders(): BuilderProfile[] {
+  const acc = new Map<string, Accum>();
+  for (const p of projects) {
+    for (const a of p.authors) {
+      if (!a.handle) continue;
+      let entry = acc.get(a.handle);
+      if (!entry) {
+        entry = {
+          handle: a.handle,
+          name: a.name,
+          projectSlugs: [],
+          awards: 0,
+          events: new Set(),
+          techs: new Map(),
+          focuses: new Set(),
+          latestEventDate: p.shippedAt,
+        };
+        acc.set(a.handle, entry);
+      }
+      entry.projectSlugs.push(p.slug);
+      entry.awards += p.awards?.length ?? 0;
+      if (p.eventTitle) entry.events.add(p.eventTitle);
+      for (const t of p.technologies ?? []) {
+        entry.techs.set(t, (entry.techs.get(t) ?? 0) + 1);
+      }
+      for (const f of p.productFocus ?? []) entry.focuses.add(f);
+      if (p.shippedAt > entry.latestEventDate) entry.latestEventDate = p.shippedAt;
+    }
+  }
+
+  // Filter out anyone we've already curated by handle (case-insensitive).
+  const curatedHandles = new Set(curated.map((b) => b.handle.toLowerCase()));
+
+  return [...acc.values()]
+    .filter((a) => !curatedHandles.has(a.handle.toLowerCase()))
+    .map<BuilderProfile>((a) => ({
+      id: `b_${a.handle.toLowerCase().replace(/[^a-z0-9]/g, "_")}`,
+      handle: a.handle,
+      name: a.name,
+      bio: bioFor(a, projects),
+      subline: sublineFor(a),
+      tier: tierFor(a),
+      pointsTotal: pointsFor(a),
+      githubHandle: a.handle,
+      expertise: expertiseFor(a),
+      signedUpAt: a.latestEventDate,
+      lastActiveAt: a.latestEventDate,
+      wantsToHost: false,
+      projectSlugs: a.projectSlugs,
+      awardsCount: a.awards,
+    }));
+}
+
+const derived = buildDerivedBuilders();
+
+export const builders: BuilderProfile[] = [...curated, ...derived];
 
 export const sortedBuilders = () =>
   [...builders].sort((a, b) => b.pointsTotal - a.pointsTotal);
 
+// Top-line program metrics — `activeBuilders` is grounded in the real number
+// of unique people on the gallery; the other counts are still placeholder.
 export const programMetrics = {
   eventsRun: 142,
   signupsAttributed: 1847,
   creditsClaimedUsd: 284_000,
-  activeBuilders: 312,
+  activeBuilders: builders.length,
   creditsClaimedUsdDelta: 24_000,
   eventsRunDelta: 12,
   signupsDelta: 183,
-  buildersDelta: 47,
+  buildersDelta: derived.length,
 };
 
 export function tierLabel(tier: BuilderTier): string {
